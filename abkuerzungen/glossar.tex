@@ -1,0 +1,220 @@
+\newglossaryentry{glossar}{
+    name={Glossar},
+    description={In einem Glossar werden Fachbegriffe und Fremdwörter mit ihren Erklärungen gesammelt.}
+}
+\newglossaryentry{glossaries}{
+    name={Glossaries},
+    description={Glossaries ist ein Paket was einen im Rahmen von LaTeX bei der Erstellung eines Glossar unterstützt.}
+}
+\newglossaryentry{kryptographie}{
+    name={Kryptographie},
+    description={Verschlüsselung von Informationen zum Schutz vor unbefugtem Zugriff}
+}
+\newglossaryentry{kryptoanalyse}{
+    name={Kryptoanalyse},
+    description={Entschlüsselung von verschlüsselten Informationen und bewertung der Sicherheit von Verschlüsselungsverfahren}
+}
+\newglossaryentry{kryptologie}{
+    name={Kryptologie},
+    description={Oberbegriff für Kryptographie und Kryptoanalyse zur Sicherheit von Informationen und Entwicklung von Techniken zur Verschlüsselung und Entschlüsselung von Daten}
+}
+\newglossaryentry{steganographie}{
+	name={Steganographie},
+	description={Verbergen von Informationen in einer scheinbar harmlosen Nachricht}
+}
+\newglossaryentry{algorithmus}{
+	name={Algorithmus}, 
+	description={Exakte Handlungsvorschrift zur Lösung eines Problems}, 
+	plural={Algorithmen}
+}
+\newglossaryentry{monoalphabetisch}{
+	name={monoalphabetisch}, 
+	description={Verschlüsselungsart, bei der der Schlüssel für jedes Zeichen gleich bleibt}
+}
+\newglossaryentry{publicKey}{
+	name = {public Key}, 
+	description = {Ein öffentlich zugänglicher \glsdisp{kryptographie}{kryptographischer} Schlüssel, der für Verschlüsselung und Verifizierung verwendet wird}
+}
+
+\newglossaryentry{privateKey}{
+	name = {private Key}, 
+	description = {Ein geheimer \glsdisp{kryptographie}{kryptographischer} Schlüssel, der zur Entschlüsselung und Signierung von Daten dient und streng vertraulich bleiben muss}
+}
+\newglossaryentry{publicKeyEncoding}{
+	name = {Public-Key Verschlüsselungsverfahren}, 
+	description = {Eine Form der asymmetrischen Verschlüsselung, bei der ein \glsdisp{publicKey}{öffentlicher Schlüssel} zum Verschlüsseln von Daten verwendet wird, während der dazugehörige \glsdisp{privateKey}[geheimer Schlüssel] benötigt wird, um die verschlüsselten Daten zu entschlüsseln}
+}
+\newglossaryentry{bobAlice}{
+	name = {Bob und Alice}, 
+	description = {In der Kryptographie sind Bob und Alice fiktive Personen, die häufig verwendet werden, um die Kommunikation zwischen zwei Parteien zu veranschaulichen. Bob ist der Empfänger einer Nachricht oder einer verschlüsselten Botschaft, während Alice der Absender ist. Die Verwendung von Bob und Alice erleichtert das Verständnis und die Darstellung kryptografischer Konzepte und Protokolle}
+}
+\newglossaryentry{euklidAlgorithm}{
+	name = {euklidischer Algorithmus}, 
+	description = {Ein mathematischer Algorithmus zur Bestimmung des \acp{GGT} von zwei Zahlen durch wiederholte Anwendung des Restsatzes}, 
+	plural = {euklidischen Algorithmus}
+}
+\newglossaryentry{extendedEuklidAlgorithm}{
+	name = {erweiterter euklidischer Algorithmus}, 
+	description={Eine erweiterte Version des \glspl{euklidAlgorithm}, die neben dem \acs{GGT} auch die Koeffizienten berechnet, um den GGT als Linearkombination der beiden Zahlen darzustellen}, 
+	plural = {erweiterten euklidischen Algorithmus}
+}
+\newglossaryentry{klartextraum}{
+	name = {Klartextraum}, 
+	description = {Menge aller verschlüsselbaren \glspl{klartext}}, 
+	plural = {Klartexträume}
+}
+\newglossaryentry{klartextalphabet}{
+	name = {Klartextalphabet}, 
+	description = {Menge aller Zeichen, die sich zu einem \gls{klartext} zusammensetzen können}
+}
+\newglossaryentry{klartext}{
+	name = {Klartext}, 
+	description = {Unverschlüsselter Wortlaut eines Textes, einer Nachricht oder eines Datenblockes}, 
+	plural = {Klartexte}
+}
+\newglossaryentry{geheimtext}{
+    name = {Geheimtext},
+    description = {Verschlüsseter Wortlaut eines Textes, einer Nachricht oder eines Datenblockes},
+    plural = {Geheimtexte}
+}
+\newglossaryentry{geheimtextraum}{
+	name = {Geheimtextraum}, 
+	description = {Abbildung eines \gls{klartextraum}es, auf dem ein Verschlüsselungsverfahren eingesetzt wurde und als solches die menge aller \glspl{geheimtext}}, 
+	plural = {Geheimräume}
+}
+\newglossaryentry{compressfunc}{
+	name = {Kompressionsfunktion}, 
+	description = {In der Kryptographie eine Funktion, die Daten auf eine kompakte Form reduziert, wodurch Speicherplatz eingespart oder die Datenübertragungseffizienz verbessert wird}, 
+	plural = {Kompressionsfunktionen}
+}
+\newglossaryentry{MD5}{
+	name={Message-Digest Algorithm 5 (\acs{MD5})}, 
+        plural = {\acs{MD5}},
+	description = {Kryptographische \gls{hashfunc} zur berechnung eines 128-Bit-\gls{hashwert} aus einer beliebigen Nachricht}
+}
+
+\newglossaryentry{hashfunc}{
+	name = {Hashfunktion}, 
+	description= {Mathematische Funktion in der Kryptographie, die Daten beliebiger Länge auf eine feste Länge (\gls{hashwert}) abbildet und dabei eine eindeutige Identifizierung der Daten ermöglicht. Sie zeichnen sich durch \gls{kollRes} und \gls{unumkehrbarkeit} aus}, 
+	plural = {Hashfunktionen}
+}
+\newglossaryentry{hashwert}{
+	name = {Hashwert}, 
+	plural = {Hashwerte}, 
+	description = {Eine feste Länge von Bits, die durch Anwendung einer kryptographischen \gls{hashfunc} auf Daten erzeugt wird, um eine eindeutige Darstellung der Daten zu erhalten}
+}
+\newglossaryentry{kollRes}{
+	name = {Kollisionsresistenz}, 
+	plural = {Kollisionsresistenzen}, 
+	description ={Die Eigenschaft in einer kryptograpsischen \gls{hashfunc}, in der es schwierig ist, zwei unterschiedliche Eingabewerte zu finden, die denselben \gls{hashwert} erzeugen}
+}
+\newglossaryentry{unumkehrbarkeit}{
+	name={Unumkehrbarkeit}, 
+	plural = {Unumkehrbarkeiten}, 
+	description = {Die Eigenschaft einer kryptographischen \gls{hashfunc}, bei der es praktisch unmöglich ist, von einem gegebenn \gls{hashwert} auf den ursprünglichen Eingabewert zurückzuschließen}
+}
+
+\newglossaryentry{X509}{
+        name = {X.509},
+        description = {Sandard der \ac{ITUT} für eine \gls{publicKey}-Infrastruktur zum erstellen digitaler Zertifikate (\autoref{subsubsec:digitale-signaturen-und-zertifikate}). Im November 2020 als ISO/IEC 9594-8 aktualisiert worden}
+}
+
+\newglossaryentry{client}{
+        name = {Client},
+        description = {Ein Endpunkt in einem \gls{csm}, der Anfragen an einen \gls{server} sendet und auf dessen Antworten wartet, um Dienste, Ressourcen oder Daten zu erhalten}
+}
+
+\newglossaryentry{server}{
+        name = {Server},
+        description = {Ein Computer oder eine Software, die Anfragen von \glspl{client} empfängt, verarbeitet und darauf antwortet, indem sie Dienste, Ressourcen oder Daten bereitstellt}
+}
+
+\newglossaryentry{csm}{
+        name = {Client-Server Modell},
+        plural = {Client-Server Modelle},
+        description = {Ein Architekturmodell, bei dem eine Kommnikation zwischen einem \gls{client}, der Anfragen stellt, und einem \gls{server}, der diese Anfragen bearbeitet und Antworten liefert, etabliert ist}
+}
+
+\newglossaryentry{osi}{
+        name = {ISO/OSI-Referenzmodell},
+        plural = {ISO/OSI Modelle},
+        description = {Ein Schichtenmodell, das die Struktur und den Aufbau von Netzwerkkommunikation standardisiert und in sieben Schichten unterteilt ist, um eine effiziente und standardisierte Kommunikation zwischen verschiedenen Computersystemen zu ermöglichen
+        }
+}
+
+\newglossaryentry{vertraulichkeit}{
+        name = {Vertraulichkeit},
+        plural = {Vertraulichkeiten},
+        description = {Daten dürfen nur von Personen verarbeitet werden, die dafür bestimmt sind}
+}
+
+\newglossaryentry{verfügbarkeit}{
+        name = {Verfügbarkeit},
+        plural = {Verfügbarkeiten},
+        description = {Daten müssen zu definierten Zeiten im Einklang mit der \gls{vertraulichkeit} und \gls{integritaet} zur Verfügung stehen}
+}
+
+\newglossaryentry{integritaet}{
+        name = {Integrität},
+        plural = {Integritäten},
+        description = {Die Vollständigkeit und Unversehrtheit von Daten muss gewährleistet werden}
+}
+
+\newglossaryentry{authentizität}{
+        name = {Authentizität},
+        plural = {Authentizitäten},
+        description = {Bezeichnet die Eigenschaft der Echtheit der Daten}
+}
+
+\newglossaryentry{authentifizierung}{
+        name = {Authentifizierung},
+        plural = {Authentifizierungen},
+        description = {Der Prozess der Überprüfung der Identität eines \gls{client}s, Geräts oder Systems, um sicherzustellen, dass sie tatsächlich diejenige Partei sind, für die sie sich ausgeben}
+}
+
+\newglossaryentry{autorisierung}{
+        name = {Authorisierung},
+        plural = {Authorisierungen},
+        description = {Der Prozess der Zuweisung von Berechtigungen und Zugriffsrechten an eine authentifizierte Partei, um festzulegen, welche Aktionen, Ressourcen oder Informationen sie nutzen oder verwalten darf}
+}
+
+\newglossaryentry{nonAbstreitbarkeit}{
+        name = {Nicht-Abstreitbarkeit},
+        plural = {Nicht-Abstreitbarkeiten},
+        description = {Eine durchgeführte Handlung ist eindeutig zurechenbar}
+}
+
+\newglossaryentry{handshake}{
+        name = {Handshake},
+        plural = {Handshakes},
+        description = {Ein Austausch von Nachrichten zwischen einem \gls{client} und einem \gls{server} zu Beginn einer \ac{TLS}-Verbindung, um die Parameter der sicheren Kommunikation zu vereinbaren und die Identität des \gls{server}s zu überprüfen}
+}
+
+\newglossaryentry{Rainbow-Table}{
+        name = {Rainbow-Table},
+        plural = {Rainbow-Tables},
+        description = {Eine vorausberechnete Tabelle, die zur schnellen Rückberechnung von \glspl{hashwert}n verwendet wird, um Passwörter oder andere ursprüngligche Daten zu entschlüsseln, indem sie vorab \glspl{hashwert} mit den entsprechenden Eingabewerten speichert}
+}
+
+\newglossaryentry{malware}{
+        name = {Malware},
+        plural = {Malwares},
+        description = {Eine bösartige Software, die entwickelt wurde, um unerwünschte oder schädliche aktionen auf einem Computer oder einem Netzwerk auszuführen, wie z.B. Datenverlust, Systembeschädigung oder unbefugten Zugriff ermöglichen}
+}
+
+\newglossaryentry{sqlInject}{
+        name = {SQL-Injection},
+        plural = {SQL-Injections},
+        description = {Eine Angriffstechnik, bei der schädlicher SQL-Code in eine Andwendungsdatenbank eingeschleust wird, um unautorisierten Zugriff auf die Datenbank zu erlangen oder unerwünschte Aktionen durchzuführen}
+}
+
+\newglossaryentry{base64}{
+        name = {Base64},
+        plural = {Base64},
+        description = {Ein Verfahren zur Codierung von Daten in ASCII-Zeichen, bei dem die Daten in eine darstellbare Form umgewandelt werden, um sie beispielsweise bei der Übertragung oder Speicherung in Textformaten zu verwenden}
+}
+
+\newglossaryentry{SHA256}{
+        name = {SHA256},
+        description = {Ein \glsdisp{kryptographie}{kryptographischer} \glsdisp{hashfunc}{Hash}\glsdisp{algorithmus}{algorithmus}, der eine 256\nobreakdash-Bit-\gls{hashfunc} verwendet, um eine eindeutige Darstellung von Daten zu erzeugen und häufig für die Integritätsprüfung und digitale Signatur verwendet wird}
+}

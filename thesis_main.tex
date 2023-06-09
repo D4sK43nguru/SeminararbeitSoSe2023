@@ -1,0 +1,536 @@
+%-----------------------------------
+% Define document and include general packages
+%-----------------------------------
+% Tabellen- und Abbildungsverzeichnis stehen normalerweise nicht im
+% Inhaltsverzeichnis. Gleiches gilt für das Abkürzungsverzeichnis (siehe unten).
+% Manche Dozenten bemängeln das. Die Optionen 'listof=totoc,bibliography=totoc'
+% geben das Tabellen- und Abbildungsverzeichnis im Inhaltsverzeichnis (toc=Table
+% of Content) aus.
+% Da es aber verschiedene Regelungen je nach Dozent geben kann, werden hier
+% beide Varianten dargestellt.
+\documentclass[12pt,oneside,titlepage,listof=totoc,bibliography=totoc]{scrartcl}
+%\documentclass[12pt,oneside,titlepage]{scrartcl}
+
+%-----------------------------------
+% Dokumentensprache
+%-----------------------------------
+%\def\FOMEN{}% Auskommentieren um die Dokumentensprache auf englisch zu ändern
+\newif\ifde
+\newif\ifen
+
+%-----------------------------------
+% Meta informationen
+%-----------------------------------
+\input{skripte/meta}
+
+\newcommand{\langde}[1]{%
+	\ifde\selectlanguage{ngerman}#1\fi}
+\newcommand{\langen}[1]{%
+	\ifen\selectlanguage{english}#1\fi}
+\usepackage[utf8]{luainputenc}
+\langde{\usepackage[babel,german=quotes]{csquotes}}
+\langen{\usepackage[babel,english=british]{csquotes}}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage[a4paper, left=4cm, right=2cm, top=4cm, bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage[capposition=bottom]{floatrow}
+\usepackage{array}
+\usepackage{float}      %Positionierung von Abb. und Tabellen mit [H] erzwingen
+\usepackage{footnote}
+
+
+% Darstellung der Beschriftung von Tabellen und Abbildungen (Leitfaden S. 44)
+% singlelinecheck=false: macht die Caption linksbündig (statt zentriert)
+% labelfont auf fett: (Tabelle x.y:, Abbildung: x.y)
+% font auf fett: eigentliche Bezeichnung der Abbildung oder Tabelle
+% Fettschrift laut Leitfaden 2018 S. 45
+\usepackage[singlelinecheck=false, labelfont=bf, font=bf]{caption}
+\usepackage{enumitem}
+\usepackage{mathptmx}
+%\usepackage{minted} %Kann für schöneres Syntax Highlighting genutzt werden. ACHTUNG: Python muss installiert sein.
+\usepackage[scaled=0.9]{helvet} % Behebt, zusammen mit Package courier, pixelige Überschriften. Ist, zusammen mit mathptx, dem times-Package vorzuziehen. Details: https://latex-kurs.de/fragen/schriftarten/Times_New_Roman.html
+\usepackage{courier}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage[table]{xcolor}
+\usepackage{marvosym}			% Verwendung von Symbolen, z.B. perfektes Eurozeichen
+
+\renewcommand\familydefault{\sfdefault}
+\usepackage{ragged2e}
+
+% Mehrere Fussnoten nacheinander mit Komma separiert
+\usepackage[hang,multiple]{footmisc}
+\setlength{\footnotemargin}{1em}
+
+% todo Aufgaben als Kommentare verfassen für verschiedene Editoren
+\usepackage{todonotes}
+
+% Verhindert, dass nur eine Zeile auf der nächsten Seite steht
+\setlength{\marginparwidth}{2cm}
+\usepackage[all]{nowidow}
+
+%-----------------------------------
+% Farbdefinitionen
+%-----------------------------------
+\definecolor{darkblack}{rgb}{0,0,0}
+\definecolor{dunkelgrau}{rgb}{0.8,0.8,0.8}
+\definecolor{hellgrau}{rgb}{0.0,0.7,0.99}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+
+%-----------------------------------
+% Pakete für Tabellen
+%-----------------------------------
+\usepackage{epstopdf}
+\usepackage{nicefrac} % Brüche
+\usepackage{multirow}
+\usepackage{rotating} % vertikal schreiben
+\usepackage{mdwlist}
+\usepackage{tabularx}% für Breitenangabe
+
+%-----------------------------------
+% sauber formatierter Quelltext
+%-----------------------------------
+\usepackage{listings}
+% JavaScript als Sprache definieren:
+\lstdefinelanguage{JavaScript}{
+	keywords={break, super, case, extends, switch, catch, finally, for, const, function, try, continue, if, typeof, debugger, var, default, in, void, delete, instanceof, while, do, new, with, else, return, yield, enum, let, await},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this, interface, package, private, protected, public, static},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+%language=JavaScript,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	frame=l ,
+	xleftmargin=5pt,
+	xrightmargin=5pt,
+	basicstyle=\ttfamily\scriptsize,
+	stepnumber=1,
+	keywordstyle=\color{blue},          % keyword style
+	commentstyle=\color{dkgreen},       % comment style
+	stringstyle=\color{mauve}         % string literal style
+}
+
+%-----------------------------------
+%Literaturverzeichnis Einstellungen
+%-----------------------------------
+
+% Biblatex
+
+\usepackage{url}
+\urlstyle{same}
+
+%%% Neuer Leitfaden (2018) Chicago
+\usepackage[
+	backend=biber,
+	style=ext-authoryear-ibid, % Auskommentieren und nächste Zeile einkommentieren, falls "Ebd." (ebenda) nicht für sich-wiederholende Fussnoten genutzt werden soll.
+% style=ext-authoryear,
+	maxcitenames=3,	% mindestens 3 Namen ausgeben bevor et. al. kommt
+	maxbibnames=999,
+	mergedate=false,
+	date=iso,
+	seconds=true, %werden nicht verwendet, so werden aber Warnungen unterdrückt.
+	urldate=iso,
+	innamebeforetitle,
+	dashed=false,
+	autocite=footnote,
+	doi=false,
+	useprefix=true, % 'von' im Namen beachten (beim Anzeigen)
+	mincrossrefs = 1,
+	language = german
+]{biblatex}%iso dateformat für YYYY-MM-DD
+
+%%%% weitere Anpassungen für BibLaTex
+\input{skripte/modsBiblatex2018}
+
+\DefineBibliographyStrings{german}{ibidem = {ebd\adddot}}
+
+%  %%%%% IEEE
+% \usepackage[
+%  backend=biber,
+%  style = apa,
+%  maxcitenames=3,	% mindestens 3 Namen ausgeben bevor et. al. kommt
+%  maxbibnames=999,
+%  date=iso,
+%  dateera = astronomical,
+%  seconds=true, %werden nicht verwendet, so werden aber Warnungen unterdrückt.
+%  urldate=iso,
+%  backref = true,
+%  backrefstyle = three,
+%  datecirca = true,
+%  dashed=false,
+%  autocite=footnote,
+%  language = german,
+%  sortcites,
+%  useprefix=true, % 'von' im Namen beachten (beim Anzeigen)
+%  mincrossrefs = 1,
+%  defernumbers = true
+%  ]{biblatex}%iso dateformat für YYYY-MM-DD
+
+%% et al. anstatt u. a. bei mehr als drei Autoren.
+\DefineBibliographyStrings{ngerman}{
+	andothers = {{et\,al\adddot}},
+}
+\DefineBibliographyStrings{english}{
+	andothers = {{et\,al\adddot}},
+}
+
+
+
+
+%%%%% Alter Leitfaden. Ggf. Einkommentieren und Bereich hierüber auskommentieren
+%\usepackage[
+%backend=biber,
+%style=numeric,
+%citestyle=authoryear,
+%url=false,
+%isbn=false,
+%notetype=footonly,
+%hyperref=false,
+%sortlocale=de]{biblatex}
+
+%weitere Anpassungen für BibLaTex
+%\input{skripte/modsBiblatex}
+
+%%%% Ende Alter Leitfaden
+
+%Bib-Datei einbinden
+\addbibresource{literatur/literatur.bib}
+
+% Zeilenabstand im Literaturverzeichnis ist Einzeilig
+% siehe Leitfaden S. 14
+\AtBeginBibliography{\singlespacing}
+
+%-----------------------------------
+% Silbentrennung
+%-----------------------------------
+\usepackage{hyphsubst}
+\HyphSubstIfExists{ngerman-x-latest}{%
+	\HyphSubstLet{ngerman}{ngerman-x-latest}}{}
+
+%-----------------------------------
+% Pfad fuer Abbildungen
+%-----------------------------------
+\graphicspath{{./}{./abbildungen/}}
+
+%-----------------------------------
+% Weitere Ebene einfügen
+%-----------------------------------
+\input{skripte/weitereEbene}
+
+%-----------------------------------
+% Paket für die Nutzung von Anhängen
+%-----------------------------------
+\usepackage{appendix}
+
+%-----------------------------------
+% Zeilenabstand 1,5-zeilig
+%-----------------------------------
+\usepackage{setspace}
+\onehalfspacing
+
+%-----------------------------------
+% Absätze durch eine neue Zeile
+%-----------------------------------
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{0.8em plus 0.5em minus 0.3em}
+
+\sloppy					%Abstände variieren
+\pagestyle{headings}
+
+%----------------------------------
+% Präfix in das Abbildungs- und Tabellenverzeichnis aufnehmen, statt nur der Nummerierung (siehe Issue #206).
+%----------------------------------
+\KOMAoption{listof}{entryprefix} % Siehe KOMA-Script Doku v3.28 S.153
+\BeforeStartingTOC[lof]{\renewcommand*\autodot{:}} % Für den Doppelpunkt hinter Präfix im Abbildungsverzeichnis
+\BeforeStartingTOC[lot]{\renewcommand*\autodot{:}} % Für den Doppelpunkt hinter Präfix im Tabellenverzeichnis
+
+%-----------------------------------
+% Abkürzungsverzeichnis
+%-----------------------------------
+\usepackage[printonlyused]{acronym}
+
+%-----------------------------------
+% Symbolverzeichnis
+%-----------------------------------
+% Quelle: https://www.namsu.de/Extra/pakete/Listofsymbols.pdf
+\usepackage[final]{listofsymbols}
+
+%-----------------------------------
+% Glossar
+%-----------------------------------
+\usepackage{glossaries}
+\glstoctrue %Auskommentieren, damit das Glossar nicht im Inhaltsverzeichnis angezeigt wird.
+\makenoidxglossaries
+\input{abkuerzungen/glossar}
+
+%-----------------------------------
+% PDF Meta Daten setzen
+%-----------------------------------
+\usepackage[hyperfootnotes=true]{hyperref}
+\usepackage{eurosym}
+\usepackage{color}
+\usepackage[T1]{fontenc} %hyperfootnotes=false deaktiviert die Verlinkung der Fußnote. Ansonsten inkompaibel zum Paket "footmisc"
+% Behebt die falsche Darstellung der Lesezeichen in PDF-Dateien, welche eine Übersetzung besitzen
+% siehe Issue 149
+\makeatletter
+\pdfstringdefDisableCommands{\let\selectlanguage\@gobble}
+\makeatother
+
+\hypersetup{
+	pdfinfo={
+		Title={\myTitel},
+		Subject={\myStudiengang},
+		Author={\myAutor},
+		Build=1.1
+	},
+}
+
+
+
+%-----------------------------------
+% Stichwortverzeichnis
+%-----------------------------------
+\usepackage{makeidx}
+\makeindex
+
+
+%-----------------------------------
+% PlantUML
+%-----------------------------------
+%\usepackage{plantuml}
+
+%-----------------------------------
+% Umlaute in Code korrekt darstellen
+% siehe auch: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+%-----------------------------------
+\lstset{literate=
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1 {„}{{\glqq{}}}1
+}
+
+%-----------------------------------
+% Kopfbereich / Header definieren
+%-----------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+% Seitenzahl oben, mittig, mit Strichen beidseits
+% \fancyhead[C]{-\ \thepage\ -}
+
+% Seitenzahl oben, mittig, entsprechend Leitfaden ohne Striche beidseits
+\fancyhead[C]{\thepage}
+%\fancyhead[L]{\leftmark}							% kein Footer vorhanden
+% Waagerechte Linie unterhalb des Kopfbereiches anzeigen. Laut Leitfaden ist
+% diese Linie nicht erforderlich. Ihre Breite kann daher auf 0pt gesetzt werden.
+\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\headrulewidth}{0pt}
+
+%-----------------------------------
+% Damit die hochgestellten Zahlen auch auf die Fußnote verlinkt sind (siehe Issue 169)
+%-----------------------------------
+\hypersetup{colorlinks=true, breaklinks=true, linkcolor=darkblack, citecolor=darkblack, menucolor=darkblack, urlcolor=darkblack, linktoc=all, bookmarksnumbered=false, pdfpagemode=UseOutlines, pdftoolbar=true}
+\urlstyle{same}%gleiche Schriftart für den Link wie für den Text
+
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+%-----------------------------------
+% Definitionen
+%-----------------------------------
+\usepackage{amsthm}
+\usepackage{thmtools}
+\declaretheorem[name = Definition, numberwithin=section]{definition}
+
+%-----------------------------------
+% Formelverzeichnis
+%-----------------------------------
+
+\floatstyle{plaintop}
+\restylefloat{table}
+
+%-----------------------------------
+% Start the document here:
+%-----------------------------------
+\begin{document}
+
+\pagenumbering{Roman}								% Seitennumerierung auf römisch umstellen
+\newcolumntype{C}{>{\centering\arraybackslash}X}	% Neuer Tabellen-Spalten-Typ:
+%Zentriert und umbrechbar
+
+%-----------------------------------
+% Textcommands
+%-----------------------------------
+\input{skripte/textcommands}
+
+%-----------------------------------
+% Titlepage
+%-----------------------------------
+\input{kapitel/titelseite}
+
+%-----------------------------------
+% Vorwort (optional; bei Verwendung beide Zeilen entkommentieren und unter Inhaltsverzeichnis setcounter entsprechend anpassen)
+%-----------------------------------
+%\input{kapitel/vorwort/vorwort}
+%\newpage
+
+%-----------------------------------
+% Inhaltsverzeichnis
+%-----------------------------------
+% Um das Tabellen- und Abbbildungsverzeichnis zu de/aktivieren ganz oben in Documentclass schauen
+\setcounter{page}{2}
+\addtocontents{toc}{\protect\enlargethispage{-20mm}}% Die Zeile sorgt dafür, dass das Inhaltsverzeichnisseite auf die zweite Seite gestreckt wird und somit schick aussieht. Das sollte eigentlich automatisch funktionieren. Wer rausfindet wie, kann das gern ändern.
+\setcounter{tocdepth}{4}
+\tableofcontents
+\newpage
+
+%-----------------------------------
+% Abbildungsverzeichnis
+%-----------------------------------
+\listoffigures
+\newpage
+%-----------------------------------
+% Tabellenverzeichnis
+%-----------------------------------
+\listoftables
+\newpage
+%-----------------------------------
+% Abkürzungsverzeichnis
+%-----------------------------------
+% Falls das Abkürzungsverzeichnis nicht im Inhaltsverzeichnis angezeigt werden soll
+% dann folgende Zeile auskommentieren.
+\addcontentsline{toc}{section}{\abbreHeadingName}
+\input{abkuerzungen/acronyms}
+\newpage
+
+%-----------------------------------
+% Symbolverzeichnis
+%-----------------------------------
+% In Overleaf führt der Einsatz des Symbolverzeichnisses zu einem Fehler, der aber ignoriert werdne kann
+% Falls das Symbolverzeichnis nicht im Inhaltsverzeichnis angezeigt werden soll
+% dann folgende Zeile auskommentieren.
+\addcontentsline{toc}{section}{\symheadingname}
+\input{skripte/symbolDef}
+\listofsymbols
+\newpage
+
+%-----------------------------------
+% Glossar
+%-----------------------------------
+\printnoidxglossaries
+\newpage
+
+%-----------------------------------
+% Sperrvermerk
+%-----------------------------------
+%\input{kapitel/anhang/sperrvermerk}
+
+%-----------------------------------
+% Seitennummerierung auf arabisch und ab 1 beginnend umstellen
+%-----------------------------------
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%-----------------------------------
+% Kapitel / Inhalte
+%-----------------------------------
+% Die Kapitel werden über folgende Datei eingebunden
+\input{skripte/kapitelUebersicht}
+
+%-----------------------------------
+% Apendix / Anhang
+%-----------------------------------
+\newpage
+\section*{\AppendixName} %Überschrift "Anhang", ohne Nummerierung
+\addcontentsline{toc}{section}{\AppendixName} %Den Anhang ohne Nummer zum Inhaltsverzeichnis hinzufügen
+
+\begin{appendices}
+% Nachfolgende Änderungen erfolgten aufgrund von Issue 163
+\makeatletter
+\renewcommand\@seccntformat[1]{\csname the#1\endcsname:\quad}
+\makeatother
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} %
+	\renewcommand{\thesection}{\AppendixName\ \arabic{section}}
+	\renewcommand\thesubsection{\AppendixName\ \arabic{section}.\arabic{subsection}}
+	\input{kapitel/anhang/anhang}
+\end{appendices}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+%-----------------------------------
+% Literaturverzeichnis
+%-----------------------------------
+\newpage
+
+% Die folgende Zeile trägt ALLE Werke aus literatur.bib in das
+% Literaturverzeichnis ein, egal ob sie zietiert wurden oder nicht.
+% Der Befehl ist also nur zum Test der Skripte sinnvoll und muss bei echten
+% Arbeiten entfernt werden.
+%\nocite{*}
+
+%\addcontentsline{toc}{section}{Literatur}
+
+% Die folgenden beiden Befehle würden ab dem Literaturverzeichnis wieder eine
+% römische Seitennummerierung nutzen.
+% Das ist nach dem Leitfaden nicht zu tun. Dort steht nur dass 'sämtliche
+% Verzeichnisse VOR dem Textteil' römisch zu nummerieren sind. (vgl. S. 3)
+%\pagenumbering{Roman} %Zähler wieder römisch ausgeben
+%\setcounter{page}{4}  %Zähler manuell hochsetzen
+
+% Ausgabe des Literaturverzeichnisses
+
+% Keine Trennung der Werke im Literaturverzeichnis nach ihrer Art
+% (Online/nicht-Online)
+%\begin{RaggedRight}
+%\printbibliography
+%\end{RaggedRight}
+
+% Alternative Darstellung, die laut Leitfaden genutzt werden sollte.
+% Dazu die Zeilen auskommentieren und folgenden code verwenden:
+
+% Literaturverzeichnis getrennt nach Nicht-Online-Werken und Online-Werken
+% (Internetquellen).
+% Die Option nottype=online nimmt alles, was kein Online-Werk ist.
+% Die Option heading=bibintoc sorgt dafür, dass das Literaturverzeichnis im
+% Inhaltsverzeichnis steht.
+% Es ist übrigens auch möglich mehrere type- bzw. nottype-Optionen anzugeben, um
+% noch weitere Arten von Zusammenfassungen eines Literaturverzeichnisse zu
+% erzeugen.
+% Beispiel: [type=book,type=article]
+\printbibliography[nottype=online,heading=bibintoc,title={\langde{Literaturverzeichnis}\langen{Bibliography}}]
+
+% neue Seite für Internetquellen-Verzeichnis
+\newpage
+
+% Laut Leitfaden 2018, S. 14, Fussnote 44 stehen die Internetquellen NICHT im
+% Inhaltsverzeichnis, sondern gehören zum Literaturverzeichnis.
+% Die Option heading=bibintoc würde die Internetquelle als eigenen Eintrag im
+% Inhaltsverzeicnis anzeigen.
+%\printbibliography[type=online,heading=bibintoc,title={\headingNameInternetSources}]
+\printbibliography[type=online,heading=subbibliography,title={\headingNameInternetSources}]
+
+\input{kapitel/anhang/erklaerung}
+\end{document}
