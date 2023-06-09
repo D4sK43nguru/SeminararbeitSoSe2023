@@ -1,8 +1,8 @@
 \newpage
-\section[Anwendung von Kryptograpihe in Webanwendungen]{Anwendung von \gls{kryptographie} in Webanwendungen}\label{sec:anwendung_von_kryptographie_in_webanwendungen}
-In der heutigen vernetzten Welt sind Webanwendungen allgegenwärtig und spielen eine wichtige Rolle, um Dienste bereitzustellen und sensible Informationen auszutauschen. In diesem Kapitel geht es um den Einsatz von \gls{kryptographie} in Webanwendungen. Damit sollen die Sicherheitsanforderungen an \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfügbarkeit} erfüllt werden.
+\section[Anwendung von Kryptografie in Webanwendungen]{Anwendung von \gls{kryptografie} in Webanwendungen}\label{sec:anwendung_von_kryptografie_in_webanwendungen}
+In der heutigen vernetzten Welt sind Webanwendungen allgegenwärtig und spielen eine wichtige Rolle, um Dienste bereitzustellen und sensible Informationen auszutauschen. In diesem Kapitel geht es um den Einsatz von \gls{kryptografie} in Webanwendungen. Damit sollen die Sicherheitsanforderungen an \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfügbarkeit} erfüllt werden.
 
-Zunächst werden die grundlegenden Sicherheitsanforderungen an Web-Anwendungen erläutert. Anschließend wird gezeigt, wie \gls{kryptographie} eingesetzt werden kann, um sensible Daten vor unberechtigtem Zugriff zu schützen.
+Zunächst werden die grundlegenden Sicherheitsanforderungen an Web-Anwendungen erläutert. Anschließend wird gezeigt, wie \gls{kryptografie} eingesetzt werden kann, um sensible Daten vor unberechtigtem Zugriff zu schützen.
 
 Die Verschlüsselung der Datenübertragung ist ein zentraler Aspekt der Sicherheit von Web-Anwendungen. Um Daten während der Übertragung zu schützen, konzentriert sich der nächste Abschnitt auf das \ac{HTTPS}-Protokoll und die \ac{SSL}/ \acf{TLS}-Verschlüsselung.
 
@@ -10,7 +10,7 @@ Die Sicherheit von Passwörtern wird ebenfalls behandelt. Methoden wie Salted Ha
 
 In den Abschnitten über \gls{authentifizierung} und \gls{autorisierung} werden verschiedene Verfahren und Protokolle, wie z. B. Token-basierte Verfahren und OAuth, vorgestellt, um die Identitätsprüfung und Zugriffskontrolle in Web-Anwendungen zu gewährleisten.
 
-Ziel dieses Kapitels ist ein umfassender Einblick in den Einsatz von \gls{kryptographie} in Webanwendungen zur Gewährleistung von \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfügbarkeit}. 
+Ziel dieses Kapitels ist ein umfassender Einblick in den Einsatz von \gls{kryptografie} in Webanwendungen zur Gewährleistung von \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfügbarkeit}.
 
 \subsection[Sicherheitsanforderungen an Webanwendungen]{Sicherheitsanforderungen an Webanwendungen — \gls{vertraulichkeit}, \gls{integritaet}, \gls{verfügbarkeit}}
 
@@ -84,7 +84,7 @@ Das \ac{TLS}-Protokoll ist auch in sich noch in einzelne Unterprotokolle eingete
 \end{figure}
 \footnotetext{\cite[Aus][\pagef 3]{SslTlsFingerprint:2015}}
 
-Mithilfe dieser Handshakes wird ausgehandelt, welche \glsdisp{kryptographie}{kryptographischen} \glspl{algorithmus} und Schlüssel verwendet werden und die Kommunikationspartner werden identifiziert und \glsdisp{authentifizierung}{authentifiziert}, wobei es üblich ist, dass sich nur der Server bei dem Client \glsdisp{authentifizierung}{authentifiziert}, was als one-way authentication bezeichnet wird\autocite[\vglf][\pagef 191]{morrissey_tls_2010}.
+Mithilfe dieser Handshakes wird ausgehandelt, welche \glsdisp{kryptografie}{Kryptografischen} \glspl{algorithmus} und Schlüssel verwendet werden und die Kommunikationspartner werden identifiziert und \glsdisp{authentifizierung}{authentifiziert}, wobei es üblich ist, dass sich nur der Server bei dem Client \glsdisp{authentifizierung}{authentifiziert}, was als one-way authentication bezeichnet wird\autocite[\vglf][\pagef 191]{morrissey_tls_2010}.
 
 \paragraph[TLS-Alert Protokoll]{\ac{TLS}-Alert Protokoll}\label{par:tls_alert_protocol}
 
@@ -100,11 +100,11 @@ Eine \ac{HTTPS}-Verschlüsselung einer Internetseite sorgt dafür, dass bei der 
 \subsection[Passwortsicherheit]{Passwortsicherheit — Key Derivation Function, Salted- \& Peppered-Hashing}\label{subsec:passwortsicherheit}
 
 \subsubsection{Key Derivation Function}\label{subsubsec:key-derivation-function}
-Als Key Derivation Function (Schlüsselableitung) wird in der \gls{kryptographie} eine Operation bezeichnet, welche aus einem Schlüssel oder einem Passwort verschiedene andere Schlüsselwerte generiert.\autocite[\vglf][\pagef 3]{NIST:800132} Diese Operation kann in verschiedenen Arten durchgeführt werden, zwei häufig angewandte sind zum einen das Salted Hashing (\autoref{subsubsec:salted-hashing}) und das Peppered Hashing (\autoref{subsubsec:peppered-hashing}), bzw. das kombinierte Anwenden beider dieser Verfahren. Der generierte Schlüssel wird als \ac{MC} bezeichnet.
+Als Key Derivation Function (Schlüsselableitung) wird in der \gls{kryptografie} eine Operation bezeichnet, welche aus einem Schlüssel oder einem Passwort verschiedene andere Schlüsselwerte generiert.\autocite[\vglf][\pagef 3]{NIST:800132} Diese Operation kann in verschiedenen Arten durchgeführt werden, zwei häufig angewandte sind zum einen das Salted Hashing (\autoref{subsubsec:salted-hashing}) und das Peppered Hashing (\autoref{subsubsec:peppered-hashing}), bzw. das kombinierte Anwenden beider dieser Verfahren. Der generierte Schlüssel wird als \ac{MC} bezeichnet.
 
 
 \subsubsection{Salted Hashing}\label{subsubsec:salted-hashing}
-Als Salt wird in der Kryptographie ein zufälliger String bezeichnet, welcher dem zu verschlüsselnden \gls{klartext} angehangen wird, bevor der Hash-\gls{algorithmus} durchgeführt wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}. Dabei wird am Beispiel von Anmeldedaten einer Internetseite für jeden angelegten Nutzer ein eigener Salt generiert und mit in der Datenbank gespeichert.
+Als Salt wird in der \gls{kryptografie} ein zufälliger String bezeichnet, welcher dem zu verschlüsselnden \gls{klartext} angehangen wird, bevor der Hash-\gls{algorithmus} durchgeführt wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}. Dabei wird am Beispiel von Anmeldedaten einer Internetseite für jeden angelegten Nutzer ein eigener Salt generiert und mit in der Datenbank gespeichert.
 Dies verhindert \uamol, dass für zwei Anmeldedaten mit den gleichen Passwörtern der gleiche Hashwert in der Datenbank gespeichert wird.
 
 Durch Salted Hashing das Erstellen einer \gls{Rainbow-Table} überflüssig, beziehungsweise unnötig aufwändig gemacht, da nicht, wie bei einer normalen Hash-Datenbank ein \gls{Rainbow-Table} für die gesamte Datenbank generiert werden muss, sondern für jedes Passwort ein \gls{Rainbow-Table} benötigt wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}.

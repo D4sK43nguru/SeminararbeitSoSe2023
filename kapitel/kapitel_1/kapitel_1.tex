@@ -1,38 +1,38 @@
 \newpage
 
 
-\section{Grundlagen der Kryptographie}\label{sec:grundlagen-der-kryptographie}
+\section[Grundlagen der Kryptografie]{Grundlagen der \gls{kryptografie}}\label{sec:grundlagen-der-kryptografie}
 
 \subsection{Grundbegriffe}\label{subsec:grundbegriffe}
-Die folgende grundlegende Erklärung der Grundbegriffe der Kryptographie ist
-geschrieben in Anlehnung an Brinkmann, Kapitel 1.1. Zu der \gls{kryptographie},
+Die folgende grundlegende Erklärung der Grundbegriffe der \gls{kryptografie} ist
+geschrieben in Anlehnung an Brinkmann, Kapitel 1.1. Zu der \gls{kryptografie},
 der Kunst Nachrichten oder Daten durch Verschlüsselung geheim zu halten, gibt es
 noch andere Wissenschaften, die sich mit Verschlüsselungen befassen.
-Bei der Kryptographie werden Nachrichten so unlesbar gemacht, dass sie nur von Empfängern
+Bei der \gls{kryptografie} werden Nachrichten so unlesbar gemacht, dass sie nur von Empfängern
 mit einem geheimen Schlüssel wieder in den ursprünglichen Text umgewandelt werden
 können.
 
-Parallel zu der Kryptographie gibt es die \gls{steganographie},
+Parallel zu der \gls{kryptografie} gibt es die \gls{steganografie},
 bei der die bloße Existenz der zu versteckenden Informationen verborgen wird.
 Dies wird dadurch ermöglicht, dass die geheimen Informationen in anderen, harmlos aussehenden
 Nachrichten versteckt werden, sodass sie nur von Eingeweihten entdeckt werden
 können.
 
-Die \gls{kryptoanalyse} befasst sich, entgegen der Kryptographie,
+Die \gls{kryptoanalyse} befasst sich, entgegen der \gls{kryptografie},
 nicht mit der Verschlüsselung, sondern damit, verschlüsselte Nachrichten und
-kryptographische Verfahren zu analysieren.
+Kryptografische Verfahren zu analysieren.
 Dies wird mit dem Ziel gemacht, Verschlüsselungen zu brechen.
 
-Die Wissenschaft, die Kryptographie und Kryptoanalyse vereint, ist die
+Die Wissenschaft, die \gls{kryptografie} und Kryptoanalyse vereint, ist die
 \gls{kryptologie}.
 Diese wird das Kernthema dieser Arbeit sein.\autocite[\pagef~5]{brinkmann_vak_2001}
 
 \subsection{Historische Entwicklung und grundlegende Konzepte}\label{subsec:historische-entwicklung-und-grundlegende-konzepte}
 Besonders in Zeiten des Krieges war es vonnöten, Informationen sicher von den Befehlshabern
 zu den Offizieren überbringen zu können.
-So wurden die ersten kryptographischen Konzepte für den militärischen und politischen Nutzen entwickelt.\autocite[]{beutelspacher_kurze_2017}
+So wurden die ersten Kryptografischen Konzepte für den militärischen und politischen Nutzen entwickelt.\autocite[]{beutelspacher_kurze_2017}
 
-Eine grundlegende Erfindung für das Voranschreiten der Kryptographie war die Erfindung des Schlüssels, wobei die Erfindung des variablen Schlüssels die Geburtsstunde der Kryptographie markiert.\autocite[]{beutelspacher_kurze_2017}.
+Eine grundlegende Erfindung für das Voranschreiten der \gls{kryptografie} war die Erfindung des Schlüssels, wobei die Erfindung des variablen Schlüssels die Geburtsstunde der \gls{kryptografie} markiert.\autocite[]{beutelspacher_kurze_2017}.
 Durch variable Schlüssel ist es nun möglich, einfach zwischen verschiedenen Verschlüsselungen zu wechseln.
 
 \subsubsection{Caesar-Scheibe}\label{subsubsec:caesar-chiffre}
@@ -67,7 +67,7 @@ Bei der Vigènere-Chiffre wird sich, entgegen zu der Caesar-Chiffre, dargestellt
 Sollte dieses Wort kürzer sein, als der eigentliche Text, wird es so lange wiederholt, bis jedem Zeichen im Klartext ein Zeichen des Schlüssels zugeordnet ist.
 Anschließend wird jedes Zeichen im Klartext um das dazu assoziierte Zeichen des Schlüssels verschoben, sodass für jedes Zeichen ein anderes Zeichen im verschlüsselten Text herauskommt.
 
-\autoref{tab:vigenere}\autocite[\pagef 6]{kryptographische_algorithmen} zeigt das Vigènere-Verfahren mit dem Schlüssel \enquote{ALICE} auf dem Klartext \enquote{DIES IST EIN VERSCHLÜSSELTER TEXT}
+\autoref{tab:vigenere}\autocite[\pagef 6]{Kryptografische_algorithmen} zeigt das Vigènere-Verfahren mit dem Schlüssel \enquote{ALICE} auf dem Klartext \enquote{DIES IST EIN VERSCHLÜSSELTER TEXT}
 
 \begin{table}[htbp]
     \resizebox{\textwidth}{!}{%
@@ -85,20 +85,20 @@ Anschließend wird jedes Zeichen im Klartext um das dazu assoziierte Zeichen des
     \label{tab:vigenere}
 \end{table}
 
-\footnotetext{\cite[S. 6]{kryptographische_algorithmen}}
+\footnotetext{\cite[S. 6]{Kryptografische_algorithmen}}
 
 Durch diese nicht gleichmäßige Verschiebung bietet die Vigènere-Chiffre gegenüber der Caesar-Chiffre eine deutlich sicherere Verschlüsselung, ist aber allemal nicht vollständig sicher.
 Sobald der Schlüssel bekannt ist, muss nur jedes Zeichen des verschlüsselten Textes in entgegengesetzter Richtung des Schlüssels verschoben werden.
 Dennoch sind polyalphabetische Verschlüsselungsverfahren in Anbetracht der einfachen Durchführung stark und bieten ein großes Potenzial.
 
 \subsubsection{Enigma}\label{subsubsec:enigma}
-Der Beginn des 20.\ Jahrhunderts läutete die Blütezeit der kryptografischen Maschinen ein.
+Der Beginn des 20.\ Jahrhunderts läutete die Blütezeit der Kryptografischen Maschinen ein.
 Diese wurden mit wachsender Komplexität der Verschlüsselungen immer notwendiger.
 Die wohl berühmteste Chiffriermaschine der Welt, die Enigma, wurde 1918 von ihrem Erfinder \textbf{Arthur Schebius} zum Patent angemeldet\autocite{enigma_patent}.
 
 Der folgende Abschnitt ist nach der Patentschrift № DE\nobreakdash416219C1\nobreakdash\RN{1}\autocite{enigma_patent} geschrieben.
 
-Den anderen Kryptografiemaschinen ihrer Zeit war die Enigma um ein Vielfaches überlegen.\\
+Den anderen \glsdisp{kryptografie}{Kryptografiemaschinen} ihrer Zeit war die Enigma um ein Vielfaches überlegen.\\
 Die Verschlüsselung mit der Enigma durchgeht verschiedene Ebenen.
 Zunächst verläuft das elektrische Signal der Tasten durch ein Steckbrett, mit welchem man durch das Stecken eines Kabels zwischen zwei Buchstaben diese tauschen kann.
 Anschließend durchläuft das Signal drei auswechselbare, drehende Walzen, die jeweils 26 Stellungen haben.\\
@@ -116,7 +116,7 @@ Diese besondere Konstruktion der Walzen und des Steckbrettes gab der Enigma
 \end{equation}
 also ungefähr \(10^{28}\) Kombinationen, bestehend aus den \(60\) Walzenkombinationen\footnote{Aus einem Pool von 5 möglichen Walzen wurden immer 3 genutzt $\Rightarrow 5*4*3 = 60$}, \(676\) Ringstellungen\footnote{Jeweils \(26\) Ringstellungen der rechten und mittleren Walze, die linke Walze \(\Rightarrow 26^2 = 676\)}, die \(16900\) Walzenstellungen\footnote{Während es rechnerisch bei 3 Walzen \(26^3 = 17576\) Walzenstellung gäbe, kann die Enigma durch eine Bauanomalie nur \(26^2*25=16900\) Stellungen erreichen}\autocite[]{enigma_double_rotor} und den insgesamt \(150738274937250\) Steckermöglichkeiten\footnote{Wenn man die einzelnen möglichkeiten auflistet, wie viele Steckermöglichkeiten es bei $n$ Steckern gibt, zeigt sich, dass bei $10$ steckern ein Maximum erreicht ist}\autocite[\pagef~810]{anal_eval_enigma}.
 
-\subsection[Kryptographische Verfahren und Algorithmen]{Kryptographische Verfahren und \glspl{algorithmus} — symmetrische und asymmetrische Verschlüsselung, Hash-Funktionen etc.}\label{subsec:kryptographische-verfahren-und-algorithmen}
+\subsection[Kryptografische Verfahren und Algorithmen]{Kryptografische Verfahren und \glspl{algorithmus} — symmetrische und asymmetrische Verschlüsselung, Hash-Funktionen etc.}\label{subsec:Kryptografische-verfahren-und-algorithmen}
 
 \subsubsection[Symmetrische Verschlüsselungsalgorithmen]{Symmetrische \glsdisp{algorithmus}{Verschlüsselungsalgorithmen}}\label{subsubsec:symmetrsiche-algorithmen}
 Bei symmetrischen Verschlüsselungsalgorithmen wird zum verschlüsseln und zum Entschlüsseln derselbe Schlüssel verwendet. \autoref{fig:symmetricalEncoding}\autocite{Chapter211:online} zeigt, wie der selbe Schlüssel zum Ver- und Entschlüsseln genutzt wird.
@@ -133,16 +133,16 @@ Jedoch führt dies dazu, dass die Geheimhaltung und die sichere Verteilung des S
 \footnotetext{\cite{Chapter211:online}}
 
 
-Symmetrische Verschlüsselungsverfahren werden deshalb als sicher anerkannt, wenn man ohne den Schlüssel den Klartext nicht aus dem verschlüsselten Text ermitteln kann.\autocite[\pagef~5]{kryptographische_algorithmen}
+Symmetrische Verschlüsselungsverfahren werden deshalb als sicher anerkannt, wenn man ohne den Schlüssel den Klartext nicht aus dem verschlüsselten Text ermitteln kann.\autocite[\pagef~5]{Kryptografische_algorithmen}
 
 \paragraph{\acf{DES}}\label{par:data-encryption-standard}
 \ac{DES}, oft auch \ac{DEA}, wurde 1975 im ``Federal Register'' der USA
 veröffentlicht und als Kooperation zwischen dem \ac{NIST}, der \ac{NSA} und IBM entwickelt.\autocite[\pagef~232]{nsa-meyer}
 
-\ac{DES} ist ein Blockchiffre-Verfahren, was bedeutet, dass die Daten in immer gleich großen Blöcken (bei \ac{DES} in Blöcken von 64 Zeichen) und mit einer immer gleichen Schlüssellänge (56 bit bei \ac{DES}) verschlüsselt werden.\autocite[\pagef~6]{kryptographische_algorithmen}
+\ac{DES} ist ein Blockchiffre-Verfahren, was bedeutet, dass die Daten in immer gleich großen Blöcken (bei \ac{DES} in Blöcken von 64 Zeichen) und mit einer immer gleichen Schlüssellänge (56 bit bei \ac{DES}) verschlüsselt werden.\autocite[\pagef~6]{Kryptografische_algorithmen}
 
 \paragraph{\acf{IDEA}}\label{par:internet-datatencryption-algorithm}
-\ac{IDEA} wurde 1990 als eine erweiterte Version zu \ac{DES} entwickelt und verwendet eine Schlüssellänge von 128 bit.\autocite[\pagef~6]{kryptographische_algorithmen}
+\ac{IDEA} wurde 1990 als eine erweiterte Version zu \ac{DES} entwickelt und verwendet eine Schlüssellänge von 128 bit.\autocite[\pagef~6]{Kryptografische_algorithmen}
 
 \subsubsection[Asymmetrische Algorithmen und RSA-Verfahren]{Asymmetrische \glspl{algorithmus} und \acs{RSA}\nobreakdash Verfahren}\label{subsubsec:asymmetrische-algorithmen}
 Asymmetrische Verschlüsselungsverfahren verwenden, im Gegensatz zu den symmetrischen Verschlüsselungsverfahren (\autoref{subsubsec:symmetrsiche-algorithmen}), zwei Schlüssel.
@@ -190,7 +190,7 @@ wobei $c$ der zuvor erhaltene verschlüsselte Text ist, $d$ ist der private Schl
 Im Grundlegenden sind Hashfunktionen \glspl{algorithmus}, die einen Text beliebiger Länge zu einem neuen Text mit vorgegebener Länge komprimieren\autocite[\pagef~15]{anal_des_hash_function_2003}.
 Generiert werden sie mit Hilfe von sogenannten \glspl{compressfunc}.
 
-Damit Hash- und \glspl{compressfunc} in der Kryptographie zur Authentifizierung, wie z.B.\ zur Speicherung von Passwörtern genutzt werden können, müssen noch ein paar Kritierien erfüllt werden.
+Damit Hash- und \glspl{compressfunc} in der \gls{kryptografie} zur Authentifizierung, wie z.B.\ zur Speicherung von Passwörtern genutzt werden können, müssen noch ein paar Kritierien erfüllt werden.
 Diese werden folgend erklärt:
 
 \begin{definition}
@@ -201,7 +201,7 @@ Diese werden folgend erklärt:
         \item Gegeben $h$ und $X$, muss die Berechnung von $h(X)$ einfach\footnotemark sein.
         \item Die Hashfunktion muss in dem Sinne monodirektional sein, dass es bei einem $Y$ im Abbild von $h$ schwer\footnotemark[\value{footnote}] ist, eine Nachricht $X$ zu finden, so dass $h(X)=Y$ ist, und dass es bei $X$ und $h(X)$ schwer\footnotemark[\value{footnote}] ist, eine Nachricht $X'\neq X$ zu finden, so dass $h(X') = h(X)$.
     \end{enumerate}
-    \footnotetext{\enquote{einfach} und \enquote{schwer} sind hier im Kryptographischen Sinne zu verstehen und beziehen sich auf das Zusammenspiel von Laufzeit und Rechenaufwand eines \gls{algorithmus}}
+    \footnotetext{\enquote{einfach} und \enquote{schwer} sind hier im Kryptografischen Sinne zu verstehen und beziehen sich auf das Zusammenspiel von Laufzeit und Rechenaufwand eines \gls{algorithmus}}
 \end{definition}
 
 Da es nicht bekannt ist, ob es Einwegfunktionen gibt, die optimal arbeiten, werden in der Definition die Begriffe einfach und schwer verwendet, da es heutzutage noch keine \glspl{algorithmus} bekannt sind, die eine Einweghashfunktion schnell genug umkehren kann\autocite[\pagef~234]{buchmann_einfuhrung_2016}
