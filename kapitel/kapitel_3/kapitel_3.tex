@@ -3,7 +3,7 @@
 In den meisten Fällen überwiegt der Schutz, den \glsdisp{kryptographie}{kryptographische} Methoden bieten, den Aufwand und die Probleme, die bei der Implementierung auftreten können. Nichtsdestotrotz wird man versuchen, die Probleme, wie \zb die in \autoref{subsec:performance-und-skalierbarkeitsprobleme} beschriebenen Leistungseinbußen oder die in \autoref{subsec:benutzerfreundlichkeit_und_usability-aspekte} erläuterte erschwerte Benutzbarkeit, zu beheben \bzw auf ein Minimum zu reduzieren.
 
 \subsection{Performance- und Skalierbarkeitsprobleme}\label{subsec:performance-und-skalierbarkeitsprobleme}
-Der in \autoref{subsubsec:HTTPS-Protocol} vorgestellte Vorteil der verschlüsselten Übertragung bringt allerdings auch einen Nachteil mit sich. Durch die Verschlüsselung der Daten verringert sich die Übertragungsrate und verlängert sich die Latenz der Übertragung \autocite[\pagef 5]{goldberg_comparison_nodate}, dies wird in \autoref{tab:HTTPS} \autocite[Übersetzt nach:][\pagef 5]{goldberg_comparison_nodate} dargestellt.
+Der in \autoref{subsubsec:HTTPS-Protocol} vorgestellte Vorteil der verschlüsselten Übertragung bringt allerdings auch einen Nachteil mit sich. Durch die Verschlüsselung der Daten verringert sich die Übertragungsrate und verlängert sich die Latenz der Übertragung\autocite[\pagef 5]{goldberg_comparison_nodate}, dies wird in \autoref{tab:HTTPS}\autocite[Übersetzt nach:][\pagef 5]{goldberg_comparison_nodate} dargestellt.
 
 \begin{table}[htpb]
 \caption[Parameter linearer Anpassungen an HTTP- und HTTPS-Übertragungen]{Parameter linearer Anpassungen an HTTP- und HTTPS-Übertragungen\footnotemark}
@@ -19,9 +19,9 @@ Unsicher                                                 & 946                  
 }
 \end{table}
 \footnotetext{\cite[\pagef 5]{goldberg_comparison_nodate}}
-Diese Daten sind allerdings aus dem Jahr 1998 und mittlerweile wurde \ac{HTTPS} verbessert, sodass der Performanceaufwand, der nötig ist um eine versclhüsselte Verbindung aufzubauen verringert wurde \autocite[\vglf][]{CloudfareWarumHTTPS:online}.
+Diese Daten sind allerdings aus dem Jahr 1998 und mittlerweile wurde \ac{HTTPS} verbessert, sodass der Performanceaufwand, der nötig ist um eine versclhüsselte Verbindung aufzubauen verringert wurde\autocite[\vglf][]{CloudfareWarumHTTPS:online}.
 
-Neuere Versionen des \ac{TLS} \gls{algorithmus} bringen noch deutlichere Performance-Verbesserungen mit sich, da \uam nur ein \ac{TLS}-\gls{handshake}, behandelt in \autoref{par:tls_handshake_protocol}, benötigt wird, bzw. keiner, wenn bereits eine Verbindung zwischen \gls{client} und \gls{server} bestand \autocite[\vglf][]{CloudfareWarumHTTPS:online}.
+Neuere Versionen des \ac{TLS} \gls{algorithmus} bringen noch deutlichere Performance-Verbesserungen mit sich, da \uam nur ein \ac{TLS}-\gls{handshake}, behandelt in \autoref{par:tls_handshake_protocol}, benötigt wird, bzw. keiner, wenn bereits eine Verbindung zwischen \gls{client} und \gls{server} bestand\autocite[\vglf][]{CloudfareWarumHTTPS:online}.
 
 Außerdem ist, trotz des Verdoppelns von CPU Geschwindigkeiten alle 18 Monate, ist die Performance von \ac{SSL} Maschinen noch immer ein Problem.\autocite[\vglf][\pagef 2]{cryptoeprint:2006/212}
 
@@ -45,7 +45,7 @@ Gleichzeitig gibt es auch für viele Programmiersprachen mittlerweile vorgeferti
 Auch, wenn das \ac{TLS}-Protokoll schon viel analysiert wurde\autocites[Siehe \zb][]{krawczyk2013security, paulson1999inductive, dowling2015cryptographic, cremers2017comprehensive}, sind die gefundenen Mängel und Schwachstellen eher gering.\autocite[\vglf][\pagef 2239]{OPPLIGER20062238} 
 
 \begin{definition}[\Acf{MITM}]
-    \ac{MITM} bezeichnet nach \ac{RFC}\ \textnumero 2828 \autocite[Übersetzt aus][\pagef 105]{rfc2828} eine Form des aktiven Lauschangriffs, bei dem der Angreifer kommunizierte Daten abfängt und selektiv verändert, um sich als sich als eine oder mehrere der an einer Kommunikationsbeziehung beteiligten Einheiten auszugeben.
+    \ac{MITM} bezeichnet nach \ac{RFC}\ \textnumero 2828\autocite[Übersetzt aus][\pagef 105]{rfc2828} eine Form des aktiven Lauschangriffs, bei dem der Angreifer kommunizierte Daten abfängt und selektiv verändert, um sich als sich als eine oder mehrere der an einer Kommunikationsbeziehung beteiligten Einheiten auszugeben.
 \end{definition}
 
 In einem typischen \ac{MITM} Angriff stellt sich das angreifende System so zwischen den \gls{client} und den \gls{server}, sodass es mit den \gls{client} und den \gls{server} unabhängig voneinander kommunizieren kann, die beiden Parteien aber den Eindruck behalten, sie würden direkt miteinander kommunizieren; eine Möglichkeit, sich einen \ac{MITM} Angriff vorzustellen ist es, als würde zwischen \gls{client} und \gls{server} ein \ac{SSL}/\ac{TLS} Proxy \gls{server} geschaltet sein.\autocite[\vglf][\pagef 4]{greenwood2014smv} Dadurch wissen weder der \gls{client} noch der \gls{server} über den \ac{MITM} bescheid.

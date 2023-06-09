@@ -29,7 +29,7 @@ von denen zudem abgeleitet u.a. die beiden sekundäre Schutzziele
         \item \gls{nonAbstreitbarkeit}
     \end{itemize}
 \end{samepage}
-aufgeführt sind \autocite[\pagef~8]{bsi_leitfaden_2022}. 
+aufgeführt sind\autocite[\pagef~8]{bsi_leitfaden_2022}.
 
 Das Zusammenarbeiten der Schutzziele, insbesondere der drei primären Schutzziele, zur garantie einer sicheren Webanwendung wird im Folgenden untersucht.
 
@@ -39,14 +39,14 @@ Es gibt verschiedene Methoden, eine Datenübertragung im Internet zu verschlüss
 
 \subsubsection[Digitale Zertifikate]{Digitale Zertifikate — \ac{SSL}/\ac{TLS}-Verschlüsselung}\label{subsubsec:digitale-signaturen-und-zertifikate} befasst sich mit der Generierung von digitalen Zertifikaten zur Verifizierung der Echtheit der Daten.
 
-Eine digitale Signatur ist ein \gls{publicKeyEncoding}, bei dem einer Nachricht ein einzigartiger Schlüssel angehangen wird, der meist daraus generiert wird, dass der \gls{hashwert} (\autoref{subsubsec:hash-funktion}) einer Nachricht mit dem \gls{privateKey} des Empfängers verschlüsselt wird \autocite[\pagef~297]{6391693}. Als \ac{NIST}-Standard wird dabei ein \ac{SHA}-\gls{algorithmus} verwendet.
-Der \gls{klartext}, die Signatur und der \gls{publicKey} des Senders werden dann zusammengepackt und mit dem \gls{publicKey} des Empfängers zusammen verschlüsselt. Diese signierte und verschlüsselte Nachricht wird dann übermittelt. \autocite[\pagef~297]{6391693}
+Eine digitale Signatur ist ein \gls{publicKeyEncoding}, bei dem einer Nachricht ein einzigartiger Schlüssel angehangen wird, der meist daraus generiert wird, dass der \gls{hashwert} (\autoref{subsubsec:hash-funktion}) einer Nachricht mit dem \gls{privateKey} des Empfängers verschlüsselt wird\autocite[\pagef~297]{6391693}. Als \ac{NIST}-Standard wird dabei ein \ac{SHA}-\gls{algorithmus} verwendet.
+Der \gls{klartext}, die Signatur und der \gls{publicKey} des Senders werden dann zusammengepackt und mit dem \gls{publicKey} des Empfängers zusammen verschlüsselt. Diese signierte und verschlüsselte Nachricht wird dann übermittelt.\autocite[\pagef~297]{6391693}
 
-Um die Nachricht zu entschlüsseln, wird wie bei einer normalen \gls{publicKeyEncoding} der \gls{privateKey} des Empfängers entsprechend des genutzten Verschlüsselungsvefahren auf die Nachricht angewandt. Anschließend wird der \gls{klartext} der Nachricht gehashed und die Signatur mit dem \gls{publicKey} des Senders entschlüsselt. Diese beiden Werte werden verglichen, ob sie identisch sind. Sind sie es, so ist die Nachricht verifiziert, andernfalls nicht. \autocite[\pagef~297]{6391693}
+Um die Nachricht zu entschlüsseln, wird wie bei einer normalen \gls{publicKeyEncoding} der \gls{privateKey} des Empfängers entsprechend des genutzten Verschlüsselungsvefahren auf die Nachricht angewandt. Anschließend wird der \gls{klartext} der Nachricht gehashed und die Signatur mit dem \gls{publicKey} des Senders entschlüsselt. Diese beiden Werte werden verglichen, ob sie identisch sind. Sind sie es, so ist die Nachricht verifiziert, andernfalls nicht.\autocite[\pagef~297]{6391693}
 
-Ein wichtiges Werkzeug der sicheren Webentwicklung sind \ac{SSL} und \ac{TLS} Zertifikate. \ac{TLS} ist dabei der Nachfolger für \ac{SSL}, beide nutzen aber das gleiche selbe \gls{X509} Zertifikat\footnote{Aus Gründen der Überblicklichkeit und der Ähnlichkeit der beiden Zertifikate, werden im Folgenden \ac{SSL}/\ac{TLS} vereinfachend als \ac{SSL} bezeichnet.}. Mit \ac{SSL} kann ein \gls{client} überprüfen, ob das Zertifikat des angefragten \glspl{server} von einer vertrauten Autorität ausgestellt wurde oder nicht, indem die digitalen \gls{X509} Zertifikate verifiziert werden. Andernfalls wird die Verbindung abgelehnt. \autocite[\pagef~1]{zhang_analysis_2014}
-\par
-Im \gls{osi} liegt \ac{SSL} auf Ebene 4, der Transportebene \autocite{HowTLSSS99:online} und ist eine \enquote{externe Überprüfung durch einen vertrauenswürdigen Dritten, der garantiert, dass ein Webserver der ist, der er vorgibt zu sein} \autocite[Grund Nr. 3]{CloudfareWarumHTTPS:online}.
+Ein wichtiges Werkzeug der sicheren Webentwicklung sind \ac{SSL} und \ac{TLS} Zertifikate. \ac{TLS} ist dabei der Nachfolger für \ac{SSL}, beide nutzen aber das gleiche selbe \gls{X509} Zertifikat\footnote{Aus Gründen der Überblicklichkeit und der Ähnlichkeit der beiden Zertifikate, werden im Folgenden \ac{SSL}/\ac{TLS} vereinfachend als \ac{SSL} bezeichnet.}. Mit \ac{SSL} kann ein \gls{client} überprüfen, ob das Zertifikat des angefragten \glspl{server} von einer vertrauten Autorität ausgestellt wurde oder nicht, indem die digitalen \gls{X509} Zertifikate verifiziert werden. Andernfalls wird die Verbindung abgelehnt.\autocite[\pagef~1]{zhang_analysis_2014}
+
+Im \gls{osi} liegt \ac{SSL} auf Ebene 4, der Transportebene\autocite{HowTLSSS99:online} und ist eine \enquote{externe Überprüfung durch einen vertrauenswürdigen Dritten, der garantiert, dass ein Webserver der ist, der er vorgibt zu sein}\autocite[Grund Nr. 3]{CloudfareWarumHTTPS:online}.
 
 Das \ac{TLS}-Protokoll lässt sich, wie in \autoref{tab:tls-protocol-layers} dargestellt, in zwei Schichten darstellen.
 
@@ -95,7 +95,7 @@ Das \nameref{par:tls_alert_protocol} ist für Alerts während der Übertragung z
 Wie in \autoref{subsubsec:digitale-signaturen-und-zertifikate} bereits dargestellt, sorgt \ac{SSL} dafür, dass eine Anwendung oder ein Nutzer verifizieren kann, dass die angefragten Daten von dem Absender stammen, den man auch angefragt hat. Dies trägt besondere Relevanz bei Webanwendungen, da es sonst möglich ist, unter falschem Namen schädliche Software in ein System einzuspeisen.
 Das \ac{HTTP} überträgt Daten über das \ac{TCP}, wohingegen \ac{HTTPS} die Daten verschlüsselt über das \ac{SSL}-Protokoll verschickt \autocites{2674005.2674991:online}{RFC5246T44:online}.
 
-Eine \ac{HTTPS}-Verschlüsselung einer Internetseite sorgt dafür, dass bei der Übertragung Daten, besonders vertrauliche wie z.B. Bankkontoinformationen, nicht von dritten eingesehen werden können \autocite[\vglf][]{CloudfareWarumHTTPS:online}. Zudem sorgt das \ac{SSL}-Zertifikat dafür, dass der Nutzer weiß, der Absender der Daten ist auch das System, das angefragt wurde, wie in \autoref{subsubsec:digitale-signaturen-und-zertifikate} dargestellt. Dadurch wird verhindert, dass ein Angreifer einem Nutzer eine identisch aussehende Internetseite bereitstellt und dadurch die Nutzer glauben lässt, sie seien auf der gewünschten Internetseite \autocite[\vglf][]{CloudfareWarumHTTPS:online}.
+Eine \ac{HTTPS}-Verschlüsselung einer Internetseite sorgt dafür, dass bei der Übertragung Daten, besonders vertrauliche wie z.B. Bankkontoinformationen, nicht von dritten eingesehen werden können\autocite[\vglf][]{CloudfareWarumHTTPS:online}. Zudem sorgt das \ac{SSL}-Zertifikat dafür, dass der Nutzer weiß, der Absender der Daten ist auch das System, das angefragt wurde, wie in \autoref{subsubsec:digitale-signaturen-und-zertifikate} dargestellt. Dadurch wird verhindert, dass ein Angreifer einem Nutzer eine identisch aussehende Internetseite bereitstellt und dadurch die Nutzer glauben lässt, sie seien auf der gewünschten Internetseite\autocite[\vglf][]{CloudfareWarumHTTPS:online}.
 
 \subsection[Passwortsicherheit]{Passwortsicherheit — Key Derivation Function, Salted- \& Peppered-Hashing}\label{subsec:passwortsicherheit}
 
@@ -104,12 +104,12 @@ Als Key Derivation Function (Schlüsselableitung) wird in der \gls{kryptographie
 
 
 \subsubsection{Salted Hashing}\label{subsubsec:salted-hashing}
-Als Salt wird in der Kryptographie ein zufälliger String bezeichnet, welcher dem zu verschlüsselnden \gls{klartext} angehangen wird, bevor der Hash-\gls{algorithmus} durchgeführt wird \autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}. Dabei wird am Beispiel von Anmeldedaten einer Internetseite für jeden angelegten Nutzer ein eigener Salt generiert und mit in der Datenbank gespeichert.
+Als Salt wird in der Kryptographie ein zufälliger String bezeichnet, welcher dem zu verschlüsselnden \gls{klartext} angehangen wird, bevor der Hash-\gls{algorithmus} durchgeführt wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}. Dabei wird am Beispiel von Anmeldedaten einer Internetseite für jeden angelegten Nutzer ein eigener Salt generiert und mit in der Datenbank gespeichert.
 Dies verhindert \uamol, dass für zwei Anmeldedaten mit den gleichen Passwörtern der gleiche Hashwert in der Datenbank gespeichert wird.
 
-Durch Salted Hashing das Erstellen einer \gls{Rainbow-Table} überflüssig, beziehungsweise unnötig aufwändig gemacht, da nicht, wie bei einer normalen Hash-Datenbank ein \gls{Rainbow-Table} für die gesamte Datenbank generiert werden muss, sondern für jedes Passwort ein \gls{Rainbow-Table} benötigt wird \autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}. 
+Durch Salted Hashing das Erstellen einer \gls{Rainbow-Table} überflüssig, beziehungsweise unnötig aufwändig gemacht, da nicht, wie bei einer normalen Hash-Datenbank ein \gls{Rainbow-Table} für die gesamte Datenbank generiert werden muss, sondern für jedes Passwort ein \gls{Rainbow-Table} benötigt wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}.
 
-Der Salt hat, damit er ausreichende Sicherheit bieten kann, zwei Anforderungen. Die eine, Einzigartigkeit, wurde weiter oben bereits aufgeführt. Die zweite Anforderung ist, dass er optimalerweise eine bestimmte Länge haben sollte, allerdings gibt es hier keine genaue Anforderung/ Richtlinie, welche Länge als sicher gilt. Das Patent für Salted Hashing selbst gibt keine vor \autocite[\vglf][\pagef 14]{patent:saltedHashing}, sodass auch innerhalb einer Datenbank verschiedene Längen für Salts verwendet werden können. 
+Der Salt hat, damit er ausreichende Sicherheit bieten kann, zwei Anforderungen. Die eine, Einzigartigkeit, wurde weiter oben bereits aufgeführt. Die zweite Anforderung ist, dass er optimalerweise eine bestimmte Länge haben sollte, allerdings gibt es hier keine genaue Anforderung/ Richtlinie, welche Länge als sicher gilt. Das Patent für Salted Hashing selbst gibt keine vor\autocite[\vglf][\pagef 14]{patent:saltedHashing}, sodass auch innerhalb einer Datenbank verschiedene Längen für Salts verwendet werden können.
 
 Der \ac{NIST}-standard für Schlüsselableitung sieht jedoch vor, dass der \ac{MC}, also die Kombination aus einem Passwort und einem Salt, mindestens eine Länge von 112 bits haben soll.\autocite[\vglf][\pagef 6]{NIST:800132}
 
@@ -117,17 +117,17 @@ Der \ac{NIST}-standard für Schlüsselableitung sieht jedoch vor, dass der \ac{M
 
 Analog zum Salt und dem Salted Hashing (\autoref{subsubsec:salted-hashing}) gibt es auch die Sicherungsmethode des Pepper, oder des Peppered Hashing.
 
-Bei diesem wird, wie beim Salted Hashing auch, ein zufällig generierter String an den \gls{klartext} angehangen, bevor der Hash-\gls{algorithmus} durchgeführt wird, jedoch ist dieser String aber nicht für jeden Einrag unterschiedlich, sondern wird bei der Einrichtung des Servers festgelegt und geheimgehalten \autocite[\vglf][]{Securing39:online}. Auch dieses Verfahren schützt vor einer möglichen \gls{sqlInject}.
+Bei diesem wird, wie beim Salted Hashing auch, ein zufällig generierter String an den \gls{klartext} angehangen, bevor der Hash-\gls{algorithmus} durchgeführt wird, jedoch ist dieser String aber nicht für jeden Einrag unterschiedlich, sondern wird bei der Einrichtung des Servers festgelegt und geheimgehalten\autocite[\vglf][]{Securing39:online}. Auch dieses Verfahren schützt vor einer möglichen \gls{sqlInject}.
 Gleichermaßen gibt es beim Peppered Hashing keine fest vorgelegte Länge, welche der Pepper aufweisen sollte, allerdings empfiehlt es sich auch hier, dass der Pepper möglichst lang gewälht wird.
 
 
 \subsection[Authentifizierung und Autorisierung]{Authentifizierung und Autorisierung — Token-Verfahren, OAuth}\label{subsec:authenticationAuthorization}
 Um Datensicherheit zu gewährleisten, bzw. Datenzugriff zu steuern, werden in Webanwendungen zwei Konzepte Verfolgt: Authentifizierung und Autorisierung. 
 
-Autorisierung befasst sich mit der Zugriffskontrolle über Daten, also welche Geräte oder Nutzer welche Daten lesen und/oder schreiben, Programme ausführen oder Akteure kontrollieren können.\autocite[\vglf][\pagef 28]{Auth:2017} Ebenso bezeichnet Autorisierung das Ablehnen oder Entfernen von Zugriff über Daten, \zbol für \gls{malware}. \autocite[\vglf][\pagef 28]{Auth:2017}
+Autorisierung befasst sich mit der Zugriffskontrolle über Daten, also welche Geräte oder Nutzer welche Daten lesen und/oder schreiben, Programme ausführen oder Akteure kontrollieren können.\autocite[\vglf][\pagef 28]{Auth:2017} Ebenso bezeichnet Autorisierung das Ablehnen oder Entfernen von Zugriff über Daten, \zbol für \gls{malware}.\autocite[\vglf][\pagef 28]{Auth:2017}
 
-Demgegenüber bezeichnet Authentifizierung den Prozess, einen \gls{client}, Gerät oder Mensch, zu identifizieren und ist eine Grundvoraussetzung für Autorisierungen, da in den meisten Fällen Autorisierung ohne eine zuvorgehende Authentifizierung nicht möglich ist. \autocite[\vglf][\pagef 28]{Auth:2017} 
-Häufig genutzte Methoden zur Authentifizierung sind die zuvor behandelten digitalen Zertifikate (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), das \nameref{subsubsec:HTTPS-Protocol} (\autoref{subsubsec:HTTPS-Protocol}), sowie Schlüsselableitungen (\autoref{subsec:passwortsicherheit}). Diese werden genutzt, um das Vertrauen zwischen dem \gls{client} und der Anwendung herzustellen. \autocite[\vglf][\pagef 28]{Auth:2017}
+Demgegenüber bezeichnet Authentifizierung den Prozess, einen \gls{client}, Gerät oder Mensch, zu identifizieren und ist eine Grundvoraussetzung für Autorisierungen, da in den meisten Fällen Autorisierung ohne eine zuvorgehende Authentifizierung nicht möglich ist.\autocite[\vglf][\pagef 28]{Auth:2017}
+Häufig genutzte Methoden zur Authentifizierung sind die zuvor behandelten digitalen Zertifikate (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), das \nameref{subsubsec:HTTPS-Protocol} (\autoref{subsubsec:HTTPS-Protocol}), sowie Schlüsselableitungen (\autoref{subsec:passwortsicherheit}). Diese werden genutzt, um das Vertrauen zwischen dem \gls{client} und der Anwendung herzustellen.\autocite[\vglf][\pagef 28]{Auth:2017}
 
 \subsubsection[Token-Verfahren]{Access Token}\label{subsubsec:access-token}
 Eine häufig genutzte Art, die Autorisierung eines \glspl{client} zu prüfen ist es, einen Access Token zu verschicken.
@@ -137,9 +137,9 @@ Diese bestehen üblicherweise aus drei Schlüssellementen,
     \item der Payload, welche die Informationen über den \gls{client} beinhält, darunter auch die Berechtigungen und Ablaufdaten, sowie 
     \item die Signatur, ein Zertifikat (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), das die Echtheit des Tokens garantiert;
 \end{itemize}\label{itm:TokenElemente}
-zusätzlich können auch weitere Elemente wie z.B. Erweiterungen oder Metadaten angefügt sein, um fallspezifische Anforderungen zu erfüllen. \autocite[\vglf][]{AccessTo39:online}    
+zusätzlich können auch weitere Elemente wie z.B. Erweiterungen oder Metadaten angefügt sein, um fallspezifische Anforderungen zu erfüllen.\autocite[\vglf][]{AccessTo39:online}
 
-Eine häufig genutzte Version von Access Token ist der \ac{JWT}. Dieser ist zu großen Teilen bedingt durch seine kompakte Speichergröße. \autocite[\vglf][\pagef 4]{rfc7519} Der \ac{JWT} besteht dabei aus den oben beschriebenen Elementen, die bevor, mit einem '.'  sie zusammengesetzt werden, mit einem \gls{base64}-\gls{algorithmus} verschlüsselt und komprimiert sind.\autocite[\vglf][\pagef 5]{rfc7519} 
+Eine häufig genutzte Version von Access Token ist der \ac{JWT}. Dieser ist zu großen Teilen bedingt durch seine kompakte Speichergröße.\autocite[\vglf][\pagef 4]{rfc7519} Der \ac{JWT} besteht dabei aus den oben beschriebenen Elementen, die bevor, mit einem '.'  sie zusammengesetzt werden, mit einem \gls{base64}-\gls{algorithmus} verschlüsselt und komprimiert sind.\autocite[\vglf][\pagef 5]{rfc7519}
 
 Ein Minimalcodebeispiel um in der Programmiersprache \ac{JS} einen \ac{JWT} zu generieren, sieht wie folgt aus
 
@@ -165,7 +165,7 @@ Das OAuth Protokoll verwendet die folgenden 6 Elemente,
     \item einen \nameref{subsubsec:access-token} (\autoref{subsubsec:access-token}), der von dem \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} generiert wird und dem \gls{client} den Zugriff von dem Ressourcen\glsdisp{server}{server} anfragen lässt und
     \item einen \glsdisp{authentifizierung}{Authentifizierungscode}, den der \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} während der Anfrage überprüfen kann,
 \end{itemize}
-um Zugriff anzufragen, beziehungsweise ihn zu überprüfen. \autocite[\vglf][\pagef  75]{OAuthWebProtocol:2012}
+um Zugriff anzufragen, beziehungsweise ihn zu überprüfen.\autocite[\vglf][\pagef  75]{OAuthWebProtocol:2012}
 
 \autoref{fig:oauth_protocol_flow}\autocite[\vglf][\pagef 7, Abbildung 1]{rfc6749}  stellt die Kommunikation zwischen dem \gls{client} und der Service\nobreakdash\ac{API} dar. 
 \begin{figure}[htbp]
@@ -180,7 +180,7 @@ Zunächst stellt der \gls{client} oder eine Applikation eine Anfrage an den Ress
 OAuth wird primär für \acp{SSO} genutzt, um \zbol einer Anwendung Zugriff auf bestimmte Daten einer anderen Anwendung zu gewähren, ohne die Anmeldedaten direkt zu übergeben, wie etwa Bilder aus einem Cloudservice an einen Druckservice zu übergeben.\autocite[\vglf][\pagef 74]{OAuthWebProtocol:2012}
 
 \subsubsection[2-Factor Authentifizierung]{\acf{2FA}}\label{subsubsec:2fa}
-Wie \autoref{tab:statistik_passwort} \autocite{statista_authentifizierung} zeigt, sind Passwörter heutzutage mit Abstand die am weitesten verbreitete Methode, sich bei einem Service zu \glsdisp{authentifizierung}{authentifizieren}.
+Wie \autoref{tab:statistik_passwort}\autocite{statista_authentifizierung} zeigt, sind Passwörter heutzutage mit Abstand die am weitesten verbreitete Methode, sich bei einem Service zu \glsdisp{authentifizierung}{authentifizieren}.
 
 \begin{table}[htpb]
 \caption[Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräte]{Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräte\footnotemark\newline
