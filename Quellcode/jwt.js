@@ -13,4 +13,4 @@ const signature = HMAC_SHA(
 	base64urlEncoding(payload)
 )
 
-const token = base64urlEncodingheader + '.' + base64urlEncoding(payload + '.' base64urlEncoding(signature)
+const token = base64urlEncodingheader + '.' + base64urlEncoding(payload) + '.' + base64urlEncoding(signature)

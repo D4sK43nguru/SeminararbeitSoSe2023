@@ -47,7 +47,7 @@ Gleichzeitig gibt es auch für viele Programmiersprachen mittlerweile vorgeferti
 So stellt die Programmiersprache \ac{JS} die Funktion \lstinline!digest(algorithm, data)! zur Verfügung, welche einen Datensatz nach einem \ac{SHA}-\gls{algorithmus}\footnote{\ac{SHA}-1, \gls{SHA256}, \ac{SHA}-384 oder \ac{SHA}-512} verschlüsselt.\autocite[\vglf][]{SubtleCr83:online}
 Die Funktion \lstinline!encrypt(algorithm, key, data)! hingegen erlaubt es, mit RSA, beschrieben in \ac{RSA} oder \ac{AES} \glspl{algorithmus} zu verschlüsseln.
 
-\subsubsection[Fehleranfälligkeit von kryptografischen Methoden in Webanwendungen]{Fehleranfälligkeit von \glsdisp{kryptografie}{kryptografischen} Methoden in Webanwendungen}\label{subsubsec:fehleranfälligkeit_von_Kryptografischen_methoden_in_webanwendungen}
+\subsubsection[Fehleranfälligkeit von kryptografischen Methoden in Webanwendungen]{Fehleranfälligkeit von \glsdisp{kryptografie}{kryptografischen} Methoden in Webanwendungen}\label{subsubsec:fehleranfaelligkeit_von_Kryptografischen_methoden_in_webanwendungen}
 Trotz der vielfältigen analysen des \ac{TLS}\nonbreakdash Protokolls\autocites[Siehe \zb][]{krawczyk2013security, paulson1999inductive, dowling2015cryptographic, cremers2017comprehensive}, sind heute nur geringe Mängel und Schwachstellen bekannt.\autocite[\vglf][\pagef 2239]{OPPLIGER20062238}
 
 \begin{definition}[\Acf{MITM}]
@@ -90,9 +90,7 @@ Die Demographie der Studie wird in \autoref{tab:https-study}\autocite[\vglf][\pa
             Privater Webserver                                        & 17     & 83\%    \\ \hline
         \end{tabular}%
     }
-\end{table}
-\footnotetext{\cite[\vglf][\pagef 1342]{usabilityHTTPS:2017}}
+\end{table}\ \footnotetext{\cite[\vglf][\pagef 1342]{usabilityHTTPS:2017}}
 
-\par
 In der Studie wurden verschiedene Aspekte in die Bewertung mit einbezogen, darunter die Anzahl an Fehlermeldungen, die Schlüsselgröße, ob der \gls{privateKey} verschlüsselt war und welche Version von \ac{SSL} oder \ac{TLS} verwendet wurde.
 Die Studie ergibt, dass das Einrichten einer sicheren \ac{HTTPS}-Verbindung, inklusive \ac{TLS}-Zertifikat, selbst bei Studierenden, die bereits erfolgreich IT-Sicherheitskurse bearbeitet haben und ihr technisches Wissen in einer Umfrage bestätigt haben, durch verschiedene Ursachen, wie \zb unklare Fehlermeldungen, verwirrende Dateistrukturen bei den Konfigurationsdateien und einem zu hohem Ausmaß an erfordertem Hintergrundwissen, deutlich erschwert wird.\autocite[\vglf][\pagef 1347]{usabilityHTTPS:2017} Gleichermaßen sind bereits bestehende \ac{TLS}\nonbreakdash Konfigurationen oftmals nicht sicher und schützen Nutzer daraus folgend nicht zuverlässig vor \ac{MITM}\nonbreakdash Angriffen\autocite[\vglf][\pagef 1350]{usabilityHTTPS:2017}.

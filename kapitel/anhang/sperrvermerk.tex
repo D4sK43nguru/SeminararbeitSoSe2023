@@ -1,27 +1,29 @@
-\newpage
+\usepackage{csquotes}
+\usepackage{graphicx}\newpage
 \thispagestyle{empty}
 
 %-----------------------------------
 % Sperrvermerk
 %-----------------------------------
 \section*{Sperrvermerk}
-Die vorliegende Abschlussarbeit mit dem Titel \enquote{\myTitel} enthält unternehmensinterne Daten der Firma \myFirma . Daher ist sie nur zur Vorlage bei der FOM sowie den Begutachtern der Arbeit bestimmt. Für die Öffentlichkeit und dritte Personen darf sie nicht zugänglich sein.
+Die vorliegende Abschlussarbeit mit dem Titel \enquote{\myTitel} enthält unternehmensinterne Daten der Firma \myFirma .
+Daher ist sie nur zur Vorlage bei der FOM sowie den Begutachtern der Arbeit bestimmt.
+Für die Öffentlichkeit und dritte Personen darf sie nicht zugänglich sein.
 
 \vspace{5cm}
 
 \begin{table}[H]
 	\centering
 	\begin{tabular*}{\textwidth}{c @{\extracolsep{\fill}} ccccc}
-		\myOrt, \today
+		\myOrt, \the\day.\the\month.\the\year
 		&
 		% Hinterlege deine eingescannte Unterschrift im Verzeichnis /abbildungen und nenne sie unterschrift.png
 		% Bilder mit transparentem Hintergrund können teils zu Problemen führen
-		\includegraphics[width=0.35\textwidth]{unterschrift}\vspace*{-0.35cm}
+		\includegraphics[width=0.35\textwidth]{../../abbildungen/unterschrift}\vspace*{-0.35cm}
 		\\
 		\rule[0.5ex]{12em}{0.55pt} & \rule[0.5ex]{12em}{0.55pt} \\
 		(Ort, Datum) & (Eigenhändige Unterschrift)
 		\\
-	\end{tabular*} \\
+	\end{tabular*} \\\label{tab:unterschrift}
 \end{table}
-
 \newpage

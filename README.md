@@ -16,38 +16,38 @@ Verbesserungen sind jederzeit willkommen (siehe [Ich möchte mithelfen, diese Vo
 1. [Für die eigene Arbeit nutzen](#für-die-eigene-arbeit-nutzen)
    1. [Klassischer Download](#klassischer-download)
    2. [Fork auf Github](#fork-auf-github)
-1. [Vorlage personalisieren](#vorlage-personalisieren)
-1. [Dokumentensprache](#dokumentensprache)
-1. [TextCommands](#textcommands)
-1. [Zitation](#zitation)
+2. [Vorlage personalisieren](#vorlage-personalisieren)
+3. [Dokumentensprache](#dokumentensprache)
+4. [TextCommands](#textcommands)
+5. [Zitation](#zitation)
    1. [Chicago-Style in Fußnoten](#chicago-style-in-fußnoten)
    2. [IEEE-Style im Text](#ieee-style-im-text)
-1. [Inhaltsverzeichnis Latex](#inhaltsverzeichnis-latex)
-1. [Literaturverzeichnis](#literaturverzeichnis)
-1. [Sperrvermerk](#sperrvermerk)
-1. [Quellcode einbinden](#quellcode-einbinden)
-1. [Schriftarten](#schriftarten)
-1. [PlantUML](#plantuml)
-1. [LaTeX zu PDF kompilieren](#latex-zu-pdf-kompilieren)
-   1. [Docker unter Linux / macOS / Windows](#docker-unter-linux--macos--windows)
-   2. [LaTeX-Pakete](#latex-pakete)
-   3. [Image selbst bauen](#image-selbst-bauen)
-   4. [Fehlerbehandlung](#fehlerbehandlung)
-1. [LaTeX mit Windows Subsystem for Linux kompilieren](#latex-mit-windows-subsystem-for-linux-kompilieren)
-1. [IDE zur Bearbeitung nutzen](#ide-zur-bearbeitung-nutzen)
-   1. [Texpad](#texpad)
-   2. [Visual Studio Code](#visual-studio-code)
-1. [Wörter zählen](#wörter-zählen)
-   1. [TeXcount](#texcount)
-   2. [Unix / macOS Script](#unix--macos-script)
-1. [Ich habe eine Frage oder ein Problem](#ich-habe-eine-frage-oder-ein-problem)
-1. [Ich möchte mithelfen, diese Vorlage zu verbessern](#ich-möchte-mithelfen-diese-vorlage-zu-verbessern)
-1. [Disclaimer](#disclaimer)
-1. [Lizenz](#lizenz)
+6. [Inhaltsverzeichnis Latex](#inhaltsverzeichnis-latex)
+7. [Literaturverzeichnis](#literaturverzeichnis)
+8. [Sperrvermerk](#sperrvermerk)
+9. [Quellcode einbinden](#quellcode-einbinden)
+10. [Schriftarten](#schriftarten)
+11. [PlantUML](#plantuml)
+12. [LaTeX zu PDF kompilieren](#latex-zu-pdf-kompilieren)
+    1. [Docker unter Linux / macOS / Windows](#docker-unter-linux--macos--windows)
+    2. [LaTeX-Pakete](#latex-pakete)
+    3. [Image selbst bauen](#image-selbst-bauen)
+    4. [Fehlerbehandlung](#fehlerbehandlung)
+13. [LaTeX mit Windows Subsystem for Linux kompilieren](#latex-mit-windows-subsystem-for-linux-kompilieren)
+14. [IDE zur Bearbeitung nutzen](#ide-zur-bearbeitung-nutzen)
+    1. [Texpad](#texpad)
+    2. [Visual Studio Code](#visual-studio-code)
+15. [Wörter zählen](#wörter-zählen)
+    1. [TeXcount](#texcount)
+    2. [Unix / macOS Script](#unix--macos-script)
+16. [Ich habe eine Frage oder ein Problem](#ich-habe-eine-frage-oder-ein-problem)
+17. [Ich möchte mithelfen, diese Vorlage zu verbessern](#ich-möchte-mithelfen-diese-vorlage-zu-verbessern)
+18. [Disclaimer](#disclaimer)
+19. [Lizenz](#lizenz)
 
 ## Für die eigene Arbeit nutzen
 
-Aufgrund der gewählten [Lizenz](./LICENSE) [MIT Lizenz](https://en.wikipedia.org/wiki/MIT_License), darfst du diese Vorlage für den persönlichen oder kommerziellen Gebrauch nutzen und abändern.
+Aufgrund der gewählten [Lizenz](./LICENSE) [MIT-Lizenz](https://en.wikipedia.org/wiki/MIT_License), darfst du diese Vorlage für den persönlichen oder kommerziellen Gebrauch nutzen und abändern.
 Um dies zu tun, gibt es mehrere Möglichkeiten, die wir nachfolgend kurz vorstellen.
 
 **Generell gilt**:
@@ -72,7 +72,7 @@ Das Ganze hat primär zwei Vorteile:
 
 ## Vorlage personalisieren
 
-Wenn du diese Vorlage nutzt, ist der erste Einstiegspunkt die Datei [`skripte/meta.tex`](src/skripte/meta.tex).
+Wenn du diese Vorlage nutzt, ist der erste Einstiegspunkt die Datei [`skripte/meta.tex`](skripte/meta.tex).
 In der Datei haben wir einige Variablen hinterlegt, die im Dokument (u. a. auf dem Deckblatt) genutzt werden.
 
 Ersetze die Muster-Werte durch deine persönlichen Angaben und diese werden automatisch im Dokument verwendet.
@@ -100,7 +100,7 @@ Für die Batch-Datei ist das Kompilieren auf Englisch über folgenden Workaround
 
 Anmerkung: Der beschriebene Workaround funktioniert auch, wenn du Overleaf oder einen anderen TEX-Editor verwendest und die compile.bat nicht benötigst.
 
-Nach dem kompilieren findet sich das Ergebnis in der Datei [`thesis_main.pdf`](./thesis_main.pdf). Die [`thesis_englisch.pdf`](./thesis_englisch.pdf) ist nur dazu da auf Github die Möglichkeit aufzuzeigen.
+Nach dem Kompilieren findet sich das Ergebnis in der Datei [`thesis_main.pdf`](./thesis_main.pdf). Die [`thesis_englisch.pdf`](./thesis_englisch.pdf) ist nur dazu da auf Github die Möglichkeit aufzuzeigen.
 
 ## TextCommands
 
@@ -108,9 +108,9 @@ Das Arbeiten mit Commands innerhalb des Textes kann eine schöne Möglichkeit da
 
 - Wörter oder Abkürzungen, welche häufig falsch geschrieben werden, einmalig zu definieren
 - bestimmte Wörter die z. B. einfach zu lang sind durch ein Kürzel schneller schreiben zu können
-- Wörter oder Abkürzungen die häufig verwendet werden nie an der falschen Stelle zu trenen
+- Wörter oder Abkürzungen, die häufig verwendet werden, nie an der falschen Stelle zu trennen
 
-In meinen Arbeiten haben ich gemerkt, dass es sinnvoll ist verschiedene standard Abkürzungen zu verwenden und diese nur einmalig zu definieren. Beispielsweise habe ich die Abkürzung von "zum Beispiel" --> "z. B." immer ohne Leerzeichen geschrieben. Allerdings ist die Schreibweise mit Leerzeichen [wesentlich korrekter](https://de.wiktionary.org/wiki/z._B.#:~:text=Anmerkung%3A,z.B.). Einmal richtig definiert, lässt sich die Abkürzung "z. B." im Text-File einfach durch folgenden Code aufrufen:
+In meinen Arbeiten habe ich gemerkt, dass es sinnvoll ist verschiedene standard Abkürzungen zu verwenden und diese nur einmalig zu definieren. Beispielsweise habe ich die Abkürzung von "zum Beispiel" --> "z. B." immer ohne Leerzeichen geschrieben. Allerdings ist die Schreibweise mit Leerzeichen [wesentlich korrekter](https://de.wiktionary.org/wiki/z._B.#:~:text=Anmerkung%3A,z.B.). Einmal richtig definiert, lässt sich die Abkürzung "z. B." im Text-File einfach durch folgenden Code aufrufen:
 
 ```
 \zb
@@ -388,19 +388,15 @@ docker build -t andygrunwald/fom-latex-template .
 Eine mögliche Alternative zu Docker:
 
 1. WSL und Distribution installieren und konfigurieren (siehe [Microsoft Docs](https://docs.microsoft.com/en-US/windows/wsl/install-win10))
-1. Fork des Repositories erzeugen (siehe oben) und Dein Repository klonen (siehe [Github](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository))
-1. TexLive und benötigte Pakete installieren
-
-```
-sudo apt-get install texlive texlive-lang-german texlive-latex-extra texlive-bibtex-extra texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-german texlive-luatex biber xz-utils
-```
-
+2. Fork des Repositories erzeugen (siehe oben) und Dein Repository klonen (siehe [Github](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository))
+3. TexLive und benötigte Pakete installieren
+    ```
+    sudo apt-get install texlive texlive-lang-german texlive-latex-extra texlive-bibtex-extra texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-german texlive-luatex biber xz-utils
+    ```
 4. Installation überprüfen, durch Erzeugen der PDF-Datei.
-
-```
-./compile.sh
-```
-
+    ```
+    ./compile.sh
+    ```
 5. (optional) Visual Studio Code mit Extension "Remote - WSL" benutzen (siehe [Microsoft VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl&WT.mc_id=-blog-scottha))
 
 ## IDE zur Bearbeitung nutzen

@@ -1,20 +1,20 @@
 \newpage
 
 
-\section[Grundlagen der Kryptografie - Kryptografische Verfahren und Algorithmen]{Grundlagen der \gls{kryptografie} - \glsdisp{kryptografie}{Kryptografische} Verfahren und \glspl{algorithmus}}\label{sec:grundlagen-der-kryptografie}
+\section[Grundlagen der Kryptografie - Kryptografische Verfahren und Algorithmen]{Grundlagen der \gls{kryptografie}index{Kryptografie} - \glsdisp{kryptografie}{Kryptografische} Verfahren und \glspl{algorithmus}}\label{sec:grundlagen-der-kryptografie}
 
 
-In der digitalen Welt spielt die \Gls{kryptografie} eine entscheidende Rolle.
+In der digitalen Welt spielt die \Gls{kryptografie}index{Kryptografie} eine entscheidende Rolle.
 Sie sichert Informationen durch Ver- und Entschlüsselung, um Vertraulichkeit, Integrität und Authentizität zu gewährleisten.
 \glsdisp{kryptografie}{kryptografische} \glspl{algorithmus} dienen als grundlegende Bausteine, um Daten in eine unlesbare Form zu bringen und nur autorisierten Empfängern zugänglich zu machen.
 
-Dieser Abschnitt gibt einen Überblick über die Grundlagen der \Gls{kryptografie} und verschiedene Arten von \glspl{algorithmus}, die in Webanwendungen und in der Informationssicherheit verwendet werden.
-Es vermittelt die Prinzipien und Konzepte, um das Verständnis für die Bedeutung und den Einsatz von \Gls{kryptografie} in der vernetzten Welt zu stärken.
+Dieser Abschnitt gibt einen Überblick über die Grundlagen der \Gls{kryptografie}index{Kryptografie} und verschiedene Arten von \glspl{algorithmus}, die in Webanwendungen und in der Informationssicherheit verwendet werden.
+Es vermittelt die Prinzipien und Konzepte, um das Verständnis für die Bedeutung und den Einsatz von \Gls{kryptografie}index{Kryptografie} in der vernetzten Welt zu stärken.
 
 
 \subsection[Symmetrische Verschlüsselungsalgorithmen]{Symmetrische \glsdisp{algorithmus}{Verschlüsselungsalgorithmen} - \acf{DES}}\label{subsec:symmetrsiche-algorithmen}
-Bei symmetrischen Verschlüsselungsalgorithmen wird, wie in \autoref{fig:symmetricalEncoding}\autocite{Chapter211:online} dargestellt, derselbe Schlüssel zum Ver\nonbreakdash und Entschlüsseln einer Nachricht verwendet.
-Dies ermöglicht eine einfache und schnelle Kommunikation, führt jedoch dazu, dass die Geheimhaltung des Schlüssels schnell zu einer Sicherheitslücke führen kann.
+Bei symmetrischen Verschlüsselungsalgorithmen\index{Kryptografie!Symmetrische Verschlüsselung} wird, wie in \autoref{fig:symmetricalEncoding}\autocite{Chapter211:online} dargestellt, derselbe Schlüssel zum Ver\nonbreakdash und Entschlüsseln einer Nachricht verwendet.
+Dies ermöglicht eine einfache und schnelle Kommunikation, führt jedoch dazu, dass die Geheimhaltung des Schlüssels schnell zu einer Sicherheitslücke\index{Sicherheit} führen kann.
 
 \begin{figure}[htbp]
     \includegraphics[width=1\linewidth]{abbildungen/symmetricEncoding}
@@ -22,20 +22,18 @@ Dies ermöglicht eine einfache und schnelle Kommunikation, führt jedoch dazu, d
     \caption[
         Schaubild einer symmetrischen Verschlüsselung]{Schaubild einer symmetrischen Verschlüsselung\footnotemark}
     \label{fig:symmetricalEncoding}
-\end{figure}
-\footnotetext{\cite{Chapter211:online}}
+\end{figure}\ \footnotetext{\cite{Chapter211:online}}
 
 
-Symmetrische Verschlüsselungsverfahren werden deshalb dann als sicher angesehen, wenn man ohne den Schlüssel den Klartext nicht aus dem verschlüsselten Text ermitteln kann.\autocite[\pagef~5]{kryptographische-algorithmen}
+Symmetrische Verschlüsselungsverfahren\index{Kryptografie!Symmetrische Verschlüsselung} werden deshalb dann als sicher angesehen, wenn man ohne den Schlüssel den Klartext nicht aus dem verschlüsselten Text ermitteln kann.\autocite[\pagef~5]{kryptographische-algorithmen}
 
-\ac{DES}, oft auch \ac{DEA}, wurde 1975 im \textit{Federal Register} der USA
-veröffentlicht und als Kooperation zwischen dem \ac{NIST}, der \ac{NSA} und \ac{IBM} entwickelt.\autocite[\pagef~232]{nsa-meyer}
+\ac{DES}, oft auch \ac{DEA}, wurde 1975 im \textit{Federal Register} der USA veröffentlicht und als Kooperation zwischen dem \ac{NIST}, der \ac{NSA} und \ac{IBM} entwickelt.\autocite[\pagef~232]{nsa-meyer}
 
 \ac{DES} ist ein Blockchiffre-Verfahren, was bedeutet, dass die Daten in immer gleich großen Blöcken, hier in Blöcken von 64 Zeichen, und mit einer immer gleichen Schlüssellänge, hier 56 Bit, verschlüsselt werden.\autocite[\pagef~6]{kryptographische-algorithmen}
 
 
 \subsection[Asymmetrische Algorithmen]{Asymmetrische \glspl{algorithmus}}\label{subsec:asymmetrische-algorithmen}
-Asymmetrische Verschlüsselungsverfahren verwenden, im Gegensatz zu den Symmetrischen (\solol), zwei Schlüssel.
+Asymmetrische Verschlüsselungsverfahren\index{Kryptografie!Asymmetrsiche Verschlüsselung} verwenden, im Gegensatz zu den Symmetrischen\index{Kryptografie!Symmetrische Verschlüsselung} (\solol), zwei Schlüssel.
 Einen \gls{publicKey}, zum Verschlüsseln der Daten und einen \gls{privateKey}, zum Entschlüsseln.
 Dabei muss ausschließlich der \gls{privateKey} geheim gehalten werden.
 
@@ -84,7 +82,7 @@ wobei $c$ der zuvor erhaltene verschlüsselte Text, $d$ der \gls{privateKey} und
 Im Allgemeinen sind Hashfunktionen \glspl{algorithmus}, die einen Text beliebiger Länge zu einem neuen Text mit vorgegebener Länge komprimieren\autocite[\pagef~15]{anal-des-hash-function-2003}.
 Sie werden mithilfe von \sog \glspl{compressfunc} generiert.
 
-Damit \glsdisp{hashfunc}{Hash}- und \glspl{compressfunc} in der \gls{kryptografie} zur Authentifizierung, wie \zb zur Speicherung von Passwörtern genutzt werden können, müssen sie noch verschiedene Kriterien erfüllen.
+Damit \glsdisp{hashfunc}{Hash}- und \glspl{compressfunc} in der \gls{kryptografie}index{Kryptografie} zur Authentifizierung, wie \zb zur Speicherung von Passwörtern genutzt werden können, müssen sie noch verschiedene Kriterien erfüllen.
 Diese werden folgend erklärt:
 
 \begin{definition}\label{def:hashfunktion}
