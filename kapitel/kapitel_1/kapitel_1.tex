@@ -4,14 +4,16 @@
 \section[Grundlagen der Kryptografie - Kryptografische Verfahren und Algorithmen]{Grundlagen der \gls{kryptografie} - \glsdisp{kryptografie}{Kryptografische} Verfahren und \glspl{algorithmus}}\label{sec:grundlagen-der-kryptografie}
 
 
-In der digitalen Welt spielt die \Gls{kryptografie} eine entscheidende Rolle. Sie sichert Informationen durch Ver- und Entschlüsselung, um Vertraulichkeit, Integrität und Authentizität zu gewährleisten.
+In der digitalen Welt spielt die \Gls{kryptografie} eine entscheidende Rolle.
+Sie sichert Informationen durch Ver- und Entschlüsselung, um Vertraulichkeit, Integrität und Authentizität zu gewährleisten.
 \glsdisp{kryptografie}{kryptografische} \glspl{algorithmus} dienen als grundlegende Bausteine, um Daten in eine unlesbare Form zu bringen und nur autorisierten Empfängern zugänglich zu machen.
+
 Dieser Abschnitt gibt einen Überblick über die Grundlagen der \Gls{kryptografie} und verschiedene Arten von \glspl{algorithmus}, die in Webanwendungen und in der Informationssicherheit verwendet werden.
 Es vermittelt die Prinzipien und Konzepte, um das Verständnis für die Bedeutung und den Einsatz von \Gls{kryptografie} in der vernetzten Welt zu stärken.
 
 
 \subsection[Symmetrische Verschlüsselungsalgorithmen]{Symmetrische \glsdisp{algorithmus}{Verschlüsselungsalgorithmen} - \acf{DES}}\label{subsec:symmetrsiche-algorithmen}
-Bei symmetrischen Verschlüsselungsalgorithmen wird, wie in \autoref{fig:symmetricalEncoding}\autocite{Chapter211:online} dargestellt, derselbe Schlüssel zum Verschlüsseln und zum Entschlüsseln einer Nachricht verwendet.
+Bei symmetrischen Verschlüsselungsalgorithmen wird, wie in \autoref{fig:symmetricalEncoding}\autocite{Chapter211:online} dargestellt, derselbe Schlüssel zum Ver\nonbreakdash und Entschlüsseln einer Nachricht verwendet.
 Dies ermöglicht eine einfache und schnelle Kommunikation, führt jedoch dazu, dass die Geheimhaltung des Schlüssels schnell zu einer Sicherheitslücke führen kann.
 
 \begin{figure}[htbp]
@@ -34,7 +36,7 @@ veröffentlicht und als Kooperation zwischen dem \ac{NIST}, der \ac{NSA} und \ac
 
 \subsection[Asymmetrische Algorithmen]{Asymmetrische \glspl{algorithmus}}\label{subsec:asymmetrische-algorithmen}
 Asymmetrische Verschlüsselungsverfahren verwenden, im Gegensatz zu den Symmetrischen (\solol), zwei Schlüssel.
-Einen \gls{publicKey},zum Verschlüsseln der Daten und einen \gls{privateKey}, zum wieder Entschlüsseln.
+Einen \gls{publicKey}, zum Verschlüsseln der Daten und einen \gls{privateKey}, zum Entschlüsseln.
 Dabei muss ausschließlich der \gls{privateKey} geheim gehalten werden.
 
 
@@ -43,7 +45,7 @@ Dabei muss ausschließlich der \gls{privateKey} geheim gehalten werden.
 \ac{RSA} ist das erste entwickelte \gls{publicKeyEncoding} und besitzt auch heute noch eine große Relevanz.\autocite[\pagef~168]{buchmann-einfuhrung-2016}
 
 \paragraph[Schlüsselerzeugung]{Schlüsselerzeugung}\label{par:schluesselerzeugung}
-Das generieren des \ac{RSA}-Schlüsselpaars benötigt einige verschiedene Zahlen.
+Das Generieren des \ac{RSA}-Schlüsselpaars benötigt einige verschiedene Zahlen.
 Der Sicherheitsparameter $k \in \mathbb{N}$ gibt die Größe des Produkts der beiden gewählten Primzahlen für die Verschlüsselung an.
 Zwei statistisch unabhängige, zufällige Primzahlen $p$ und $q$ werden ausgewählt, um den \ac{RSA}-Modul n zu bilden.
 Dieser Wert wird später für Ver- und Entschlüsselung verwendet und berechnet sich als $n = p*q$.
@@ -79,18 +81,18 @@ $m$ kann wieder rekonstruiert werden mit
 wobei $c$ der zuvor erhaltene verschlüsselte Text, $d$ der \gls{privateKey} und $n$ ein Teil des \glsdisp{publicKey}{public Keys} ist.\autocite[\pagef~6]{rsa-encryption}
 
 \subsubsection[Hashfunktionen]{Hashfunktionen — \acf{SHA}}\label{subsubsec:hash-funktion}
-Im Grundlegenden sind Hashfunktionen \glspl{algorithmus}, die einen Text beliebiger Länge zu einem neuen Text mit vorgegebener Länge komprimieren\autocite[\pagef~15]{anal-des-hash-function-2003}.
+Im Allgemeinen sind Hashfunktionen \glspl{algorithmus}, die einen Text beliebiger Länge zu einem neuen Text mit vorgegebener Länge komprimieren\autocite[\pagef~15]{anal-des-hash-function-2003}.
 Sie werden mithilfe von \sog \glspl{compressfunc} generiert.
 
 Damit \glsdisp{hashfunc}{Hash}- und \glspl{compressfunc} in der \gls{kryptografie} zur Authentifizierung, wie \zb zur Speicherung von Passwörtern genutzt werden können, müssen sie noch verschiedene Kriterien erfüllen.
 Diese werden folgend erklärt:
 
-\begin{definition}[label=def:hashfunktion]
+\begin{definition}\label{def:hashfunktion}
     Eine Einweghashfunktion ist eine Funktion $h$, die folgende Bedingungen erfüllt\autocite[\vglf][\pagef~17]{anal-des-hash-function-2003}:
     \begin{enumerate}
         \item Die Beschreibung von $h$ muss öffentlich bekannt sein und sollte keine geheimen Informationen erfordern (Erweiterung des Kerckhoff\textquotesingle schen Prinzips\autocite[]{petitcolas-information-nodate}).
         \item Das Argument $X$ kann von beliebiger Länge sein und das Ergebnis $h(X)$ hat eine feste Länge von $n$-Bits (mit $n \geq64$).
-        \item Für gegebene $h$ und $X$, muss die Berechnung von $h(X)$ einfach\footnotemark sein.
+        \item Für gegebene $h$ und $X$, muss die Berechnung von $h(X)$ einfach\footnotemark\ sein.
         \item Die Hashfunktion muss in dem Sinne monodirektional sein, dass es bei einem $Y$ im Abbild von $h$ schwer\footnotemark[\value{footnote}] ist, aus einer Nachricht einen bestimmten \gls{hashwert} zu generieren, und dass es schwer\footnotemark[\value{footnote}] ist, zwei Nachrichten zu finden, die den gleichen \gls{hashwert} teilen.
     \end{enumerate}
     \footnotetext{\enquote{einfach} und \enquote{schwer} sind hier im kryptografischen Sinne zu verstehen und beziehen sich auf das Zusammenspiel von Laufzeit und Rechenaufwand eines \gls{algorithmus}\textquotesingle}
@@ -100,6 +102,6 @@ Diese werden folgend erklärt:
 
 \acfp{SHA} sind verschiedene kryptologische Hashfunktionen und eine Modifikation des \gls{MD5}, welche zur Berechnung eines Prüfwertes für beliebige Nachrichten dienen und unter anderem die Grundlage zur Erstellung einer digitalen Signatur, genauer erläutert in \autoref{subsubsec:digitale-signaturen-und-zertifikate}, sind\autocite[]{WhatisSH81:online}.
 
-2012 wurde \ac{SHA}-3\footnote{Auch als \textit{Keccak} bezeichnet}  von \ac{NIST} standardisiert und wird heute als sicher angesehen\autocite[\pagef~239]{buchmann-einfuhrung-2016}, aber auch die \glspl{algorithmus} unter \ac{SHA}-2 sind heute stark verbreitet.
-\ac{SHA}-2 und \ac{SHA}-3 bezeichnen nicht einzelne \glspl{algorithmus} sondern \glsdisp{algorithmus}{Algorithmusgruppen}, deren zugrunde liegenden \glspl{algorithmus} sich primär in der Länge des ausgegebenen Prüfwertes unterscheiden.
+2012 wurde \ac{SHA}-3\footnote{Auch als \textit{Keccak} bezeichnet}  vom \ac{NIST} standardisiert und wird heute als sicher angesehen\autocite[\pagef~239]{buchmann-einfuhrung-2016}, aber auch die \glspl{algorithmus} unter \ac{SHA}-2 sind heute stark verbreitet.
+\ac{SHA}-2 und \ac{SHA}-3 bezeichnen nicht einzelne \glspl{algorithmus} sondern \glsdisp{algorithmus}{Algorithmusgruppen}, deren zugrunde liegende \glspl{algorithmus} sich primär in der Länge des ausgegebenen Prüfwertes unterscheiden.
 Dabei werden die \glspl{algorithmus} \ac{SHA}-256 und \ac{SHA}-512 am häufigsten genutzt.

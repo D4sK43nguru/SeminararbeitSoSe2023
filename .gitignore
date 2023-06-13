@@ -13,7 +13,6 @@
 *.lot
 *.nlo
 *.nls*
-*.out
 *.run.xml
 *.sub
 *.suc
@@ -170,7 +169,9 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-out/*
-!*/out/thesis_main.pdf
+./out/*
+
+!./out/thesis_main.pdf
+
 
 # End of https://www.toptal.com/developers/gitignore/api/node

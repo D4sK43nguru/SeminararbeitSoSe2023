@@ -61,7 +61,7 @@ In einem typischen \ac{MITM} Angriff stellt sich das angreifende System so zwisc
 Eine Studie aus 2017 unter 28 IT\nonbreakdash Fachleute stellte sich der Frage, wie benutzerfreundlich das Implementieren und Veröffentlichen einer sicheren \ac{HTTPS}-Verbindung zu einem Apache Web Server ist, um eine Sicherheitsprüfung zu bestehen.\autocite[\vglf][\pagef 1341]{usabilityHTTPS:2017}
 Die Demographie der Studie wird in \autoref{tab:https-study}\autocite[\vglf][\pagef 1342]{usabilityHTTPS:2017} detaillierter dargestellt.
 
-\begin{table}[htpb]
+\begin{table}[H]
     \caption[Demographie der Studie zur Entwicklung einer sicheren HTTPS-Verbindung]{Demographie der Studie zur Entwicklung einer sicheren \ac{HTTPS}-Verbindung\footnotemark}
     \label{tab:https-study}
     \resizebox{0.75\textwidth}{!}{%
@@ -93,6 +93,6 @@ Die Demographie der Studie wird in \autoref{tab:https-study}\autocite[\vglf][\pa
 \end{table}
 \footnotetext{\cite[\vglf][\pagef 1342]{usabilityHTTPS:2017}}
 
-
+\par
 In der Studie wurden verschiedene Aspekte in die Bewertung mit einbezogen, darunter die Anzahl an Fehlermeldungen, die Schlüsselgröße, ob der \gls{privateKey} verschlüsselt war und welche Version von \ac{SSL} oder \ac{TLS} verwendet wurde.
 Die Studie ergibt, dass das Einrichten einer sicheren \ac{HTTPS}-Verbindung, inklusive \ac{TLS}-Zertifikat, selbst bei Studierenden, die bereits erfolgreich IT-Sicherheitskurse bearbeitet haben und ihr technisches Wissen in einer Umfrage bestätigt haben, durch verschiedene Ursachen, wie \zb unklare Fehlermeldungen, verwirrende Dateistrukturen bei den Konfigurationsdateien und einem zu hohem Ausmaß an erfordertem Hintergrundwissen, deutlich erschwert wird.\autocite[\vglf][\pagef 1347]{usabilityHTTPS:2017} Gleichermaßen sind bereits bestehende \ac{TLS}\nonbreakdash Konfigurationen oftmals nicht sicher und schützen Nutzer daraus folgend nicht zuverlässig vor \ac{MITM}\nonbreakdash Angriffen\autocite[\vglf][\pagef 1350]{usabilityHTTPS:2017}.
