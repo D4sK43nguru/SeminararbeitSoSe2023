@@ -15,21 +15,17 @@
 % Dokumentensprache
 %-----------------------------------
 %\def\FOMEN{}% Auskommentieren um die Dokumentensprache auf englisch zu ändern
-\newif\ifde
-\newif\ifen
+
 
 %-----------------------------------
 % Meta informationen
 %-----------------------------------
 \input{skripte/meta}
 
-\newcommand{\langde}[1]{%
-	\ifde\selectlanguage{ngerman}#1\fi}
-\newcommand{\langen}[1]{%
-	\ifen\selectlanguage{english}#1\fi}
+\usepackage[german]{babel}
 \usepackage[utf8]{luainputenc}
-\langde{\usepackage[babel,german=quotes]{csquotes}}
-\langen{\usepackage[babel,english=british]{csquotes}}
+\usepackage[utf8]{inputenc}
+\usepackage[babel,german=quotes]{csquotes}
 \usepackage{fancyhdr}
 \usepackage{fancybox}
 \usepackage[a4paper, left=4cm, right=2cm, top=4cm, bottom=2cm]{geometry}
@@ -39,6 +35,8 @@
 \usepackage{array}
 \usepackage{float}      %Positionierung von Abb. und Tabellen mit [H] erzwingen
 \usepackage{footnote}
+\usepackage{booktabs}
+\usepackage{epigraph}
 
 
 % Darstellung der Beschriftung von Tabellen und Abbildungen (Leitfaden S. 44)
@@ -46,16 +44,16 @@
 % labelfont auf fett: (Tabelle x.y:, Abbildung: x.y)
 % font auf fett: eigentliche Bezeichnung der Abbildung oder Tabelle
 % Fettschrift laut Leitfaden 2018 S. 45
-\usepackage[singlelinecheck=false, labelfont=bf, font=bf]{caption}
+\usepackage[labelfont=bf, font=bf]{caption}
 \usepackage{enumitem}
 \usepackage{mathptmx}
-%\usepackage{minted} %Kann für schöneres Syntax Highlighting genutzt werden. ACHTUNG: Python muss installiert sein.
+% \usepackage{minted} %Kann für schöneres Syntax Highlighting genutzt werden. ACHTUNG: Python muss installiert sein.
 \usepackage[scaled=0.9]{helvet} % Behebt, zusammen mit Package courier, pixelige Überschriften. Ist, zusammen mit mathptx, dem times-Package vorzuziehen. Details: https://latex-kurs.de/fragen/schriftarten/Times_New_Roman.html
 \usepackage{courier}
 \usepackage{amsmath}
 \usepackage{amssymb}
 %\usepackage[table]{xcolor}
-\usepackage{marvosym}			% Verwendung von Symbolen, z.B. perfektes Eurozeichen
+\usepackage{marvosym}            % Verwendung von Symbolen, z.B. perfektes Eurozeichen
 
 \renewcommand\familydefault{\sfdefault}
 \usepackage{ragged2e}
@@ -96,35 +94,35 @@
 \usepackage{listings}
 % JavaScript als Sprache definieren:
 \lstdefinelanguage{JavaScript}{
-	keywords={break, super, case, extends, switch, catch, finally, for, const, function, try, continue, if, typeof, debugger, var, default, in, void, delete, instanceof, while, do, new, with, else, return, yield, enum, let, await},
-	keywordstyle=\color{blue}\bfseries,
-	ndkeywords={class, export, boolean, throw, implements, import, this, interface, package, private, protected, public, static},
-	ndkeywordstyle=\color{darkgray}\bfseries,
-	identifierstyle=\color{black},
-	sensitive=false,
-	comment=[l]{//},
-	morecomment=[s]{/*}{*/},
-	commentstyle=\color{purple}\ttfamily,
-	stringstyle=\color{red}\ttfamily,
-	morestring=[b]',
-	morestring=[b]"
+    keywords={break, super, case, extends, switch, catch, finally, for, const, function, try, continue, if, typeof, debugger, var, default, in, void, delete, instanceof, while, do, new, with, else, return, yield, enum, let, await},
+    keywordstyle=\color{blue}\bfseries,
+    ndkeywords={class, export, boolean, throw, implements, import, this, interface, package, private, protected, public, static},
+    ndkeywordstyle=\color{darkgray}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{purple}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
 }
 
 \lstset{
 %language=JavaScript,
-	numbers=left,
-	numberstyle=\tiny,
-	numbersep=5pt,
-	breaklines=true,
-	showstringspaces=false,
-	frame=l ,
-	xleftmargin=5pt,
-	xrightmargin=5pt,
-	basicstyle=\ttfamily\scriptsize,
-	stepnumber=1,
-	keywordstyle=\color{blue},          % keyword style
-	commentstyle=\color{dkgreen},       % comment style
-	stringstyle=\color{mauve}         % string literal style
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    frame=l ,
+    xleftmargin=5pt,
+    xrightmargin=5pt,
+    basicstyle=\ttfamily\scriptsize,
+    stepnumber=1,
+    keywordstyle=\color{blue},          % keyword style
+    commentstyle=\color{dkgreen},       % comment style
+    stringstyle=\color{mauve}         % string literal style
 }
 
 %-----------------------------------
@@ -138,22 +136,22 @@
 
 %%% Neuer Leitfaden (2018) Chicago
 \usepackage[
-	backend=biber,
-	style=ext-authoryear-ibid, % Auskommentieren und nächste Zeile einkommentieren, falls "Ebd." (ebenda) nicht für sich-wiederholende Fussnoten genutzt werden soll.
+    backend=biber,
+    style=ext-authoryear-ibid, % Auskommentieren und nächste Zeile einkommentieren, falls "Ebd." (ebenda) nicht für sich-wiederholende Fussnoten genutzt werden soll.
 % style=ext-authoryear,
-	maxcitenames=3,	% mindestens 3 Namen ausgeben bevor et. al. kommt
-	maxbibnames=999,
-	mergedate=false,
-	date=iso,
-	seconds=true, %werden nicht verwendet, so werden aber Warnungen unterdrückt.
-	urldate=iso,
-	innamebeforetitle,
-	dashed=false,
-	autocite=footnote,
-	doi=false,
-	useprefix=true, % 'von' im Namen beachten (beim Anzeigen)
-	mincrossrefs = 1,
-	language = german
+    maxcitenames=3,    % mindestens 3 Namen ausgeben bevor et. al. kommt
+    maxbibnames=999,
+    mergedate=false,
+    date=iso,
+    seconds=true, %werden nicht verwendet, so werden aber Warnungen unterdrückt.
+    urldate=iso,
+    innamebeforetitle,
+    dashed=false,
+    autocite=footnote,
+    doi=false,
+    useprefix=true, % 'von' im Namen beachten (beim Anzeigen)
+    mincrossrefs = 1,
+    language = german
 ]{biblatex}%iso dateformat für YYYY-MM-DD
 
 %%%% weitere Anpassungen für BibLaTex
@@ -185,13 +183,11 @@
 
 %% et al. anstatt u. a. bei mehr als drei Autoren.
 \DefineBibliographyStrings{ngerman}{
-	andothers = {{et\,al\adddot}},
+    andothers = {{et\,al\adddot}},
 }
 \DefineBibliographyStrings{english}{
-	andothers = {{et\,al\adddot}},
+    andothers = {{et\,al\adddot}},
 }
-
-
 
 
 %%%%% Alter Leitfaden. Ggf. Einkommentieren und Bereich hierüber auskommentieren
@@ -222,7 +218,7 @@
 %-----------------------------------
 \usepackage{hyphsubst}
 \HyphSubstIfExists{ngerman-x-latest}{%
-	\HyphSubstLet{ngerman}{ngerman-x-latest}}{}
+    \HyphSubstLet{ngerman}{ngerman-x-latest}}{}
 
 %-----------------------------------
 % Pfad fuer Abbildungen
@@ -239,6 +235,8 @@
 %-----------------------------------
 \usepackage{appendix}
 
+\DeclareMathOperator{\ggd}{ggd}
+
 %-----------------------------------
 % Zeilenabstand 1,5-zeilig
 %-----------------------------------
@@ -251,7 +249,7 @@
 \setlength{\parindent}{0mm}
 \setlength{\parskip}{0.8em plus 0.5em minus 0.3em}
 
-\sloppy					%Abstände variieren
+\sloppy                    %Abstände variieren
 \pagestyle{headings}
 
 %----------------------------------
@@ -284,6 +282,14 @@
 % PDF Meta Daten setzen
 %-----------------------------------
 \usepackage[hyperfootnotes=true]{hyperref}
+
+\makeatletter
+\newcommand{\customlabel}[2]{%
+    \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+    \hypertarget{#1}{#2}
+}
+\makeatother
+
 \usepackage{eurosym}
 \usepackage{color}
 \usepackage[T1]{fontenc} %hyperfootnotes=false deaktiviert die Verlinkung der Fußnote. Ansonsten inkompaibel zum Paket "footmisc"
@@ -294,14 +300,13 @@
 \makeatother
 
 \hypersetup{
-	pdfinfo={
-		Title={\myTitel},
-		Subject={\myStudiengang},
-		Author={\myAutor},
-		Build=1.1
-	},
+    pdfinfo={
+        Title={\myTitel},
+        Subject={\myStudiengang},
+        Author={\myAutor},
+        Build=1.1
+    },
 }
-
 
 
 %-----------------------------------
@@ -321,18 +326,18 @@
 % siehe auch: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
 %-----------------------------------
 \lstset{literate=
-	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
-	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-	{€}{{\EUR}}1 {£}{{\pounds}}1 {„}{{\glqq{}}}1
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\EUR}}1 {£}{{\pounds}}1 {„}{{\glqq{}}}1
 }
 
 %-----------------------------------
@@ -370,27 +375,29 @@
 % Formelverzeichnis
 %-----------------------------------
 
+\usepackage{float}
 \floatstyle{plaintop}
 \restylefloat{table}
 
+%TC:ignore
 %-----------------------------------
 % Start the document here:
 %-----------------------------------
 \begin{document}
 
-\pagenumbering{Roman}								% Seitennumerierung auf römisch umstellen
-\newcolumntype{C}{>{\centering\arraybackslash}X}	% Neuer Tabellen-Spalten-Typ:
+    \pagenumbering{roman}                                % Seitennumerierung auf römisch umstellen
+    \newcolumntype{C}{>{\centering\arraybackslash}X}    % Neuer Tabellen-Spalten-Typ:
 %Zentriert und umbrechbar
 
 %-----------------------------------
 % Textcommands
 %-----------------------------------
-\input{skripte/textcommands}
+    \input{skripte/textcommands}
 
 %-----------------------------------
 % Titlepage
 %-----------------------------------
-\input{kapitel/titelseite}
+    \input{kapitel/titelseite}
 
 %-----------------------------------
 % Vorwort (optional; bei Verwendung beide Zeilen entkommentieren und unter Inhaltsverzeichnis setcounter entsprechend anpassen)
@@ -402,47 +409,32 @@
 % Inhaltsverzeichnis
 %-----------------------------------
 % Um das Tabellen- und Abbbildungsverzeichnis zu de/aktivieren ganz oben in Documentclass schauen
-\setcounter{page}{2}
-\addtocontents{toc}{\protect\enlargethispage{-20mm}}% Die Zeile sorgt dafür, dass das Inhaltsverzeichnisseite auf die zweite Seite gestreckt wird und somit schick aussieht. Das sollte eigentlich automatisch funktionieren. Wer rausfindet wie, kann das gern ändern.
-\setcounter{tocdepth}{4}
-\tableofcontents
-\newpage
+    \setcounter{page}{2}
+    \addtocontents{toc}{\protect\enlargethispage{-20mm}} % Die Zeile sorgt dafür, dass das Inhaltsverzeichnisseite auf die zweite Seite gestreckt wird und somit schick aussieht. Das sollte eigentlich automatisch funktionieren. Wer rausfindet wie, kann das gern ändern.
+    \setcounter{tocdepth}{4}
+    \tableofcontents
+    \newpage
 
 %-----------------------------------
 % Abbildungsverzeichnis
 %-----------------------------------
-\listoffigures
-\newpage
+    \renewcommand{\listfigurename}{\abbildungsverzeichnis}
+    \listoffigures
+    \newpage
 %-----------------------------------
 % Tabellenverzeichnis
 %-----------------------------------
-\listoftables
-\newpage
+    \renewcommand{\listtablename}{\tabellenverzeichnis}
+    \listoftables
+    \newpage
 %-----------------------------------
 % Abkürzungsverzeichnis
 %-----------------------------------
 % Falls das Abkürzungsverzeichnis nicht im Inhaltsverzeichnis angezeigt werden soll
 % dann folgende Zeile auskommentieren.
-\addcontentsline{toc}{section}{\abbreHeadingName}
-\input{abkuerzungen/acronyms}
-\newpage
-
-%-----------------------------------
-% Symbolverzeichnis
-%-----------------------------------
-% In Overleaf führt der Einsatz des Symbolverzeichnisses zu einem Fehler, der aber ignoriert werdne kann
-% Falls das Symbolverzeichnis nicht im Inhaltsverzeichnis angezeigt werden soll
-% dann folgende Zeile auskommentieren.
-\addcontentsline{toc}{section}{\symheadingname}
-\input{skripte/symbolDef}
-\listofsymbols
-\newpage
-
-%-----------------------------------
-% Glossar
-%-----------------------------------
-\printnoidxglossaries
-\newpage
+    \addcontentsline{toc}{section}{\abbreHeadingName}
+    \input{abkuerzungen/acronyms}
+    \newpage
 
 %-----------------------------------
 % Sperrvermerk
@@ -450,87 +442,64 @@
 %\input{kapitel/anhang/sperrvermerk}
 
 %-----------------------------------
+% Glossar
+%-----------------------------------
+
+    \printnoidxglossaries
+    \newpage
+%TC:endignore
+%-----------------------------------
 % Seitennummerierung auf arabisch und ab 1 beginnend umstellen
 %-----------------------------------
-\pagenumbering{arabic}
-\setcounter{page}{1}
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
 
 %-----------------------------------
 % Kapitel / Inhalte
 %-----------------------------------
 % Die Kapitel werden über folgende Datei eingebunden
-\input{skripte/kapitelUebersicht}
+    \input{skripte/kapitelUebersicht}
 
 %-----------------------------------
 % Apendix / Anhang
 %-----------------------------------
-\newpage
-\section*{\AppendixName} %Überschrift "Anhang", ohne Nummerierung
-\addcontentsline{toc}{section}{\AppendixName} %Den Anhang ohne Nummer zum Inhaltsverzeichnis hinzufügen
+%\newpage
+%\section*{\AppendixName} %Überschrift "Anhang", ohne Nummerierung
+%\addcontentsline{toc}{section}{\AppendixName} %Den Anhang ohne Nummer zum Inhaltsverzeichnis hinzufügen
 
-\begin{appendices}
+%\begin{appendices}
 % Nachfolgende Änderungen erfolgten aufgrund von Issue 163
-\makeatletter
-\renewcommand\@seccntformat[1]{\csname the#1\endcsname:\quad}
-\makeatother
-\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} %
-	\renewcommand{\thesection}{\AppendixName\ \arabic{section}}
-	\renewcommand\thesubsection{\AppendixName\ \arabic{section}.\arabic{subsection}}
-	\input{kapitel/anhang/anhang}
-\end{appendices}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+%%\makeatletter
+%\renewcommand\@seccntformat[1]{\csname the#1\endcsname:\quad}
+%\makeatother
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} %
+%	\renewcommand{\thesection}{\AppendixName\ \arabic{section}}
+%	\renewcommand\thesubsection{\AppendixName\ \arabic{section}.\arabic{subsection}}
+%	\input{kapitel/anhang/anhang}
+%\end{appendices}
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 
+%TC:ignore
 %-----------------------------------
 % Literaturverzeichnis
 %-----------------------------------
-\newpage
+    \newpage
 
-% Die folgende Zeile trägt ALLE Werke aus literatur.bib in das
-% Literaturverzeichnis ein, egal ob sie zietiert wurden oder nicht.
-% Der Befehl ist also nur zum Test der Skripte sinnvoll und muss bei echten
-% Arbeiten entfernt werden.
-%\nocite{*}
-
-%\addcontentsline{toc}{section}{Literatur}
-
-% Die folgenden beiden Befehle würden ab dem Literaturverzeichnis wieder eine
-% römische Seitennummerierung nutzen.
-% Das ist nach dem Leitfaden nicht zu tun. Dort steht nur dass 'sämtliche
-% Verzeichnisse VOR dem Textteil' römisch zu nummerieren sind. (vgl. S. 3)
-%\pagenumbering{Roman} %Zähler wieder römisch ausgeben
-%\setcounter{page}{4}  %Zähler manuell hochsetzen
-
-% Ausgabe des Literaturverzeichnisses
-
-% Keine Trennung der Werke im Literaturverzeichnis nach ihrer Art
-% (Online/nicht-Online)
-%\begin{RaggedRight}
-%\printbibliography
-%\end{RaggedRight}
-
-% Alternative Darstellung, die laut Leitfaden genutzt werden sollte.
-% Dazu die Zeilen auskommentieren und folgenden code verwenden:
-
-% Literaturverzeichnis getrennt nach Nicht-Online-Werken und Online-Werken
-% (Internetquellen).
-% Die Option nottype=online nimmt alles, was kein Online-Werk ist.
-% Die Option heading=bibintoc sorgt dafür, dass das Literaturverzeichnis im
-% Inhaltsverzeichnis steht.
-% Es ist übrigens auch möglich mehrere type- bzw. nottype-Optionen anzugeben, um
-% noch weitere Arten von Zusammenfassungen eines Literaturverzeichnisse zu
-% erzeugen.
-% Beispiel: [type=book,type=article]
-\printbibliography[nottype=online,heading=bibintoc,title={\langde{Literaturverzeichnis}\langen{Bibliography}}]
+    \printbibliography[nottype=online,heading=bibintoc,title={Literaturverzeichnis}]
+    \printbibliography[type=online,heading=subbibliography,title={\headingNameInternetSources}]
 
 % neue Seite für Internetquellen-Verzeichnis
-\newpage
+%\newpage
 
-% Laut Leitfaden 2018, S. 14, Fussnote 44 stehen die Internetquellen NICHT im
-% Inhaltsverzeichnis, sondern gehören zum Literaturverzeichnis.
-% Die Option heading=bibintoc würde die Internetquelle als eigenen Eintrag im
-% Inhaltsverzeicnis anzeigen.
-%\printbibliography[type=online,heading=bibintoc,title={\headingNameInternetSources}]
-\printbibliography[type=online,heading=subbibliography,title={\headingNameInternetSources}]
 
-\input{kapitel/anhang/erklaerung}
+%\printbibliography[nottype=online, nottype=standard, nottype = patent,heading=bibintoc,title={Literaturverzeichnis}]
+%\printbibliography[type=online,heading=subbibliography,title={\headingNameInternetSources}]
+%\printbibliography[filter = standards, heading = subbibliography, title = {Standardsverzeichnis}]
+
+    \newpage\renewcommand{\indexname}{Stichwortverzeichnis}
+%\addcontentsline{toc}{section}{Stichwortverzeichnis}
+    \printindex
+
+    \input{kapitel/anhang/erklaerung}
+%TC:endignore
 \end{document}
