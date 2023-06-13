@@ -7,7 +7,7 @@ detex thesis_main.tex > thesis_main.txt
 
 # Removes everything before Einleitung and after Anhang
 BEGINNING="Einleitung"
-ENDING="Anhang"
+ENDING="Literaturverzeichnis"
 while read p; do
   # end txt when end was found
   echo "$p" | grep $ENDING && break
