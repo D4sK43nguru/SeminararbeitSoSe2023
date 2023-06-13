@@ -1,7 +1,6 @@
 {
   "name": "seminararbeit",
   "version": "1.0.1",
-  "dependencies": {},
   "scripts": {
     "prettier": "prettier src/**/*.tex --write && git add . && git commit . --allow-empty -m\":art: Run prettier\"",
     "build": "docker-compose up && git diff-index --quiet HEAD -- && (echo No changes to commit) || (git add thesis_main.pdf thesis_englisch.pdf && git commit thesis_englisch.pdf thesis_main.pdf -m\":white_check_mark: Update PDFs\")",
@@ -11,11 +10,5 @@
     "version": "npm run changelog",
     "postversion": "git checkout main && git merge develop && git push --all && git push --all --tags",
     "changelog": "gitmoji-changelog --group-similar-commits true && git diff-index --quiet HEAD -- && (echo No changes to commit) || (git add -A CHANGELOG.md && git commit CHANGELOG.md -m\":memo: Update changelog\")"
-  },
-  "devDependencies": {
-    "gitmoji-changelog": "^2.3.0",
-    "npm-check-updates": "^16.10.11",
-    "prettier": "^2.8.8",
-    "prettier-plugin-latex": "^1.2.4"
   }
 }

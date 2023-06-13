@@ -5,8 +5,8 @@
 
 
 In der digitalen Welt spielt die \Gls{kryptografie} eine entscheidende Rolle. Sie sichert Informationen durch Ver- und Entschlüsselung, um Vertraulichkeit, Integrität und Authentizität zu gewährleisten.
-\glsdisp{kryptografie}{Kryptografische} \glspl{algorithmus} dienen als grundlegende Bausteine, um Daten in eine unlesbare Form zu bringen und nur autorisierten Empfängern zugänglich zu machen.
-Dieses Kapitel gibt einen Überblick über die Grundlagen der \Gls{kryptografie} und verschiedene Arten von \glspl{algorithmus}, die in Webanwendungen und in der Informationssicherheit verwendet werden.
+\glsdisp{kryptografie}{kryptografische} \glspl{algorithmus} dienen als grundlegende Bausteine, um Daten in eine unlesbare Form zu bringen und nur autorisierten Empfängern zugänglich zu machen.
+Dieser Abschnitt gibt einen Überblick über die Grundlagen der \Gls{kryptografie} und verschiedene Arten von \glspl{algorithmus}, die in Webanwendungen und in der Informationssicherheit verwendet werden.
 Es vermittelt die Prinzipien und Konzepte, um das Verständnis für die Bedeutung und den Einsatz von \Gls{kryptografie} in der vernetzten Welt zu stärken.
 
 
@@ -18,7 +18,7 @@ Dies ermöglicht eine einfache und schnelle Kommunikation, führt jedoch dazu, d
     \includegraphics[width=1\linewidth]{abbildungen/symmetricEncoding}
     \centering
     \caption[
-        Schaubild für eine symmetrische Verschlüsselung]{Schaubild für eine symmetrische Verschlüsselung\footnotemark}
+        Schaubild einer symmetrischen Verschlüsselung]{Schaubild einer symmetrischen Verschlüsselung\footnotemark}
     \label{fig:symmetricalEncoding}
 \end{figure}
 \footnotetext{\cite{Chapter211:online}}
@@ -43,7 +43,10 @@ Dabei muss ausschließlich der \gls{privateKey} geheim gehalten werden.
 \ac{RSA} ist das erste entwickelte \gls{publicKeyEncoding} und besitzt auch heute noch eine große Relevanz.\autocite[\pagef~168]{buchmann-einfuhrung-2016}
 
 \paragraph[Schlüsselerzeugung]{Schlüsselerzeugung}\label{par:schluesselerzeugung}
-Das generieren des \ac{RSA}-Schlüsselpaar benötigt $6$ verschiedene Zahlen. Der Sicherheitsparameter $k \in \mathbb{N}$ gibt die Größe des Produkts der beiden gewählten Primzahlen für die Verschlüsselung an. Zwei statistisch unabhängige, zufällige Primzahlen $p$ und $q$ werden ausgewählt, um den \ac{RSA}-Modul n zu bilden. Dieser Wert wird später für Ver- und Entschlüsselung verwendet und berechnet sich als $n = p*q$.
+Das generieren des \ac{RSA}-Schlüsselpaars benötigt einige verschiedene Zahlen.
+Der Sicherheitsparameter $k \in \mathbb{N}$ gibt die Größe des Produkts der beiden gewählten Primzahlen für die Verschlüsselung an.
+Zwei statistisch unabhängige, zufällige Primzahlen $p$ und $q$ werden ausgewählt, um den \ac{RSA}-Modul n zu bilden.
+Dieser Wert wird später für Ver- und Entschlüsselung verwendet und berechnet sich als $n = p*q$.
 
 Zusätzlich wird eine natürliche, ungerade Zahl $e$ gewählt, für die
 
@@ -65,31 +68,32 @@ Dafür ist es üblich, dass $k$ als eine gerade, mindestens $2^{10}$\nonbreakdas
 
 \paragraph{Verschlüsselung}\label{par:verschluesselung}
 Um mit dem \ac{RSA} \gls{algorithmus} eine Nachricht zu verschlüsseln, wird der \gls{publicKey} $(e, n)$ benötigt.
-Aus einem \gls{klartext} \(m \in \mathbb{Z}_m\) mit \(\mathbb{Z}_m\) als \ac{RSA} \gls{klartextraum} erhält man den verschlüsselten Text $c$ mit
+Aus einem \gls{klartext} \(m \in \mathbb{Z}_m\) mit \(\mathbb{Z}_m\) als \ac{RSA}\nonbreakdash\gls{klartextraum} erhält man den verschlüsselten Text $c$ mit
 \begin{equation}
     c = m^e\mod n\label{eq:equation4}
 \end{equation}
 $m$ kann wieder rekonstruiert werden mit
 \begin{equation}
-    mu = c^d \mod n\label{eq:equation5}
+    m = c^d \mod n\label{eq:equation5}
 \end{equation}
-wobei $c$ der zuvor erhaltene verschlüsselte Text, $d$ der \gls{privateKey} und $n$ ist ein Teil des \glsdisp{publicKey}{public Keys} ist.\autocite[\pagef~6]{rsa-encryption}
+wobei $c$ der zuvor erhaltene verschlüsselte Text, $d$ der \gls{privateKey} und $n$ ein Teil des \glsdisp{publicKey}{public Keys} ist.\autocite[\pagef~6]{rsa-encryption}
 
 \subsubsection[Hashfunktionen]{Hashfunktionen — \acf{SHA}}\label{subsubsec:hash-funktion}
-Im Grundlegenden sind Hashfunktionen \glspl{algorithmus}, die einen Text beliebiger Länge zu einem neuen Text mit vorgegebener Länge komprimieren\autocite[\pagef~15]{anal-des-hash-function-2003} und werden mithilfe von \sog \glspl{compressfunc} generiert.
+Im Grundlegenden sind Hashfunktionen \glspl{algorithmus}, die einen Text beliebiger Länge zu einem neuen Text mit vorgegebener Länge komprimieren\autocite[\pagef~15]{anal-des-hash-function-2003}.
+Sie werden mithilfe von \sog \glspl{compressfunc} generiert.
 
-Damit \glsdisp{hashfunc}{Hash}- und \glspl{compressfunc} in der \gls{kryptografie} zur Authentifizierung, wie \zb    zur Speicherung von Passwörtern genutzt werden können, müssen noch ein paar Kriterien erfüllt werden.
+Damit \glsdisp{hashfunc}{Hash}- und \glspl{compressfunc} in der \gls{kryptografie} zur Authentifizierung, wie \zb zur Speicherung von Passwörtern genutzt werden können, müssen sie noch verschiedene Kriterien erfüllen.
 Diese werden folgend erklärt:
 
 \begin{definition}[label=def:hashfunktion]
-    Eine Einweghashfunktion ist eine Funktion $h$, die die folgenden Bedingungen erfüllt\autocite[\vglf][\pagef~17]{anal-des-hash-function-2003}:
+    Eine Einweghashfunktion ist eine Funktion $h$, die folgende Bedingungen erfüllt\autocite[\vglf][\pagef~17]{anal-des-hash-function-2003}:
     \begin{enumerate}
-        \item Die Beschreibung von $h$ muss öffentlich bekannt sein und sollte keine geheimen Informationen erfordern (Erweiterung des Kerckhoff'schen Prinzips\autocite[]{petitcolas-information-nodate}).
+        \item Die Beschreibung von $h$ muss öffentlich bekannt sein und sollte keine geheimen Informationen erfordern (Erweiterung des Kerckhoff\textquotesingle schen Prinzips\autocite[]{petitcolas-information-nodate}).
         \item Das Argument $X$ kann von beliebiger Länge sein und das Ergebnis $h(X)$ hat eine feste Länge von $n$-Bits (mit $n \geq64$).
         \item Für gegebene $h$ und $X$, muss die Berechnung von $h(X)$ einfach\footnotemark sein.
         \item Die Hashfunktion muss in dem Sinne monodirektional sein, dass es bei einem $Y$ im Abbild von $h$ schwer\footnotemark[\value{footnote}] ist, aus einer Nachricht einen bestimmten \gls{hashwert} zu generieren, und dass es schwer\footnotemark[\value{footnote}] ist, zwei Nachrichten zu finden, die den gleichen \gls{hashwert} teilen.
     \end{enumerate}
-    \footnotetext{\enquote{einfach} und \enquote{schwer} sind hier im Kryptografischen Sinne zu verstehen und beziehen sich auf das Zusammenspiel von Laufzeit und Rechenaufwand eines \gls{algorithmus}}
+    \footnotetext{\enquote{einfach} und \enquote{schwer} sind hier im kryptografischen Sinne zu verstehen und beziehen sich auf das Zusammenspiel von Laufzeit und Rechenaufwand eines \gls{algorithmus}\textquotesingle}
 \end{definition}
 
 \autoref{def:hashfunktion} verwendet die Begriffe \enquote{einfach} und \enquote{schwer}, da heutzutage noch keine \glspl{algorithmus} bekannt sind, die eine \glsdisp{hashfunc}{Einweghashfunktion} schnell genug umkehren können.\autocite[\pagef~234]{buchmann-einfuhrung-2016}

@@ -1,27 +1,30 @@
 \newpage
 \section[Anwendung von Kryptografie in Webanwendungen]{Anwendung von \gls{kryptografie} in Webanwendungen}\label{sec:anwendung_von_kryptografie_in_webanwendungen}
-Webanwendungen spielen in der heutigen vernetzten Welt eine bedeutende Rolle bei der Bereitstellung von Diensten und dem Austausch sensibler Informationen. 
+Webanwendungen spielen in der heutigen vernetzten Welt eine bedeutende Rolle bei der Bereitstellung von Diensten und dem Austausch sensibler Informationen.
 
-Dieses Kapitel behandelt den Einsatz von \Gls{kryptografie} in Webanwendungen, um die Sicherheitsanforderungen hinsichtlich \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfügbarkeit} zu erfüllen. Es werden die grundlegenden Sicherheitsanforderungen an Webanwendungen erläutert und gezeigt, wie \Gls{kryptografie} genutzt werden kann, um sensible Daten vor unberechtigtem Zugriff zu schützen. 
+Dieser Abschnitt behandelt den Einsatz von \Gls{kryptografie} in Webanwendungen, um die Sicherheitsanforderungen hinsichtlich \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfügbarkeit} zu erfüllen.
+Es werden die grundlegenden Sicherheitsanforderungen an Webanwendungen erläutert und gezeigt, wie \Gls{kryptografie} genutzt werden kann, um sensible Daten vor unberechtigtem Zugriff zu schützen.
 
-Ein zentraler Aspekt der Sicherheit von Webanwendungen ist die Verschlüsselung der Datenübertragung. Daher wird der nächste Abschnitt sich auf das \ac{HTTPS}\nonbreakdash Protokoll und die \ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung konzentrieren. 
+Ein zentraler Aspekt der Sicherheit von Webanwendungen ist die Verschlüsselung der Datenübertragung.
+Daher wird sich der nächste Abschnitt auf das \ac{HTTPS}\nonbreakdash Protokoll und die \ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung konzentrieren.
 
-Die Sicherheit von Passwörtern wird ebenfalls behandelt, indem Methoden wie Salted Hashing und Key Derivation Functions vorgestellt werden, um Passwörter sicher zu speichern. Darüber hinaus werden verschiedene Verfahren und Protokolle zur \gls{authentifizierung} und \gls{autorisierung} in Webanwendungen erläutert, wie \zb tokenbasierte Verfahren und OAuth, um die Identitätsprüfung und Zugriffskontrolle zu gewährleisten. 
+Die Sicherheit von Passwörtern wird ebenfalls behandelt, indem Methoden wie Salted Hashing und Key Derivation Functions vorgestellt werden, um Passwörter sicher zu speichern.
+Darüber hinaus werden verschiedene Verfahren und Protokolle zur \gls{authentifizierung} und \gls{autorisierung} in Webanwendungen erläutert, wie \zb tokenbasierte Verfahren und OAuth, um die Identitätsprüfung und Zugriffskontrolle zu gewährleisten.
 
-\subsection[Sicherheitsanforderungen an Webanwendungen]{Sicherheitsanforderungen an Webanwendungen — \gls{vertraulichkeit}, \gls{integritaet}, \gls{verfügbarkeit}}
+\subsection[Sicherheitsanforderungen an Webanwendungen]{Sicherheitsanforderungen an Webanwendungen — \gls{vertraulichkeit}, \gls{integritaet}, \gls{verfügbarkeit}}\label{subsec:sicherheitsanforderungen-an-webanwendungen}
 
 Das \ac{BSI} listet für die Webanwendung drei primäre Schutzziele
 \begin{samepage}
-\begin{itemize}
-    \item \gls{vertraulichkeit},
-    \item \gls{integritaet} sowie
-    \item \gls{verfügbarkeit}
-\end{itemize}
+    \begin{itemize}
+        \item \gls{vertraulichkeit},
+        \item \gls{integritaet} sowie
+        \item \gls{verfügbarkeit}
+    \end{itemize}
 \end{samepage}
-von denen zudem abgeleitet u.a. die beiden sekundäre Schutzziele
+von denen zudem abgeleitet \ua die beiden sekundäre Schutzziele
 \begin{samepage}
     \begin{itemize}
-        \item \gls{authentizität} und 
+        \item \gls{authentizität} und
         \item \gls{nonAbstreitbarkeit}
     \end{itemize}
 \end{samepage}
@@ -31,9 +34,12 @@ Das Zusammenarbeiten der Schutzziele, insbesondere der drei primären Schutzziel
 
 \subsection[Verschlüsselung von Datenübertragungen]{Verschlüsselung von Datenübertragungen — \ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung, \ac{HTTPS}\nonbreakdash Protokoll}\label{subsec:verschluesselung_von_datenuebertragungen}
 
-\subsubsection[Digitale Zertifikate]{Digitale Zertifikate — \ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung}\label{subsubsec:digitale-signaturen-und-zertifikate}
+\subsubsection[Digitale Signatur - SSL/TLS-Verschlüsselung]{Digitale Signatur — \ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung}\label{subsubsec:digitale-signaturen-und-zertifikate}
 
-Eine digitale Signatur ist ein \gls{publicKeyEncoding}, bei dem einer Nachricht ein einzigartiger Schlüssel angehangen wird, welcher generiert wird, indem der \gls{hashwert} einer Nachricht mit dem \gls{privateKey} des Empfängers verschlüsselt wird\autocite[\pagef~297]{6391693}.
+\paragraph{Digitale Signatur}\label{par:digitale-signatur}
+
+Eine digitale Signatur ist ein \gls{publicKeyEncoding}, bei dem einer Nachricht ein einzigartiger Schlüssel angehangen wird.
+Dieser wird daraus generiert, dass der \gls{hashwert} einer Nachricht mit dem \gls{privateKey} des Absenders verschlüsselt wird\autocite[\pagef~297]{6391693}.
 Der \gls{klartext}, die Signatur und der \gls{publicKey} des Senders werden verpackt und mit dem \gls{publicKey} des Empfängers zusammen verschlüsselt.
 Diese signierte und verschlüsselte Nachricht wird anschließend übermittelt\autocite[\pagef~297]{6391693}.
 
@@ -41,93 +47,99 @@ Um die Nachricht zu entschlüsseln wird, wie bei anderen \gls{publicKeyEncoding}
 Anschließend wird der \gls{klartext} der Nachricht \glsdisp{hashfunc}{gehashed} und die Signatur mit dem \gls{publicKey} des Senders entschlüsselt.
 Diese beiden Werte werden auf Gleichartigkeit verglichen, in welchem Fall die Nachricht verifiziert ist\autocite[\pagef~297]{6391693}.
 
+\paragraph[SSL/TLS-Verschlüsselung]{\ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung}
+
 Ein wichtiges Werkzeug der sicheren Webentwicklung sind \ac{SSL}\nonbreakdash  und \ac{TLS}\nonbreakdash Zertifikate (\autoref{subsubsec:digitale-signaturen-und-zertifikate}).
-\ac{TLS}, als Nachfolger für \ac{SSL}, nutzt das gleiche \gls{X509}\nonbreakdash Zertifikat.\footnote{Aus Gründen der Übersichtlichkeit und der Ähnlichkeit der beiden Zertifikate, wird im Folgenden \ac{SSL}/\ac{TLS} vereinfachend als \ac{TLS} bezeichnet}  
+\ac{TLS}, als Nachfolger für \ac{SSL}, nutzt das gleiche \gls{X509}\nonbreakdash Zertifikat.\footnote{Aus Gründen der Übersichtlichkeit und der Ähnlichkeit der beiden Zertifikate, wird im Folgenden \ac{SSL}/\ac{TLS} vereinfachend als \ac{TLS} bezeichnet}
 Über \ac{TLS} kann ein \gls{client} überprüfen, ob das Zertifikat des angefragten \glspl{server} von einer vertrauten Autorität ausgestellt wurde oder nicht, indem die  \gls{X509}\nonbreakdash Zertifikate verifiziert werden\autocite[\vglf][\pagef~1]{zhang-analysis-2014} und bietet somit eine \enquote{externe Überprüfung durch einen vertrauenswürdigen Dritten}.\autocite[Grund № 3]{CloudfareWarumHTTPS:online}
 
-Das \ac{TLS}\nonbreakdash Protokoll besteht selbst aus weiteren Unterprotokollen, die sich gegenseitig unterstützen und aufeinander aufbauen. 
+Das \ac{TLS}\nonbreakdash Protokoll besteht selbst aus weiteren Unterprotokollen, die sich gegenseitig unterstützen und aufeinander aufbauen.
 
-\phantomsection 
+\phantomsection
 \label{par:tls_handshake_protocol}
-Eines der \ac{TLS}\nonbreakdash Unterprotokolle ist das \ac{TLS}\nonbreakdash Handshake\nonbreakdash Protokoll, dessen Verlauf in \autoref{fig:ssl-tls-handshake}\autocite[Aus][\pagef 2]{SslTlsFingerprint:2015} dargestellt wird. 
+Eines der \ac{TLS}\nonbreakdash Unterprotokolle ist das \ac{TLS}\nonbreakdash Handshake\nonbreakdash Protokoll, dessen Verlauf in \autoref{fig:ssl-tls-handshake}\autocite[Aus][\pagef 2]{SslTlsFingerprint:2015} dargestellt wird.
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=1\linewidth]{abbildungen/ssl-tls-handshake}
     \caption[Darstellung eines SSL/TLS-Handshakes]{Darstellung eines \ac{TLS}\nonbreakdash Handshakes\footnotemark}
     \label{fig:ssl-tls-handshake}
-\end{figure}
-\footnotetext{\cite[Aus][\pagef 3]{SslTlsFingerprint:2015}}     
+\end{figure}\ \footnotetext{\cite[Aus][\pagef 3]{SslTlsFingerprint:2015}}
 
-Nachdem der \gls{client} bei Verbindungsaufbau dem \gls{server} eine Nachricht schickt, antwortet \gls{server} mit einer Nachricht und seinem Zertifikat. Dies wird vom \gls{client} verifiziert, woraufhin er seine Schlüssel und die Daten seines Ciphers, also unter anderem den genutzten \glsdisp{algorithmus}{Verschlüsselungsalgorithmus} übermittelt. Der \gls{server} reagiert damit,seine Cipherdaten zu übermitteln, wodurch der \gls{handshake} abgeschlossen ist und die Anwendungsdaten gesendet werden.
+Nachdem der \gls{client} bei Verbindungsaufbau dem \gls{server} eine Nachricht schickt, antwortet \gls{server} mit einer Nachricht und seinem Zertifikat.
+Dies wird vom \gls{client} verifiziert, woraufhin er seine Schlüssel und die Daten seines Ciphers, also unter anderem den genutzten \glsdisp{algorithmus}{Verschlüsselungsalgorithmus} übermittelt.
+Der \gls{server} reagiert damit, seine Cipherdaten zu übermitteln, wodurch der \gls{handshake} abgeschlossen ist und die Anwendungsdaten gesendet werden.
 
 Mithilfe dieser Handshakes wird ausgehandelt, welche \glsdisp{kryptografie}{kryptografischen} \glspl{algorithmus} und Schlüssel verwendet werden und die Kommunikationspartner identifizieren und \glsdisp{authentifizierung}{authentifizieren} sich, hierbei ist es üblich, dass sich nur der \gls{server} bei dem \gls{client} \glsdisp{authentifizierung}{authentifiziert}, was als one-way authentication bezeichnet wird\autocite[\vglf][\pagef 191]{morrissey-tls-2010}.
 
 \subsubsection[HTTPS-Protocol]{\ac{HTTPS}\nonbreakdash Protokoll}\label{subsubsec:HTTPS-Protocol}
 
-Wie in \autoref{subsubsec:digitale-signaturen-und-zertifikate} bereits dargestellt, sorgt \ac{TLS} dafür, dass eine Anwendung oder ein Nutzer verifizieren kann, dass die angefragten Daten von dem Absender stammen, den man angefragt hat. 
+Wie in \autoref{subsubsec:digitale-signaturen-und-zertifikate} bereits dargestellt, sorgt \ac{TLS} dafür, dass eine Anwendung oder ein Nutzer verifizieren kann, dass die angefragten Daten von dem Absender stammen, den man angefragt hat.
 Dies trägt besondere Relevanz bei Webanwendungen, da es sonst möglich ist, unter falschem Namen schädliche Software in ein System einzuspeisen.
 Das \ac{HTTP} überträgt Daten über das \ac{TCP}, wohingegen \ac{HTTPS} die Daten verschlüsselt über das \ac{TLS}\nonbreakdash Protokoll verschickt \autocites{2674005.2674991:online}{RFC5246T44:online}.
 
-Eine \ac{HTTPS}\nonbreakdash Verschlüsselung einer Internetseite sorgt dafür, dass bei der Übertragung Daten, besonders vertrauliche wie \zb Bankkontoinformationen, nicht von dritten eingesehen werden können\autocite[\vglf][]{CloudfareWarumHTTPS:online}. 
+Eine \ac{HTTPS}\nonbreakdash Verschlüsselung einer Internetseite sorgt dafür, dass bei der Übertragung Daten, besonders vertrauliche wie \zb Bankkontoinformationen, nicht von dritten eingesehen werden können\autocite[\vglf][]{CloudfareWarumHTTPS:online}.
 Zudem lässt das \ac{TLS}\nonbreakdash Zertifikat den Nutzer einsehen, dass der Absender der Daten das angefragte System ist, wie in \autoref{subsubsec:digitale-signaturen-und-zertifikate} dargestellt.
 Dadurch wird verhindert, dass ein Angreifer einem Nutzer eine identisch aussehende Internetseite bereitstellt und dadurch die Nutzer glauben lässt, sie seien auf der gewünschten Internetseite\autocite[\vglf][]{CloudfareWarumHTTPS:online}.
 
 \subsection[Passwortsicherheit]{Passwortsicherheit — Schlüsselableitung, Salted- \& Peppered-Hashing}\label{subsec:passwortsicherheit}
 
 \subsubsection{Schlüsselableitung}\label{subsubsec:key-derivation-function}
-Als \nameref{subsubsec:key-derivation-function} wird in der \gls{kryptografie} eine Operation bezeichnet, welche aus einem Schlüssel oder einem Passwort verschiedene andere Schlüsselwerte generiert.\autocite[\vglf][\pagef 3]{NIST:800132} Für diese Opretaion gibt es verschieden Möglichkeiten, zwei häufig angewandte sind Salted\nonbreakdash (\autoref{subsubsec:salted-hashing}) und Peppered\nonbreakdash Hashing (\autoref{subsubsec:peppered-hashing}), \bzw das kombinieren dieser Verfahren. Der so generierte Schlüssel wird \ac{MC} gennant.
-
+Als~\nameref{subsubsec:key-derivation-function} wird in der \gls{kryptografie} eine Operation bezeichnet, welche aus einem Schlüssel oder einem Passwort verschiedene andere Schlüsselwerte generiert.\autocite[\vglf][\pagef 3]{NIST:800132}
+Für diese Operation gibt es verschieden Möglichkeiten, zwei häufig angewandte sind Salted\nonbreakdash\ (\autoref{subsubsec:salted-hashing}) und Peppered\nonbreakdash Hashing (\autoref{subsubsec:peppered-hashing}), \bzw das kombinieren dieser Verfahren.
+Der so generierte Schlüssel wird \ac{MC} gennant.
 
 \subsubsection{Salted Hashing}\label{subsubsec:salted-hashing}
-Als Salt wird in der \gls{kryptografie} ein zufälliger String bezeichnet, der einem zu verschlüsselnden \gls{klartext} vor dem \glsdisp{hashfunc}{Hashprozess} angehangen wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}. 
+Als Salt wird in der \gls{kryptografie} ein zufälliger String bezeichnet, der einem zu verschlüsselnden \gls{klartext} vor dem \glsdisp{hashfunc}{Hashprozess} angehangen wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}.
 Dabei wird für jede Zeile der Datenbank ein eigener Salt generiert und in der Datenbank gespeichert.
-Dies verhindert \uaol, dass für zwei Datensätze mit identischem \gls{klartext} der gleiche \gls{hashwert} in der Datenbank gespeichert wird.    
+Dies verhindert \uaol, dass für zwei Datensätze mit identischem \gls{klartext} der gleiche \gls{hashwert} in der Datenbank gespeichert wird.
 
-Dadurch werden \glspl{Rainbow-Table} für die Datenbank überflüssig, da jeder einzelne Eintrag eine \gls{Rainbow-Table} benötigt und nicht nur die Datenbank als ganzes. \autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}
+Dadurch werden \glspl{Rainbow-Table} für die Datenbank überflüssig, da jeder einzelne Eintrag eine \gls{Rainbow-Table} benötigt und nicht nur die Datenbank als ganzes.~\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}
 
-Für eine ausreichende Sicherheit muss ein Salt zwei Anforderungen erfüllen. 
+Für eine ausreichende Sicherheit muss ein Salt zwei Anforderungen erfüllen.
 Einzigartigkeit wurde weiter oben bereits aufgeführt.
 Zudem wird der Datensatz sicherer, umso länger der Salt ist.
-Der \ac{NIST}\nonbreakdash Standard für \nameref{subsubsec:key-derivation-function} sieht dabei vor, dass der \ac{MC}, mindestens eine Länge von 112 Bits haben soll.\autocite[\vglf][\pagef 6]{NIST:800132}
+Der \ac{NIST}\nonbreakdash Standard für\ \nameref{subsubsec:key-derivation-function} sieht dabei vor, dass der \ac{MC}, mindestens eine Länge von 112 Bits haben soll.\autocite[\vglf][\pagef 6]{NIST:800132}
 
 \subsubsection{Peppered Hashing}\label{subsubsec:peppered-hashing}
 
-Analog zum \nameref{subsubsec:salted-hashing} (\autoref{subsubsec:salted-hashing}) gibt es die Sicherungsmethode des Pepper, \bzw des \nameref{subsubsec:peppered-hashing}.
+Analog zum\ \nameref{subsubsec:salted-hashing} (\autoref{subsubsec:salted-hashing}) gibt es die Sicherungsmethode des Pepper, \bzw des\ \nameref{subsubsec:peppered-hashing}.
 
-Bei diesem wird, wie beim \nameref{subsubsec:salted-hashing} auch, ein zufällig generierter String an den \gls{klartext} angehangen, bevor der \glsdisp{algorithmus}{Hashalgorithmus} durchgeführt wird.
-Dieser String wird einmalig bei der Einrichtung des \glspl{server} festgelegt und anschließend geheimgehalten\autocite[\vglf][]{Securing39:online}. Auch dieses Verfahren schützt vor einer möglichen \gls{sqlInject}.
+Bei diesem wird, wie beim\ \nameref{subsubsec:salted-hashing} auch, ein zufällig generierter String an den \gls{klartext} angehangen, bevor der \glsdisp{algorithmus}{Hashalgorithmus} durchgeführt wird.
+Dieser String wird einmalig bei der Einrichtung des \glspl{server} festgelegt und anschließend geheimgehalten\autocite[\vglf][]{Securing39:online}.
+Auch dieses Verfahren schützt vor einer möglichen \gls{sqlInject}.
 Gleichermaßen gibt es beim\nameref{subsubsec:peppered-hashing} keine festgelegte Länge, welche der Pepper aufweisen sollte, es empfiehlt sich jedoch auch hier, einen möglichst langen Wert zu nehmen.
 
 
 \subsection[Authentifizierung und Autorisierung]{Authentifizierung und Autorisierung — Token-Verfahren, OAuth}\label{subsec:authenticationAuthorization}
-Um Datensicherheit zu gewährleisten, \bzw Datenzugriff zu regulieren, werden in Webanwendungen zwei Konzepte Verfolgt: \gls{authentifizierung} und \gls{autorisierung}. 
+Um Datensicherheit zu gewährleisten, \bzw Datenzugriff zu regulieren, werden in Webanwendungen zwei Konzepte verfolgt: \gls{authentifizierung} und \gls{autorisierung}.
 
-\gls{autorisierung} befasst sich mit der Zugriffskontrolle darüber, welche Geräte oder Nutzer welche Daten lesen und/oder schreiben, Programme ausführen oder Akteure kontrollieren können\autocite[\vglf][\pagef 28]{Auth:2017}, oder diesen Zugriff für \zb \gls{malware} zu entfernen.\autocite[\vglf][\pagef 28]{Auth:2017}
+\gls{autorisierung} befasst sich mit der Zugriffskontrolle darüber, welche Geräte oder Nutzer welche Daten lesen und/oder schreiben, Programme ausführen oder Akteure kontrollieren können\autocite[\vglf][\pagef 28]{Auth:2017}, oder diesen Zugriff \zb wegen \gls{malware} zu entfernen.\autocite[\vglf][\pagef 28]{Auth:2017}
 
-Demgegenüber bezeichnet \gls{authentifizierung} den Prozess, einen \gls{client}, Gerät oder Mensch, zu identifizieren und ist eine Grundvoraussetzung für \glspl{autorisierung}, da in den meisten Fällen \gls{autorisierung} ohne eine zuvorgehende \gls{authentifizierung} nicht möglich ist.\autocite[\vglf][\pagef 28]{Auth:2017}
-Häufig genutzte Methoden zur \gls{authentifizierung} sind die zuvor behandelten digitalen Zertifikate (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), das \nameref{subsubsec:HTTPS-Protocol} (\autoref{subsubsec:HTTPS-Protocol}), sowie \nameref{subsubsec:key-derivation-function} (\autoref{subsubsec:key-derivation-function}). Diese werden genutzt, um das Vertrauen zwischen dem \gls{client} und der Anwendung herzustellen.\autocite[\vglf][\pagef 28]{Auth:2017}
+Demgegenüber bezeichnet \gls{authentifizierung} den Prozess, einen \gls{client}, Gerät oder Mensch, zu identifizieren und ist eine Grundvoraussetzung für \glspl{autorisierung}, da in den meisten Fällen \gls{autorisierung} ohne eine zuvor gehende \gls{authentifizierung} nicht möglich ist.\autocite[\vglf][\pagef 28]{Auth:2017}
+Häufig genutzte Methoden zur \gls{authentifizierung} sind die zuvor behandelten digitalen Zertifikate (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), das\ \nameref{subsubsec:HTTPS-Protocol} (\autoref{subsubsec:HTTPS-Protocol}), sowie\ \nameref{subsubsec:key-derivation-function} (\autoref{subsubsec:key-derivation-function}).
+Diese werden genutzt, um das Vertrauen zwischen dem \gls{client} und der Anwendung herzustellen.\autocite[\vglf][\pagef 28]{Auth:2017}
 
-\subsubsection[Token-Verfahren]{Access Token}\label{subsubsec:access-token}
-Eine häufig genutzte Art, die \gls{autorisierung} eines \glspl{client} zu prüfen ist es, einen \nameref{subsubsec:access-token} zu generieren.
-Diese bestehen üblicherweise aus drei Schlüssellementen, 
+\subsubsection[Access Token]{Access Token}\label{subsubsec:access-token}
+Eine häufig genutzte Art, die \gls{autorisierung} eines \glspl{client} zu prüfen ist es, einen\ \nameref{subsubsec:access-token} zu generieren.
+Diese bestehen üblicherweise aus drei Schlüsselelementen,
 \begin{itemize}
     \item dem Header, mit Daten über die Art des Tokens und den \gls{algorithmus}, mit dem dieser generiert wurde,
-    \item der Payload, welche die Informationen über den \gls{client} beinhält, darunter \ua die Berechtigungen und Ablaufdaten, sowie 
+    \item der Payload, welche die Informationen über den \gls{client} beinhält, darunter \ua die Berechtigungen und Ablaufdaten, sowie
     \item die Signatur, ein Zertifikat (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), das die Echtheit des Tokens garantiert;
 \end{itemize}\label{itm:TokenElemente}
 zusätzlich können weitere Elemente wie \zb Metadaten angefügt sein, um fallspezifische Anforderungen zu erfüllen.\autocite[\vglf][]{AccessTo39:online}
 
-Eine häufige Variante von \nameref{subsubsec:access-token} ist der \ac{JWT}, der aufgrund seiner geringen Speichergröße besonders beliebt ist.\autocite[\vglf][\pagef 4]{rfc7519} Der \ac{JWT} besteht dabei aus den oben beschriebenen Elementen, die, bevor sie mit einem '.'   zusammengefügt werden, mit einem \gls{base64}\nonbreakdash \gls{algorithmus} verschlüsselt und komprimiert werden.\autocite[\vglf][\pagef 5]{rfc7519}
+Eine häufige Variante von\ \nameref{subsubsec:access-token} ist der \ac{JWT}, der aufgrund seiner geringen Speichergröße besonders beliebt ist.\autocite[\vglf][\pagef 4]{rfc7519} Der \ac{JWT} besteht dabei aus den oben beschriebenen Elementen, die, bevor sie mit einem `.' zusammengefügt werden, mit einem \gls{base64}\nonbreakdash \gls{algorithmus} verschlüsselt und komprimiert werden.\autocite[\vglf][\pagef 5]{rfc7519}
 
 Ein Minimalcodebeispiel um in der Programmiersprache \ac{JS} einen \ac{JWT} zu generieren, sieht wie folgt aus
 
-\lstinputlisting[language = JavaScript, caption = {Beispielskript zur Generierung eines \ac{JWT}}]{./Quellcode/jwt.js}\label{listing:JWT}
+\lstinputlisting[language = JavaScript, caption = {Beispielskript zur Generierung eines \ac{JWT}},label={lst:jwt-generation}]{./Quellcode/jwt.js}
 
 Hierbei stellt \lstinline!secret! den \gls{privateKey} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), \lstinline!base64urlEncoding()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu verschlüsseln und \lstinline!HMAC_SHA256()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
 
 Dabei wird der Token
-\begin{lstlisting}[language = JavaScript]
+\begin{lstlisting}[language = JavaScript,label={lst:jwt}]
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 \end{lstlisting}
 generiert.
@@ -141,67 +153,66 @@ Das OAuth Protokoll verwendet die folgenden 6 Elemente,
     \item einem Ressourceninhaber als die Entität, die die Information, für die der \gls{client} Zugriff anfragt,
     \item  einen Ressourcen\glsdisp{server}{server} als den Service, der den Zugriff zu den angefragten Informationen vergibt,
     \item einen \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server}, der die Echtheit der Zertifikate des Ressourceninhabers verifiziert und die Überprüfungen für die \gls{autorisierung} durchführt,
-    \item einen \nameref{subsubsec:access-token} (\autoref{subsubsec:access-token}), der von dem \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} generiert wird und dem \gls{client} den Zugriff von dem Ressourcen\glsdisp{server}{server} anfragen lässt und
+    \item einen\ \nameref{subsubsec:access-token} (\autoref{subsubsec:access-token}), der von dem \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} generiert wird und dem \gls{client} den Zugriff von dem Ressourcen\glsdisp{server}{server} anfragen lässt und
     \item einen \glsdisp{authentifizierung}{Authentifizierungscode}, den der \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} während der Anfrage überprüfen kann,
 \end{itemize}
 um Zugriff anzufragen, \bzw ihn zu überprüfen.\autocite[\vglf][\pagef  75]{OAuthWebProtocol:2012}
 
-\autoref{fig:oauth_protocol_flow}\autocite[\vglf][\pagef 7, Abbildung 1]{rfc6749}  stellt die Kommunikation zwischen dem \gls{client} und der Service\nonbreakdash\ac{API} dar. 
+\autoref{fig:oauth_protocol_flow}\autocite[\vglf][\pagef 7, Abbildung 1]{rfc6749} stellt die Kommunikation zwischen dem \gls{client} und der Service\nonbreakdash\ac{API} dar.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\linewidth]{abbildungen/OAuth_abstract_flow}
     \caption[Kommunikationsverlauf im OAuth-Protokoll]{Kommunikationsverlauf im OAuth-Protokoll\footnotemark}
     \label{fig:oauth_protocol_flow}
-\end{figure}
-\footnotetext{\cite[\vglf][\pagef 7, Abbildung 1]{rfc6749}}
-Zunächst stellt \gls{client} eine Anfrage an den Ressourceninhaber  nach einer\gls{autorisierung}. Wenn diese dem \gls{client} bestätigt wird, stellt dieser mit der Bestätigung eine Anfrage nach einem \nameref{subsubsec:access-token} an den \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server}. Mit dem \nameref{subsubsec:access-token} stellt der \gls{client} zuletzt   eine Anfrage an den Ressourcen\glsdisp{server}{server} und erhält von diesem die gewünschten Ressourcen.
+\end{figure}\ \footnotetext{\cite[\vglf][\pagef 7, Abbildung 1]{rfc6749}}
+Zunächst stellt der \gls{client} eine Anfrage an den Ressourceninhaber nach einer\gls{autorisierung}.
+Wenn diese dem \gls{client} bestätigt wird, stellt dieser mit der Bestätigung eine Anfrage nach einem\ \nameref{subsubsec:access-token} an den \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server}.
+Mit dem\ \nameref{subsubsec:access-token} stellt der \gls{client} zuletzt eine Anfrage an den Ressourcen\glsdisp{server}{server} und erhält von diesem die gewünschten Ressourcen.
 
 OAuth wird primär für \acp{SSO} genutzt, um \zb einer Anwendung Zugriff auf bestimmte Daten einer anderen Anwendung zu gewähren, ohne die Anmeldedaten direkt zu übergeben, wie etwa Bilder aus einem Cloudservice an einen Druckservice zu übergeben.\autocite[\vglf][\pagef 74]{OAuthWebProtocol:2012}
 
-\subsubsection[2-Factor Authentifizierung]{\acf{2FA}}\label{subsubsec:2fa}
+\subsubsection[2-Faktor-Authentifizierung]{\acf{2FA}}\label{subsubsec:2fa}
 Wie \autoref{tab:statistik_passwort}\autocite{statista-authentifizierung} zeigt, sind Passwörter heutzutage mit Abstand die am weitesten verbreitete Methode, sich bei einem Service zu \glsdisp{authentifizierung}{authentifizieren}.
 
 \begin{table}[htpb]
-\caption[Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräte]{Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräte\footnotemark\newline
-\small{Details: Deutschland; 08. bis 14.08.2018; 1.025 Befragte; ab 18 Jahre}}
-\label{tab:statistik_passwort}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lr}
-\textbf{Merkmal}                                              & \multicolumn{1}{l}{\textbf{Anteil der Befragten}} \\ \hline
-Ich nutze ein Passwort                                        & 63                                               \\
-Ich nutze einen Fingerabdruckssensor                          & 26                                               \\
-Ich nutze eine Zahlenkombination                              & 22                                               \\
-Ich nutze ein Muster                                          & 12                                               \\
-Ich nutze eine Gesichtserkennung                              & 9                                                \\
-Ich nutze eine Spracherkennung                                & 8                                                \\
-ich nutze die Online-Ausweisfunktion meines Personalausweises & 7                                                \\
-Ich nutze einen Iris-Scanner                                  & 7                                                \\
-Ich nutze einen Venen-Scanner                                 & 5                                                \\
-Sonstiges                                                     & 0                                                \\
-Ich nutze keine Authentifizierungsverfahren                   & 12                                              
-\end{tabular}%
-}
-\end{table}
-\footnotetext{\cite{statista-authentifizierung}}
+    \caption[Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräten]{Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräten\footnotemark\newline
+    \small{Details: Deutschland; 08. bis 14.08.2018; 1.025 Befragte; ab 18 Jahre}}
+    \label{tab:statistik_passwort}
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{lr}
+            \textbf{Merkmal}                                              & \multicolumn{1}{l}{\textbf{Anteil der Befragten}} \\ \hline
+            Ich nutze ein Passwort                                        & 63                                                \\
+            Ich nutze einen Fingerabdruckssensor                          & 26                                                \\
+            Ich nutze eine Zahlenkombination                              & 22                                                \\
+            Ich nutze ein Muster                                          & 12                                                \\
+            Ich nutze eine Gesichtserkennung                              & 9                                                 \\
+            Ich nutze eine Spracherkennung                                & 8                                                 \\
+            ich nutze die Online-Ausweisfunktion meines Personalausweises & 7                                                 \\
+            Ich nutze einen Iris-Scanner                                  & 7                                                 \\
+            Ich nutze einen Venen-Scanner                                 & 5                                                 \\
+            Sonstiges                                                     & 0                                                 \\
+            Ich nutze keine Authentifizierungsverfahren                   & 12
+        \end{tabular}%
+    }
+\end{table}\ \footnotetext{\cite{statista-authentifizierung}}
 
 
-Jedoch bietet ein einzelnes Passwort als \glsdisp{authentifizierung}{Authentifizierungsverfahren} keinen vollständigen Schutz\autocite[\vglf][\pagef 2]{10.1145/3440712},  da Angreifer \zb durch andere unsichere Software auf dem System einfach an die Nutzerdaten gelangen können. 
+Jedoch bietet ein einzelnes Passwort als \glsdisp{authentifizierung}{Authentifizierungsverfahren} keinen vollständigen Schutz\autocite[\vglf][\pagef 2]{10.1145/3440712},  da Angreifer \zb durch andere unsichere Software auf dem System einfach an die Nutzerdaten gelangen können.
 Besonders, wenn man für mehrere verschiedene Systeme das gleiche Passwort nutzt, einen \ac{SSO}\nonbreakdash Service für mehrere Dienste nutzt oder, wie in \autoref{tab:statistik_passwort_frequenz}\autocite{statista-passwort-reset} dargestellt, die Passwörter nur selten wechselt, sind diese Angriffen deutlich stärker ausgesetzt.
 \begin{table}[htpb]
-\caption[Statistik zur Frequenz, in der Nutzer ihre Passwörter wechseln]{Statistik zur Frequenz, in der Nutzer ihre Passwörter wechseln\footnotemark\newline
-\small{Details: Weltweit; 2022; $>2000$ Befragte}}
-\label{tab:statistik_passwort_frequenz}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{ll}
-\hline
-\textbf{Charakteristik}  & \textbf{Anteil} \\ \hline
-Jeden Tag                & 6\%             \\
-Mehrfach die Woche       & 15\%            \\
-Ungefähr einmal im Monat & 34\%            \\
-Selten                   & 44\%            \\ \hline
-\end{tabular}%
-}
-\end{table}
-\footnotetext{\cite{statista-passwort-reset}}
+    \caption[Statistik zur Frequenz, in der Nutzer ihre Passwörter wechseln]{Statistik zur Frequenz, in der Nutzer ihre Passwörter wechseln\footnotemark\newline
+    \small{Details: Weltweit; 2022; $>2000$ Befragte}}
+    \label{tab:statistik_passwort_frequenz}
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{ll}
+            \hline
+            \textbf{Charakteristik}  & \textbf{Anteil} \\ \hline
+            Jeden Tag                & 6\%             \\
+            Mehrfach die Woche       & 15\%            \\
+            Ungefähr einmal im Monat & 34\%            \\
+            Selten                   & 44\%            \\ \hline
+        \end{tabular}%
+    }
+\end{table}\ \footnotetext{\cite{statista-passwort-reset}}
 
 \ac{2FA}\nonbreakdash Dienste tragen dazu bei, dass diese Unsicherheiten abgeschafft werden, in dem \zb ein zusätzliches, verknüpftes Gerät einen \glsdisp{authentifizierung}{Authentifizierungsvorgang} startet, welcher bestätigt werden muss,  wie es unter anderem verschiedene Banksysteme machen, oder ein externer Dienst für \ac{2FA}\nonbreakdash \acp{OTP} genutzt wird, die in bestimmten Zeitintervallen Codes generieren, der zusätzlich zu der primären \glsdisp{authentifizierung}{Authentifizierungsmethode} eingegeben werden muss.
