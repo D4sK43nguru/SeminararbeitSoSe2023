@@ -51,7 +51,7 @@ Die Funktion \lstinline!encrypt(algorithm, key, data)! hingegen erlaubt es, mit 
 Trotz der vielfältigen analysen des \ac{TLS}\nonbreakdash Protokolls\autocites[Siehe \zb][]{krawczyk2013security, paulson1999inductive, dowling2015cryptographic, cremers2017comprehensive}, sind heute nur geringe Mängel und Schwachstellen bekannt.\autocite[\vglf][\pagef 2239]{OPPLIGER20062238}
 
 \begin{definition}[\Acf{MITM}]
-    \ac{MITM} bezeichnet nach \ac{RFC}\ \textnumero 2828\autocite[Übersetzt aus][\pagef 105]{rfc2828} eine Form des aktiven Lauschangriffs, bei dem der Angreifer kommunizierte Daten abfängt und selektiv verändert, um sich als sich als eine oder mehrere der an einer Kommunikationsbeziehung beteiligten Einheiten auszugeben.
+    \ac{MITM} bezeichnet nach \ac{RFC}\ \textnumero 2828\autocite[Übersetzt aus][\pagef 105]{rfc2828} eine Form des aktiven Lauschangriffs, bei dem der Angreifer kommunizierte Daten abfängt und selektiv verändert, um sich als eine oder mehrere der an einer Kommunikationsbeziehung beteiligten Einheiten auszugeben.
 \end{definition}
 
 In einem typischen \ac{MITM} Angriff stellt sich das angreifende System so zwischen den \gls{client} und den \gls{server}, sodass es mit den \gls{client} und den \gls{server} unabhängig voneinander kommunizieren kann, die beiden Parteien aber den Eindruck behalten, sie würden direkt miteinander kommunizieren; eine Möglichkeit, sich einen \ac{MITM} Angriff vorzustellen ist es, als würde zwischen \gls{client} und \gls{server} ein \ac{SSL}/\ac{TLS} Proxy \gls{server} geschaltet sein.\autocite[\vglf][\pagef 4]{greenwood2014smv} Dadurch wissen weder der \gls{client} noch der \gls{server} über den \ac{MITM} bescheid.
