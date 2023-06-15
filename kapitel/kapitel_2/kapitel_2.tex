@@ -70,7 +70,7 @@ Nachdem der \gls{client} bei Verbindungsaufbau dem \gls{server} eine Nachricht s
 Dies wird vom \gls{client} verifiziert, woraufhin er seine Schlüssel und die Daten seines Ciphers, also unter anderem den genutzten \glsdisp{algorithmus}{Verschlüsselungsalgorithmus} übermittelt.
 Der \gls{server} reagiert damit, seine Cipherdaten zu übermitteln, wodurch der \gls{handshake} abgeschlossen ist und die Anwendungsdaten gesendet werden.
 
-Mithilfe dieser Handshakes wird ausgehandelt, welche \glsdisp{kryptografie}{kryptografischen} \glspl{algorithmus} und Schlüssel verwendet werden und die Kommunikationspartner identifizieren und \glsdisp{authentifizierung}{authentifizieren} sich, hierbei ist es üblich, dass sich nur der \gls{server} bei dem \gls{client} \glsdisp{authentifizierung}{authentifiziert}, was als one-way authentication bezeichnet wird\autocite[\vglf][\pagef 191]{morrissey-tls-2010}.
+Mithilfe dieser Handshakes wird ausgehandelt, welche \glsdisp{kryptografie}{kryptografischen} \glspl{algorithmus} und Schlüssel verwendet werden und die Kommunikationspartner identifizieren und \glsdisp{authentifizierung}{authentifizieren} sich, hierbei ist es üblich, dass sich nur der \gls{server} bei dem \gls{client} \glsdisp{authentifizierung}{authentifiziert}, was Ein-Weg \gls{authentifizierung} bezeichnet wird\autocite[\vglf][\pagef 191]{morrissey-tls-2010}.
 
 \subsubsection[HTTPS-Protocol]{\ac{HTTPS}\nonbreakdash Protokoll}\label{subsubsec:HTTPS-Protocol}
 
@@ -107,8 +107,8 @@ Analog zum\ \nameref{subsubsec:salted-hashing} (\autoref{subsubsec:salted-hashin
 
 Bei diesem wird, wie beim\ \nameref{subsubsec:salted-hashing} auch, ein zufällig generierter String an den \gls{klartext} angehangen, bevor der \glsdisp{algorithmus}{Hashalgorithmus} durchgeführt wird.
 Dieser String wird einmalig bei der Einrichtung des \glspl{server} festgelegt und anschließend geheimgehalten\autocite[\vglf][]{Securing39:online}.
-Auch dieses Verfahren schützt vor einer möglichen \gls{sqlInject}.
-Gleichermaßen gibt es beim\nameref{subsubsec:peppered-hashing} keine festgelegte Länge, welche der Pepper aufweisen sollte, es empfiehlt sich jedoch auch hier, einen möglichst langen Wert zu nehmen.
+Auch dieses Verfahren schützt vor einer möglichen \gls{Rainbow-Table}.
+Gleichermaßen gibt es beim \nameref{subsubsec:peppered-hashing} keine festgelegte Länge, welche der Pepper aufweisen sollte, es empfiehlt sich jedoch auch hier, einen möglichst langen Wert zu nehmen.
 
 
 \subsection[Authentifizierung und Autorisierung]{Authentifizierung und Autorisierung — Token-Verfahren, OAuth}\label{subsec:authenticationAuthorization}
@@ -130,13 +130,13 @@ Diese bestehen üblicherweise aus drei Schlüsselelementen,
 \end{itemize}\label{itm:TokenElemente}
 zusätzlich können weitere Elemente wie \zb Metadaten angefügt sein, um fallspezifische Anforderungen zu erfüllen.\autocite[\vglf][]{AccessTo39:online}
 
-Eine häufige Variante von\ \nameref{subsubsec:access-token} ist der \ac{JWT}, der aufgrund seiner geringen Speichergröße besonders beliebt ist.\autocite[\vglf][\pagef 4]{rfc7519} Der \ac{JWT} besteht dabei aus den oben beschriebenen Elementen, die, bevor sie mit einem `.' zusammengefügt werden, mit einem \gls{base64}\nonbreakdash \gls{algorithmus} verschlüsselt und komprimiert werden.\autocite[\vglf][\pagef 5]{rfc7519}
+Eine häufige Variante von\ \nameref{subsubsec:access-token} ist der \ac{JWT}, der aufgrund seiner geringen Speichergröße besonders beliebt ist.\autocite[\vglf][\pagef 4]{rfc7519} Der \ac{JWT} besteht dabei aus den oben beschriebenen Elementen, die, bevor sie mit einem `.' zusammengefügt werden, mit einem \gls{base64}\nonbreakdash \gls{algorithmus} kodiert und komprimiert werden.\autocite[\vglf][\pagef 5]{rfc7519}
 
 Ein Minimalcodebeispiel um in der Programmiersprache \ac{JS} einen \ac{JWT} zu generieren, sieht wie folgt aus
 
 \lstinputlisting[language = JavaScript, caption = {Beispielskript zur Generierung eines \ac{JWT}},label={lst:jwt-generation}]{./Quellcode/jwt.js}
 
-Hierbei stellt \lstinline!secret! den \gls{privateKey} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), \lstinline!base64urlEncoding()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu verschlüsseln und \lstinline!HMAC_SHA256()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
+Hierbei stellt \lstinline!secret! den \gls{privateKey} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), \lstinline!base64urlEncoding()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu kodieren und \lstinline!HMAC_SHA256()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
 
 Dabei wird der Token
 \begin{lstlisting}[language = JavaScript,label={lst:jwt}]
@@ -147,25 +147,24 @@ generiert.
 \subsubsection[OAuth]{\acf{OAUTH}}\label{subsubsec:oauth}
 \ac{OAUTH} bezeichnet ein Framework, welches einem Dateninhaber ermöglicht, Dritten begrenzten Zugriff zu gewähren, \zb bei \acp{SSO}, oder den gegebenen Zugriff zu beschränken.\autocites[\vglf][\pagef 1]{rfc6749}[\vglf][\pagef  75]{OAuthWebProtocol:2012}
 
-Das OAuth Protokoll verwendet die folgenden 6 Elemente,
+Um Zugriff anzufragen, \bzw ihn zu überprüfen\autocite[\vglf][\pagef 75]{OAuthWebProtocol:2012} verwendet das OAuth Protokoll die folgenden 6 Elemente:
 \begin{itemize}
     \item einen \gls{client} als den Service, der nach \gls{autorisierung} fragt,
     \item einem Ressourceninhaber als die Entität, die die Information, für die der \gls{client} Zugriff anfragt,
-    \item  einen Ressourcen\glsdisp{server}{server} als den Service, der den Zugriff zu den angefragten Informationen vergibt,
+    \item einen Ressourcen\glsdisp{server}{server} als den Service, der den Zugriff zu den angefragten Informationen vergibt,
     \item einen \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server}, der die Echtheit der Zertifikate des Ressourceninhabers verifiziert und die Überprüfungen für die \gls{autorisierung} durchführt,
     \item einen\ \nameref{subsubsec:access-token} (\autoref{subsubsec:access-token}), der von dem \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} generiert wird und dem \gls{client} den Zugriff von dem Ressourcen\glsdisp{server}{server} anfragen lässt und
-    \item einen \glsdisp{authentifizierung}{Authentifizierungscode}, den der \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} während der Anfrage überprüfen kann,
+    \item einen \glsdisp{authentifizierung}{Authentifizierungscode}, den der \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} während der Anfrage überprüfen kann
 \end{itemize}
-um Zugriff anzufragen, \bzw ihn zu überprüfen.\autocite[\vglf][\pagef  75]{OAuthWebProtocol:2012}
 
 \autoref{fig:oauth_protocol_flow}\autocite[\vglf][\pagef 7, Abbildung 1]{rfc6749} stellt die Kommunikation zwischen dem \gls{client} und der Service\nonbreakdash\ac{API} dar.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\linewidth]{abbildungen/OAuth_abstract_flow}
+    \includegraphics[width=\linewidth]{abbildungen/OAuth_abstract_flow}
     \caption[Kommunikationsverlauf im OAuth-Protokoll]{Kommunikationsverlauf im OAuth-Protokoll\footnotemark}
     \label{fig:oauth_protocol_flow}
 \end{figure}\ \footnotetext{\cite[\vglf][\pagef 7, Abbildung 1]{rfc6749}}
-Zunächst stellt der \gls{client} eine Anfrage an den Ressourceninhaber nach einer\gls{autorisierung}.
+Zunächst stellt der \gls{client} eine Anfrage an den Ressourceninhaber nach einer \gls{autorisierung}.
 Wenn diese dem \gls{client} bestätigt wird, stellt dieser mit der Bestätigung eine Anfrage nach einem\ \nameref{subsubsec:access-token} an den \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server}.
 Mit dem\ \nameref{subsubsec:access-token} stellt der \gls{client} zuletzt eine Anfrage an den Ressourcen\glsdisp{server}{server} und erhält von diesem die gewünschten Ressourcen.
 
