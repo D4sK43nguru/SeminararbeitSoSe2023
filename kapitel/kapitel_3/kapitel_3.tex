@@ -1,6 +1,6 @@
 \newpage
 \section[Herausforderungen bei der Implementierung von kryptografischen Funktionen in Webanwendungen]{Herausforderungen bei der Implementierung von \glsdisp{kryptografie}{kryptografischen} Funktionen in Webanwendungen}\label{sec:Herausforderung-bei-der-implementierung-von-kryptografie-in-webanwendungen}
-In vielen Fällen überwiegt der Schutz, den \glsdisp{kryptografie}{kryptografische} Methoden bieten, den Aufwand und die Probleme, die bei der Implementierung auftreten.
+In vielen Fällen überwiegt der Schutz, den \glsdisp{kryptografie}{kryptografische}\index{kryptografie} Methoden bieten, den Aufwand und die Probleme, die bei der Implementierung auftreten.
 Dennoch wird versucht, die Probleme, wie \zb die in \autoref{subsec:performance-und-skalierbarkeitsprobleme} beschriebenen Leistungseinbußen oder die in \autoref{subsec:benutzerfreundlichkeit_und_usability-aspekte} erläuterte erschwerte Benutzbarkeit, zu beheben, \bzw auf ein Minimum zu reduzieren.
 
 \subsection[Performance- und Skalierbarkeitsprobleme]{Performance- und Skalierbarkeitsprobleme}\label{subsec:performance-und-skalierbarkeitsprobleme}
@@ -47,14 +47,14 @@ Da ein Großteil der Berechnungen für einen \ac{TLS}-\gls{handshake} während d
 \subsection[Komplexität und Fehleranfälligkeit der Kryptografischen Methoden]{Komplexität und Fehleranfälligkeit der \glsdisp{kryptografie}{kryptografischen} Methoden}\label{subsec:komplexitaet_und_fehleranfaelligkeit_der_kryptografie}
 
 \subsubsection[Komplexität bei der Implementierung von kryptografischen Methoden]{Komplexität bei der Implementierung von \glsdisp{kryptografie}{kryptografischen} Methoden in Webanwendungen}\label{subsubsec:komplexitaet_bei_der_implementierung_von_Kryptografischen_methoden_in_webanwendungen}
-Durch die Vielzahl an Lektüre zu den verschiedenen Verschlüsselungsmethoden\autocites[\zb][]{davies2011implementing} ist es heutzutage nicht mehr so kompliziert, \glsdisp{kryptografie}{kryptografische} Methoden in Webanwendungen einzubauen, um Daten und die Anwendung als Ganzes zu sichern.
-Für viele Programmiersprachen sind heutzutage vorgefertigte Methoden oder Packages entwickelt worden, welche verschiedene \glsdisp{kryptografie}{kryptografische} Methoden bereitstellen oder bündeln.
+Durch die Vielzahl an Lektüre zu den verschiedenen Verschlüsselungsmethoden\autocites[\zb][]{davies2011implementing} ist es heutzutage nicht mehr so kompliziert, \glsdisp{kryptografie}{kryptografische}\index{kryptografie} Methoden in Webanwendungen einzubauen, um Daten und die Anwendung als Ganzes zu sichern.
+Für viele Programmiersprachen sind heutzutage vorgefertigte Methoden oder Packages entwickelt worden, welche verschiedene \glsdisp{kryptografie}{kryptografische}\index{kryptografie} Methoden bereitstellen oder bündeln.
 So stellt die Programmiersprache \ac{JS} die Funktion \lstinline!digest(algorithm, data)! zur Verfügung, welche einen Datensatz nach einem \ac{SHA}-\gls{algorithmus}\footnote{\ac{SHA}-1, \gls{SHA256}, \ac{SHA}-384 oder \ac{SHA}-512} verschlüsselt.\autocite[\vglf][]{SubtleCr83:online}
 Die Funktion \lstinline!encrypt(algorithm, key, data)! hingegen erlaubt es, mit RSA, beschrieben in \ac{RSA} oder \ac{AES} \glspl{algorithmus} zu verschlüsseln.
 
 \begin{samepage}
 So stellen gerade \gls{side-channel-attack} eine Gefahr da.
-Diese brechen den \glsdisp{kryptografie}{kryptografischen} \gls{algorithmus}, indem sie Informationen aus dem Laufzeitverhalten analysieren.
+Diese brechen den \glsdisp{kryptografie}{kryptografischen}\index{kryptografie} \gls{algorithmus}, indem sie Informationen aus dem Laufzeitverhalten analysieren.
 Durch \ua der Ausführungsdauer des \gls{algorithmus} oder der abgestrahlten elektromagnetischen Strahlung der Hardware können diese gewonnen werden.\autocite[\vglf][\pagef 286]{10.1145/1315245.1315282}
 \end{samepage}
 
@@ -66,7 +66,7 @@ Trotz der vielfältigen analysen des \ac{TLS}\nonbreakdash Protokolls\autocites[
 \end{definition}
 
 In einem typischen \ac{MITM} Angriff stellt sich das angreifende System so zwischen den \gls{client} und den \gls{server}, sodass es mit den \gls{client} und den \gls{server} unabhängig voneinander kommunizieren kann, die beiden Parteien aber den Eindruck behalten, sie würden direkt miteinander kommunizieren; eine Möglichkeit, sich einen \ac{MITM} Angriff vorzustellen ist es, als würde zwischen \gls{client} und \gls{server} ein \ac{SSL}/\ac{TLS} Proxy \gls{server} geschaltet sein.\autocite[\vglf][\pagef 4]{greenwood2014smv} Dadurch wissen weder der \gls{client} noch der \gls{server} über den \ac{MITM} bescheid.
-Viele \glsdisp{kryptografie}{kryptografische Methoden} tragen bei einem \ac{MITM} Angriff nicht mehr zu der Sicherheit bei, da der \ac{MITM} in der Verbindung integriert ist und alle Daten abfangen kann, so werden \zb Anmeldedaten dem \ac{MITM} sichtbar gemacht.\autocite[\vglf][\pagef 4]{greenwood2014smv}
+Viele \glsdisp{kryptografie}{kryptografische Methoden}\index{kryptografie} tragen bei einem \ac{MITM} Angriff nicht mehr zu der Sicherheit bei, da der \ac{MITM} in der Verbindung integriert ist und alle Daten abfangen kann, so werden \zb Anmeldedaten dem \ac{MITM} sichtbar gemacht.\autocite[\vglf][\pagef 4]{greenwood2014smv}
 Das durchführen von \ac{MITM} Angriffen wird jedoch durch bestimmte Zertifikatinfrastrukturen und Zertifizierungsstellen erschwert, wenngleich die Kontrolle über eine Zertifizierungsstelle den Angreifern die Möglichkeit bietet, jede beliebige Domäne anzugreifen\ \autocite[\vglf][\pagef ]{10.1007/978-3-642-33167-1_13}.
 
 \subsection[Benutzerfreundlichkeit und Usability-Aspekte]{Benutzerfreundlichkeit und Usability-Aspekte}\label{subsec:benutzerfreundlichkeit_und_usability-aspekte}
