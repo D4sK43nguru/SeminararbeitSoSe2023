@@ -2,8 +2,8 @@
 \section[Anwendung von Kryptografie in Webanwendungen]{Anwendung von \gls{kryptografie}index{Kryptografie} in Webanwendungen}\label{sec:anwendung_von_kryptografie_in_webanwendungen}
 Webanwendungen spielen in der heutigen vernetzten Welt eine bedeutende Rolle bei der Bereitstellung von Diensten und dem Austausch sensibler Informationen.
 
-Dieser Abschnitt behandelt den Einsatz von \Gls{kryptografie}index{Kryptografie} in Webanwendungen, um die Sicherheitsanforderungen hinsichtlich \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfuegbarkeit} zu erfüllen.
-Es werden die grundlegenden Sicherheitsanforderungen an Webanwendungen erläutert und gezeigt, wie \Gls{kryptografie}index{Kryptografie} genutzt werden kann, um sensible Daten vor unberechtigtem Zugriff zu schützen.
+Dieser Abschnitt behandelt den Einsatz von \Gls{kryptografie}\index{Kryptografie} in Webanwendungen, um die Sicherheitsanforderungen hinsichtlich \gls{vertraulichkeit}, \gls{integritaet} und \gls{verfuegbarkeit} zu erfüllen.
+Es werden die grundlegenden Sicherheitsanforderungen an Webanwendungen erläutert und gezeigt, wie \Gls{kryptografie}\index{Kryptografie} genutzt werden kann, um sensible Daten vor unberechtigtem Zugriff zu schützen.
 
 Ein zentraler Aspekt der Sicherheit von Webanwendungen ist die Verschlüsselung der Datenübertragung.
 Daher wird sich der nächste Abschnitt auf das \ac{HTTPS}\nonbreakdash Protokoll und die \ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung konzentrieren.
@@ -70,7 +70,7 @@ Nachdem der \gls{client} bei Verbindungsaufbau dem \gls{server} eine Nachricht s
 Dies wird vom \gls{client} verifiziert, woraufhin er seine Schlüssel und die Daten seines Ciphers, also unter anderem den genutzten \glsdisp{algorithmus}{Verschlüsselungsalgorithmus} übermittelt.
 Der \gls{server} reagiert damit, seine Cipherdaten zu übermitteln, wodurch der \gls{handshake} abgeschlossen ist und die Anwendungsdaten gesendet werden.
 
-Mithilfe dieser Handshakes wird ausgehandelt, welche \glsdisp{kryptografie}{kryptografischen} \glspl{algorithmus} und Schlüssel verwendet werden und die Kommunikationspartner identifizieren und \glsdisp{authentifizierung}{authentifizieren} sich, hierbei ist es üblich, dass sich nur der \gls{server} bei dem \gls{client} \glsdisp{authentifizierung}{authentifiziert}, was Ein-Weg \gls{authentifizierung} bezeichnet wird\autocite[\vglf][\pagef 191]{morrissey-tls-2010}.
+Mithilfe dieser Handshakes wird ausgehandelt, welche \glsdisp{kryptografie}{kryptografischen}\index{kryptografie} \glspl{algorithmus} und Schlüssel verwendet werden und die Kommunikationspartner identifizieren und \glsdisp{authentifizierung}{authentifizieren} sich, hierbei ist es üblich, dass sich nur der \gls{server} bei dem \gls{client} \glsdisp{authentifizierung}{authentifiziert}, was Ein-Weg \gls{authentifizierung} bezeichnet wird\autocite[\vglf][\pagef 191]{morrissey-tls-2010}.
 
 \subsubsection[HTTPS-Protocol]{\ac{HTTPS}\nonbreakdash Protokoll}\label{subsubsec:HTTPS-Protocol}
 
@@ -85,12 +85,12 @@ Dadurch wird verhindert, dass ein Angreifer einem Nutzer eine identisch aussehen
 \subsection[Passwortsicherheit]{Passwortsicherheit — Schlüsselableitung, Salted- \& Peppered-Hashing}\label{subsec:passwortsicherheit}
 
 \subsubsection{Schlüsselableitung}\label{subsubsec:key-derivation-function}
-Als~\nameref{subsubsec:key-derivation-function} wird in der \gls{kryptografie}index{Kryptografie} eine Operation bezeichnet, welche aus einem Schlüssel oder einem Passwort verschiedene andere Schlüsselwerte generiert.\autocite[\vglf][\pagef 3]{NIST:800132}
+Als~\nameref{subsubsec:key-derivation-function} wird in der \gls{kryptografie}\index{Kryptografie} eine Operation bezeichnet, welche aus einem Schlüssel oder einem Passwort verschiedene andere Schlüsselwerte generiert.\autocite[\vglf][\pagef 3]{NIST:800132}
 Für diese Operation gibt es verschieden Möglichkeiten, zwei häufig angewandte sind Salted\nonbreakdash\ (\autoref{subsubsec:salted-hashing}) und Peppered\nonbreakdash Hashing (\autoref{subsubsec:peppered-hashing}), \bzw das kombinieren dieser Verfahren.
 Der so generierte Schlüssel wird \ac{MC} gennant.
 
 \subsubsection{Salted Hashing}\label{subsubsec:salted-hashing}
-Als Salt wird in der \gls{kryptografie}index{Kryptografie} ein zufälliger String bezeichnet, der einem zu verschlüsselnden \gls{klartext} vor dem \glsdisp{hashfunc}{Hashprozess} angehangen wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}.
+Als Salt wird in der \gls{kryptografie}\index{Kryptografie} ein zufälliger String bezeichnet, der einem zu verschlüsselnden \gls{klartext} vor dem \glsdisp{hashfunc}{Hashprozess} angehangen wird\autocite[\vglf][\pagef 205]{JoyOfCryptography:2021}.
 Dabei wird für jede Zeile der Datenbank ein eigener Salt generiert und in der Datenbank gespeichert.
 Dies verhindert \uaol, dass für zwei Datensätze mit identischem \gls{klartext} der gleiche \gls{hashwert} in der Datenbank gespeichert wird.
 
