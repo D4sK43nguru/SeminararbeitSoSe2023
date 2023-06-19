@@ -180,3 +180,11 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 
 thesis_main.txt
+
+*.out
+
+*.glg
+
+*.gls
+
+*.idx
