@@ -1,3 +1,4 @@
+%! suppress = NonMatchingIf
 \usepackage{xpatch}
 
 
@@ -9,22 +10,22 @@
 
 %Aufräumen die Felder werden laut Leitfaden nicht benötigt.
 \AtEveryBibitem{%
-\ifentrytype{book}{ \clearfield{issn}%
-\clearfield{doi}%
-\clearfield{isbn}%
-\clearfield{url} \clearfield{eprint} }{} \ifentrytype{collection}{ \clearfield{issn}%
-\clearfield{doi}%
-\clearfield{isbn}%
-\clearfield{url} \clearfield{eprint} }{} \ifentrytype{incollection}{ \clearfield{issn}%
-\clearfield{doi}%
-\clearfield{isbn}%
-\clearfield{url} \clearfield{eprint} }{} \ifentrytype{article}{ \clearfield{issn}%
-\clearfield{doi}%
-\clearfield{isbn}%
-\clearfield{url} \clearfield{eprint} }{} \ifentrytype{inproceedings}{ \clearfield{issn}%
-\clearfield{doi}%
-\clearfield{isbn}%
-\clearfield{url} \clearfield{eprint} }{} }
+    \ifentrytype{book}{ \clearfield{issn}%
+    \clearfield{doi}%
+    \clearfield{isbn}%
+    \clearfield{url} \clearfield{eprint} }{} \ifentrytype{collection}{ \clearfield{issn}%
+    \clearfield{doi}%
+    \clearfield{isbn}%
+    \clearfield{url} \clearfield{eprint} }{} \ifentrytype{incollection}{ \clearfield{issn}%
+    \clearfield{doi}%
+    \clearfield{isbn}%
+    \clearfield{url} \clearfield{eprint} }{} \ifentrytype{article}{ \clearfield{issn}%
+    \clearfield{doi}%
+    \clearfield{isbn}%
+    \clearfield{url} \clearfield{eprint} }{} \ifentrytype{inproceedings}{ \clearfield{issn}%
+    \clearfield{doi}%
+    \clearfield{isbn}%
+    \clearfield{url} \clearfield{eprint} }{} }
 
 \renewcommand*{\finentrypunct}{}%Kein Punkt am ende des Literaturverzeichnisses
 
@@ -60,14 +61,14 @@
 
 \DeclareFieldFormat[online]{date}{\mkbibparens{#1}} \DeclareFieldFormat{urltime}{\addspace #1\addspace Uhr}
 \DeclareFieldFormat{urldate}{%urltime zu urldate hinzufügen
-[Zugriff\addcolon\addspace #1\printfield{urltime}] } \DeclareFieldFormat[online]{url}{<\url{#1}>}
+    [Zugriff\addcolon\addspace #1\printfield{urltime}] } \DeclareFieldFormat[online]{url}{<\url{#1}>}
 \renewbibmacro*{url+urldate}{%
-\usebibmacro{url}%
-\ifentrytype{online} {\setunit*{\addspace}%
-\iffieldundef{year} {\printtext[date]{keine Datumsangabe}} {\usebibmacro{date}}}%
-{}%
-\setunit*{\addspace}%
-\usebibmacro{urldate} }
+    \usebibmacro{url}%
+    \ifentrytype{online} {\setunit*{\addspace}%
+    \iffieldundef{year} {\printtext[date]{keine Datumsangabe}} {\usebibmacro{date}}}%
+    {}%
+    \setunit*{\addspace}%
+    \usebibmacro{urldate} }
 
 %Verhindern, dass bei mehreren Quellen des gleichen Autors im gleichen Jahr
 %Buchstaben nach der Jahreszahl angezeigt werden wenn sich das Keyword in usera unterscheidet.
@@ -80,54 +81,54 @@
 %% Das Zugriffsdatum (urldate) spielt hier keine Rolle.
 %% Für Nicht-Online-Quellen wird nichts geändert.
 \renewbibmacro*{date+extradate}{%
-\printtext[parens]{%
-\printfield{usera}%
-\setunit{\printdelim{titleyeardelim}}%
-\ifentrytype{online} {\setunit*{\addspace\addcomma\addspace}%
-\iffieldundef{year} {\bibstring{nodate}} {\printlabeldateextra}}%
-{\printlabeldateextra}}}
+    \printtext[parens]{%
+        \printfield{usera}%
+        \setunit{\printdelim{titleyeardelim}}%
+        \ifentrytype{online} {\setunit*{\addspace\addcomma\addspace}%
+        \iffieldundef{year} {\bibstring{nodate}} {\printlabeldateextra}}%
+        {\printlabeldateextra}}}
 
 %% Anzeige des Jahres nach dem Stichwort (usera) in der Fussnote
 %% das Stichwort hat der Aufrufer hier schon ausgegeben.
 %% siehe auch Kommentar zu: \renewbibmacro*{date+extradate}
 \renewbibmacro*{cite:labeldate+extradate}{%
-\ifentrytype{online} {\setunit*{\addspace\addcomma\addspace}%
-\iffieldundef{year} {\bibstring{nodate}} {\printlabeldateextra}}%
-{\printlabeldateextra}}
+    \ifentrytype{online} {\setunit*{\addspace\addcomma\addspace}%
+    \iffieldundef{year} {\bibstring{nodate}} {\printlabeldateextra}}%
+    {\printlabeldateextra}}
 
 \DefineBibliographyStrings{german}{ nodate = {{}o.\adddot\addspace J\adddot}, andothers = {et\addabbrvspace al\adddot}, ibidem = {ebd\adddot} }
 \DefineBibliographyStrings{english}{ nodate = {{}n.\adddot\addspace d\adddot}, andothers = {et\addabbrvspace al\adddot} }
 \DeclareSourcemap{ \maps[datatype=bibtex]{ \map{ \step[notfield=translator, final] \step[notfield=editor, final] \step[fieldset=author, fieldvalue={{{o\noexpand\adddot\addspace V\noexpand\adddot}}}] } \map{ \pernottype{online} \step[fieldset=location, fieldvalue={o\noexpand\adddot\addspace O\noexpand\adddot}] } } }
 
 \renewbibmacro*{cite}{%
-\iffieldundef{shorthand} {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}} {\usebibmacro{cite:label}%
-\setunit{\printdelim{nonametitledelim}}} {\printnames{labelname}%
-\setunit{\printdelim{nametitledelim}}}%
-\printfield{usera}%
-\setunit{\printdelim{titleyeardelim}}%
-\usebibmacro{cite:labeldate+extradate}} {\usebibmacro{cite:shorthand}}}
+    \iffieldundef{shorthand} {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}} {\usebibmacro{cite:label}%
+    \setunit{\printdelim{nonametitledelim}}} {\printnames{labelname}%
+    \setunit{\printdelim{nametitledelim}}}%
+    \printfield{usera}%
+    \setunit{\printdelim{titleyeardelim}}%
+    \usebibmacro{cite:labeldate+extradate}} {\usebibmacro{cite:shorthand}}}
 
 \renewcommand*{\jourvoldelim}{\addcomma\addspace}% Trennung zwischen journalname und Volume. Sonst Space; Laut Leitfaden richtig
 %Aufgrund der Änderung bzgl des Issues 169 in der thesis_main.tex musste ich die Zeile auskommentieren. Konnte aber das Verhalten, dass die Fußnoten grün sind, im nachhinein nicht feststellen.
 %\hypersetup{hidelinks} %sonst sind Fußnoten grün. Dadurch werden Links allerdings nicht mehr farbig dargestellt
 
 \renewbibmacro*{journal+issuetitle}{%
-\usebibmacro{journal}%
-\setunit*{\jourvoldelim}%
-\iffieldundef{series} {} {\setunit*{\jourserdelim}%
-\printfield{series}%
-\setunit{\servoldelim}}%
-\iffieldundef{volume} {} {\printfield{volume}} \iffieldundef{labelyear} {} { (\thefield{year}) %Ansonsten wird wenn kein Volume angegeben ist ein Komma vorangestellt
-} \setunit*{\addcomma\addspace Nr\adddot\addspace} \printfield{number} \iffieldundef{eid} {} {\printfield{eid}} }
+    \usebibmacro{journal}%
+    \setunit*{\jourvoldelim}%
+    \iffieldundef{series} {} {\setunit*{\jourserdelim}%
+    \printfield{series}%
+    \setunit{\servoldelim}}%
+    \iffieldundef{volume} {} {\printfield{volume}} \iffieldundef{labelyear} {} { (\thefield{year}) %Ansonsten wird wenn kein Volume angegeben ist ein Komma vorangestellt
+    } \setunit*{\addcomma\addspace Nr\adddot\addspace} \printfield{number} \iffieldundef{eid} {} {\printfield{eid}} }
 
 % Postnote ist der Text in der zweiten eckigen Klammer bei einem Zitat
 % wenn es keinen solchen Eintrag gibt, dann auch nicht ausgeben, z.B. 'o. S.'
 % Wenn man das will, kann man das 'o. S.' ja explizit angeben. Andernfalls steht
 % sonst auch bei Webseiten 'o. S.' da, was laut Leitfaden nicht ok ist.
 \renewbibmacro*{postnote}{%
-\setunit{\postnotedelim}%
-\iffieldundef{postnote} {} %{\printtext{o.S\adddot}}
-{\printfield{postnote}}}
+    \setunit{\postnotedelim}%
+    \iffieldundef{postnote} {} %{\printtext{o.S\adddot}}
+    {\printfield{postnote}}}
 
 % Abstand bei Änderung Anfangsbuchstabe ca. 1.5 Zeilen
 \setlength{\bibinitsep}{0.75cm}
@@ -139,43 +140,43 @@
 \DeclareDelimFormat{nonameyeardelim}{\addcomma\space} \DeclareDelimFormat{nameyeardelim}{\addcomma\space}
 
 \renewbibmacro*{cite}{%
-\iffieldundef{shorthand} {\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage} {\usebibmacro{cite:ibid}} {\printtext[bibhyperref]{\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}} {\usebibmacro{cite:label}%
-\setunit{\printdelim{nonameyeardelim}}} {\toggletrue{abx@bool@giveninits}%
-\printnames[family-given]{labelname}%
-\setunit{\printdelim{nameyeardelim}}}%
-\printfield{usera}%
-\setunit{\printdelim{titleyeardelim}}%
-\usebibmacro{cite:labeldate+extradate}}}} {\usebibmacro{cite:shorthand}}}
+    \iffieldundef{shorthand} {\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage} {\usebibmacro{cite:ibid}} {\printtext[bibhyperref]{\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}} {\usebibmacro{cite:label}%
+    \setunit{\printdelim{nonameyeardelim}}} {\toggletrue{abx@bool@giveninits}%
+    \printnames[family-given]{labelname}%
+    \setunit{\printdelim{nameyeardelim}}}%
+    \printfield{usera}%
+    \setunit{\printdelim{titleyeardelim}}%
+    \usebibmacro{cite:labeldate+extradate}}}} {\usebibmacro{cite:shorthand}}}
 
 %% Definiert @Standard Eintrag
 \DeclareBibliographyDriver{standard}{%
-  \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
-  \usebibmacro{author}%
-  \setunit{\labelnamepunct}\newblock
-  \usebibmacro{title}%
-  \newunit\newblock
-  \printfield{number}%
-  \setunit{\addspace}\newblock
-  \printfield[parens]{type}%
-  \newunit\newblock
-  \usebibmacro{location+date}%
-  \newunit\newblock
-  \iftoggle{bbx:url}
+    \usebibmacro{bibindex}%
+    \usebibmacro{begentry}%
+    \usebibmacro{author}%
+    \setunit{\labelnamepunct}\newblock
+    \usebibmacro{title}%
+    \newunit\newblock
+    \printfield{number}%
+    \setunit{\addspace}\newblock
+    \printfield[parens]{type}%
+    \newunit\newblock
+    \usebibmacro{location+date}%
+    \newunit\newblock
+    \iftoggle{bbx:url}
     {\usebibmacro{url+urldate}}
     {}%
-  \newunit\newblock
-  \usebibmacro{addendum+pubstate}%
-  \setunit{\bibpagerefpunct}\newblock
-  \usebibmacro{pageref}%
-  \newunit\newblock
-  \usebibmacro{related}%
-  \usebibmacro{finentry}}
+    \newunit\newblock
+    \usebibmacro{addendum+pubstate}%
+    \setunit{\bibpagerefpunct}\newblock
+    \usebibmacro{pageref}%
+    \newunit\newblock
+    \usebibmacro{related}%
+    \usebibmacro{finentry}}
 
 
 % Custom Filters
 \defbibfilter{standards}{
-        \type{standard} or 
-        \type{patent}
+    \type{standard} or
+    \type{patent}
 }
 

@@ -47,7 +47,7 @@ Verbesserungen sind jederzeit willkommen (siehe [Ich möchte mithelfen, diese Vo
 
 ## Für die eigene Arbeit nutzen
 
-Aufgrund der gewählten [Lizenz](./LICENSE) [MIT-Lizenz](https://en.wikipedia.org/wiki/MIT_License), darfst du diese Vorlage für den persönlichen oder kommerziellen Gebrauch nutzen und abändern.
+Aufgrund der gewählten [Lizenz](./LICENSE) [MIT-Lizenz](https://en.wikipedia.org/wiki/MIT_License) darfst du diese Vorlage für den persönlichen oder kommerziellen Gebrauch nutzen und abändern.
 Um dies zu tun, gibt es mehrere Möglichkeiten, die wir nachfolgend kurz vorstellen.
 
 **Generell gilt**:
@@ -153,7 +153,7 @@ Vgl. Balzert, Helmut et al. (2008), Seite 1.
 ```
 
 Wird die englische Version genutzt, muss "Vgl." durch "compare" und "S." durch "p." ersetzt werden.
-Beim verwenden von [Textcommands](#textcommands) müssen "Vgl." und "S." nicht manuell geändert werden. Dies wird automatisch erledigt.
+Beim Verwenden von [Textcommands](#textcommands) müssen "Vgl." und "S." nicht manuell geändert werden. Dies wird automatisch erledigt.
 Beispiel für die Verwendung von Textcommands (der Output sieht wie oben aus):
 
 ```
@@ -164,7 +164,7 @@ Beispiel für die Verwendung von Textcommands (der Output sieht wie oben aus):
 
 **Achtung, nur im Hochschulbereich IT-Management**
 
-Der IEEE Zitationsstil wird hauptsächlich in technischen Studiengängen verwendet und ist ein sehr einfacher Zitationsstil, da hier nicht auf Dinge wie z.B. "vgl."/"ebd." geachtet werden muss. Ein direktes Zitat steht in Anführungszeichen. Wird ohne Anführungszeichen zitiert weiß man, dass es ein indirektes Zitat ist ("vgl." kann dann weg gelassen werden). Normalerweise müssten auch keine Seitenzahlen angegeben werden, jedoch steht im aktuellen Leitfaden des Hochschulbereichs IT-Management, dass bei jeglicher Zitationsweise die Seitenzahl anzugeben ist, deshalb auch bei IEEE.
+Der IEEE Zitationsstil wird hauptsächlich in technischen Studiengängen verwendet und ist ein sehr einfacher Zitationsstil, da hier nicht auf Dinge wie z.B. "vgl."/"ebd." geachtet werden muss. Ein direktes Zitat steht in Anführungszeichen. Wird ohne Anführungszeichen zitiert weiß man, dass es ein indirektes Zitat ist ("vgl." kann dann weggelassen werden). Normalerweise müssten auch keine Seitenzahlen angegeben werden, jedoch steht im aktuellen Leitfaden des Hochschulbereichs IT-Management, dass bei jeglicher Zitationsweise die Seitenzahl anzugeben ist, deshalb auch bei IEEE.
 Um IEEE zu nutzen, müssen die Optionen des package BibLaTeX (`\usepackage[options]{biblatex}`) in der `thesis_main.tex` angepasst werden:
 
 ```
@@ -189,7 +189,7 @@ Des Weiteren müssen die Modifikationen für BibLaTeX auskommentiert werden:
 %\input{skripte/modsBiblatex2018}
 ```
 
-Nach dem Auskommentieren der Modifikationen für das Literaturverzeichnis stimmt es leider nicht mehr zu 100% mit den Vorgaben überein, wobei der Leitfaden hier auch sehr vage formuliert ist. Am besten mit dem Dozenten sprechen, ob das BibLaTeX-Format passt.
+Nach dem Auskommentieren der Modifikationen für das Literaturverzeichnis stimmt es leider nicht mehr zu 100 % mit den Vorgaben überein, wobei der Leitfaden hier auch sehr vage formuliert ist. Am besten mit dem Dozenten sprechen, ob das BibLaTeX-Format passt.
 
 Durch das Auskommentieren der BibLaTeX Modifikationen müssen im Anschluss folgende Zeilen hinzugefügt werden:
 
@@ -211,7 +211,7 @@ Im Text kann anschließend mit [1, S. 99] oder [1, S. 99-102] oder [1] zitiert w
 
 ## Inhaltsverzeichnis Latex
 
-**Ebene des ausgegebenen Inhaltsverzeichnis einstellen**<br>
+**Ebene dem ausgegebenen Inhaltsverzeichnis einstellen**<br>
 Bis zu welcher Ebene das Inhaltsverzeichnis aufgelistet wird, kann über tocdepth Parameter eingestellt werden
 
 ```latex
@@ -219,7 +219,7 @@ Bis zu welcher Ebene das Inhaltsverzeichnis aufgelistet wird, kann über tocdept
 ```
 
 **Tabellen- und Abbildungsverzeichnis im Inhaltsverzeichnis**<br>
-Die Anzeige des Tabbellen- und des Abbildungsverzeichnis lässt sich gleich am Anfang in der \documentclass einstellen.
+Die Anzeige des Tabbellen- und des Abbildungsverzeichnisses lässt sich gleich am Anfang in der \documentclass einstellen.
 
 **Glossar im Inhaltsverzeichnis**<br>
 Folgenden Eintrag auskommentieren, damit das Glossar nicht im Inhaltsverzeichnis angezeigt wird
@@ -332,7 +332,7 @@ In diesem Container sind alle Vorraussetzungen mit der richtigen Software und de
 
 Voraussetzung ist eine installierte [Docker engine](https://docs.docker.com/engine/installation/).
 
-Um die **PDF-Datei ohne die Installation der LaTeX-Pakete zu kompilieren, muss folgender Befehl in eurem Projekt-Ordner** ( da wo die compile.sh bzw compile.bat liegt) ausgeführt werden:
+Um die **PDF-Datei ohne die Installation der LaTeX-Pakete zu kompilieren, muss folgender Befehl in eurem Projekt-Ordner** (da wo die compile.sh bzw compile.bat liegt) ausgeführt werden:
 
 ```
 docker-compose up
@@ -422,7 +422,7 @@ Wer eine etwas moderne IDE benutzen möchte, kann auch Visual Studio Code verwen
 
 [Latex Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
-Mit Hilfe der Extension kann das Projekt kompiliert und als Vorschau angesehen werden. In der `settings.json` sind die Einstellungen der `compile.sh` für Latex Workshop hinterlegt.
+Mithilfe der Extension kann das Projekt kompiliert und als Vorschau angesehen werden. In der `settings.json` sind die Einstellungen der `compile.sh` für Latex Workshop hinterlegt.
 
 Zusätzlich kann die Extension [LTeX](https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex) hilfreich sein, die eine **offline Grammatik- und Rechtschreibprüfung** für LaTeX-Dokumente bietet.
 
