@@ -33,14 +33,13 @@ Seitdem wurde \ac{HTTPS} verbessert, wodurch sich der nötige Leistungsaufwand, 
 
 Gleichermaßen ist, trotz des Verdoppelns von CPU Geschwindigkeiten alle 18 Monate, die Performance von \ac{SSL} Maschinen noch immer ein Problem.\autocite[\vglf][\pagef 2]{cryptoeprint:2006/212}
 
-%Wie \autoref{fig:reverse_ssl_handshake}\autocite[\pagef 3]{cryptoeprint:2006/212}  es darstellt, ist eine Möglichkeit, dies zu umgehen, das Entschlüsseln und Verifizieren des Zertifikates und der Signatur um die Identität des \glsdisp{client}{Clients} zu \glsdisp{authentifizierung}{authentifizieren}, die Kommunikationsrichtung der \glspl{handshake} umzukehren, also das Verifizieren und Entschlüsseln der Daten \glsdisp{server}{Serverside} anstatt \glsdisp{client}{Clientside} zu berechnen\autocite[\vglf][\pagef 3]{cryptoeprint:2006/212}
 Gemäß \autoref{fig:reverse_ssl_handshake}\autocite[\pagef 3]{cryptoeprint:2006/212} kann die \gls{authentifizierung} der \gls{client}\nonbreakdash Identität durch Entschlüsselung und Verifizierung des Zertifikats und der Signatur erfolgen.
 Eine Möglichkeit, dies zu erreichen, besteht darin, die Kommunikationsrichtung der \glspl{handshake} umzukehren.
 Dies bedeutet, dass die Daten nun serverside anstatt clientside verifiziert und entschlüsselt werden.\autocite[\vglf][\pagef 2]{cryptoeprint:2006/212}
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.75\linewidth]{abbildungen/reverse_ssl_handshake}
-    \caption[Gegenüberstellung zwischen einem normalen SSL-Handshake (links) und einem umgekehrten SSL-Handshake (rechts)]{Gegenüberstellung zwischen einem normalen \ac{SSL}\nonbreakdash\gls{handshake} (links) und einem umgekehrten \ac{SSL}\nonbreakdash\gls{handshake} (rechts)\footnotemark}
+    \caption[Gegenüberstellung zwischen einem normalen SSL-Handshake und einem umgekehrten SSL-Handshake ]{Gegenüberstellung zwischen einem normalen \ac{SSL}\nonbreakdash\gls{handshake} (links) und einem umgekehrten \ac{SSL}\nonbreakdash\gls{handshake} (rechts)\footnotemark}
     \label{fig:reverse_ssl_handshake}
 \end{figure}~\footnotetext{\cite[\pagef 3]{cryptoeprint:2006/212}}
 
