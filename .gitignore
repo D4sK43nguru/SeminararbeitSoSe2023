@@ -188,3 +188,5 @@ thesis_main.txt
 *.gls
 
 *.idx
+
+literatur/*.pdf
