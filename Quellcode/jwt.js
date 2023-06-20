@@ -1,7 +1,7 @@
 import {sha256} from "js-sha256";
 import base64url from "base64url";
 
-const secret = "geheimer-Schlüssel"
+const secret = "private-key"
 
 const header = {
 	"alg": "HS256",
