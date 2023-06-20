@@ -136,7 +136,7 @@ Ein Minimalcodebeispiel um in der Programmiersprache \ac{JS} einen \ac{JWT} zu g
 
 \lstinputlisting[language = JavaScript, caption = {Beispielskript zur Generierung eines \ac{JWT}},label={lst:jwt-generation}]{./Quellcode/jwt.js}
 
-Hierbei stellt \lstinline!secret! den \gls{privateKey}\autocite{rfc2104} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), \lstinline!base64url()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu kodieren und \lstinline!sha256.hmac()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
+Hierbei stellt \lstinline!secret! den \gls{privateKey}\autocite{rfc2104} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}),\ \lstinline!base64url()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu kodieren und \lstinline!sha256.hmac()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
 
 Dabei wird der Token
 \begin{lstlisting}[language = JavaScript,label={lst:jwt}]
@@ -204,13 +204,13 @@ Besonders, wenn man für mehrere verschiedene Systeme das gleiche Passwort nutzt
     \small{Details: Weltweit; 2022; >2000 Befragte}}
     \label{tab:statistik_passwort_frequenz}
     \resizebox{0.7\textwidth}{!}{%
-        \begin{tabular}{ll}
+        \begin{tabular}{lr}
             \hline
-            \textbf{Charakteristik}  & \textbf{Anteil} \\ \hline
-            Jeden Tag                & 6\ \%           \\
-            Mehrfach die Woche       & 15\ \%          \\
-            Ungefähr einmal im Monat & 34\ \%          \\
-            Selten                   & 44\ \%          \\ \hline
+            \textbf{Charakteristik}  & \multicolumn{1}{l}{\textbf{Anteil}} \\ \hline
+            Jeden Tag                & 6\%                                 \\
+            Mehrfach die Woche       & 15\%                                \\
+            Ungefähr einmal im Monat & 34\%                                \\
+            Selten                   & 44\%                                \\ \hline
         \end{tabular}%
     }
 \end{table}\ \footnotetext{\cite{statista-passwort-reset}}
