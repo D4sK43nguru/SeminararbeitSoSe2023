@@ -136,7 +136,7 @@ Ein Minimalcodebeispiel um in der Programmiersprache \ac{JS} einen \ac{JWT} zu g
 
 \lstinputlisting[language = JavaScript, caption = {Beispielskript zur Generierung eines \ac{JWT}},label={lst:jwt-generation}]{./Quellcode/jwt.js}
 
-Hierbei stellt \lstinline!secret! den \gls{privateKey}\autocite{rfc2104} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), \lstinline!base64urlEncoding()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu kodieren und \lstinline!HMAC_SHA256()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
+Hierbei stellt \lstinline!secret! den \gls{privateKey}\autocite{rfc2104} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}), \lstinline!base64url()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu kodieren und \lstinline!sha256.hmac()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
 
 Dabei wird der Token
 \begin{lstlisting}[language = JavaScript,label={lst:jwt}]
