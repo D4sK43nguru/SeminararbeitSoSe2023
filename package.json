@@ -2,5 +2,27 @@
   "dependencies": {
     "base64url": "^3.0.1",
     "js-sha256": "^0.9.0"
-  }
+  },
+  "name": "seminararbeit-sose-2023",
+  "description": "[![Build](https://github.com/andygrunwald/FOM-LaTeX-Template/actions/workflows/Check.yml/badge.svg)](https://github.com/andygrunwald/FOM-LaTeX-Template/actions/workflows/Check.yml)",
+  "version": "1.2.0",
+  "main": "thesis_main.tex",
+  "devDependencies": {},
+  "scripts": {
+    "test": "sh compile.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D4sK43nguru/SeminararbeitSoSe2023.git"
+  },
+  "keywords": [
+    "TeX",
+    "College"
+  ],
+  "author": "DasKänguru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/D4sK43nguru/SeminararbeitSoSe2023/issues"
+  },
+  "homepage": "https://github.com/D4sK43nguru/SeminararbeitSoSe2023#readme"
 }
