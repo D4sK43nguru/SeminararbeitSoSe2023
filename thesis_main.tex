@@ -18,7 +18,7 @@
 % of Content) aus.
 % Da es aber verschiedene Regelungen je nach Dozent geben kann, werden hier
 % beide Varianten dargestellt.
-\documentclass[12pt,oneside,titlepage,listof=totoc,bibliography=totoc]{scrartcl}
+\documentclass[12pt,oneside,titlepage,listof=totoc,bibliography=totoc]{scrartcl}% „oneside“ mit „twoside“ austauschen um beidseitigen Druck zu ermöglichen
 %\documentclass[12pt,oneside,titlepage]{scrartcl}
 
 %-----------------------------------
@@ -359,7 +359,8 @@
 % \fancyhead[C]{-\ \thepage\ -}
 
 % Seitenzahl oben, mittig, entsprechend Leitfaden ohne Striche beidseits
-\fancyhead[C]{\thepage}
+\fancyhead[C]{\thepage} % Einseitiges Dokument
+%\fancyhead[RO,LE]{\thepage} % Beidseitiges Dokument
 %\fancyhead[L]{\leftmark}							% kein Footer vorhanden
 % Waagerechte Linie unterhalb des Kopfbereiches anzeigen. Laut Leitfaden ist
 % diese Linie nicht erforderlich. Ihre Breite kann daher auf 0pt gesetzt werden.
