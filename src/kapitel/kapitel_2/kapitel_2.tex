@@ -61,7 +61,7 @@ Eines der \ac{TLS}\nonbreakdash Unterprotokolle ist das \ac{TLS}\nonbreakdash Ha
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=1\linewidth]{abbildungen/ssl-tls-handshake}
+    \includegraphics[width=1\linewidth]{src/abbildungen/ssl-tls-handshake}
     \caption[Darstellung eines SSL/TLS-Handshakes]{Darstellung eines \ac{TLS}\nonbreakdash Handshakes\footnotemark}
     \label{fig:ssl-tls-handshake}
 \end{figure}\ \footnotetext{\cite[Aus][\pagef 3]{SslTlsFingerprint:2015}}
@@ -134,7 +134,7 @@ Eine häufige Variante von\ \nameref{subsubsec:access-token} ist der \ac{JWT}, d
 
 Ein Minimalcodebeispiel um in der Programmiersprache \ac{JS} einen \ac{JWT} zu generieren, sieht wie folgt aus
 
-\lstinputlisting[language = JavaScript, caption = {Beispielskript zur Generierung eines \ac{JWT}},label={lst:jwt-generation}]{./Quellcode/jwt.js}
+\lstinputlisting[language = JavaScript, caption = {Beispielskript zur Generierung eines \ac{JWT}},label={lst:jwt-generation}]{./src/Quellcode/jwt.js}
 
 Hierbei stellt \lstinline!secret! den \gls{privateKey}\autocite{rfc2104} des digitalen Zertifikates (\autoref{subsubsec:digitale-signaturen-und-zertifikate}),\ \lstinline!base64url()! eine Funktion, Daten mit einem \gls{base64}\nonbreakdash \gls{algorithmus} zu kodieren und \lstinline!sha256.hmac()! eine Methode, um einen \ac{HMAC} mit dem \gls{SHA256}\nonbreakdash\gls{algorithmus} zu erzeugen, dar.
 
@@ -160,7 +160,7 @@ Um Zugriff anzufragen, \bzw ihn zu überprüfen\autocite[\vglf][\pagef 75]{OAuth
 \autoref{fig:oauth_protocol_flow}\autocite[\vglf][\pagef 7, Abbildung 1]{rfc6749} stellt die Kommunikation zwischen dem \gls{client} und der Service\nonbreakdash\ac{API} dar.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{abbildungen/OAuth_abstract_flow}
+    \includegraphics[width=\linewidth]{src/abbildungen/OAuth_abstract_flow}
     \caption[Kommunikationsverlauf im OAuth-Protokoll]{Kommunikationsverlauf im OAuth-Protokoll\footnotemark}
     \label{fig:oauth_protocol_flow}
 \end{figure}\ \footnotetext{\cite[\vglf][\pagef 7, Abbildung 1]{rfc6749}}

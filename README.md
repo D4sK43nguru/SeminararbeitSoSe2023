@@ -72,7 +72,7 @@ Das Ganze hat primär zwei Vorteile:
 
 ## Vorlage personalisieren
 
-Wenn du diese Vorlage nutzt, ist der erste Einstiegspunkt die Datei [`skripte/meta.tex`](skripte/meta.tex).
+Wenn du diese Vorlage nutzt, ist der erste Einstiegspunkt die Datei [`src/skripte/meta.tex`](src/skripte/meta.tex).
 In der Datei haben wir einige Variablen hinterlegt, die im Dokument (u. a. auf dem Deckblatt) genutzt werden.
 
 Ersetze die Muster-Werte durch deine persönlichen Angaben und diese werden automatisch im Dokument verwendet.
@@ -186,7 +186,7 @@ mincrossrefs = 1
 Des Weiteren müssen die Modifikationen für BibLaTeX auskommentiert werden:
 
 ```
-%\input{skripte/modsBiblatex2018}
+%\input{src/skripte/modsBiblatex2018}
 ```
 
 Nach dem Auskommentieren der Modifikationen für das Literaturverzeichnis stimmt es leider nicht mehr zu 100 % mit den Vorgaben überein, wobei der Leitfaden hier auch sehr vage formuliert ist. Am besten mit dem Dozenten sprechen, ob das BibLaTeX-Format passt.
@@ -267,7 +267,7 @@ Und die folgenden Zeilen einkommentieren und ggf. anpassen.
 Sollte ein Sperrvermerk für die Arbeit notwendig sein, so kann dieser durch Einkommentieren der folgenden Zeile aktiviert werden:
 
 ```latex
-\input{kapitel/anhang/sperrvermerk}
+\input{src/kapitel/anhang/sperrvermerk}
 ```
 
 Die Angaben zu Titel der Arbeit und Name der Firma werden dabei aus den Metadaten entnommen.
@@ -279,7 +279,7 @@ Dieses wird dort auch mit den Farben für Kommentare, Strings, etc. konfiguriert
 Folgendermaßen könnt ihr Quellcode einbauen:
 
 ```latex
-\lstinputlisting[language=JavaScript]{./Quellcode/Dateiname.js}
+\lstinputlisting[language=JavaScript]{./src/Quellcode/Dateiname.js}
 ```
 
 Für [Javascript](https://de.wikipedia.org/wiki/JavaScript) wurde eine eigene Definition erstellt und eingebaut.

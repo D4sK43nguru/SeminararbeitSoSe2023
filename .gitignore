@@ -189,4 +189,4 @@ thesis_main.txt
 
 *.idx
 
-literatur/*.pdf
+src/literatur/*.pdf

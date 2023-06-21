@@ -27,7 +27,7 @@
 %-----------------------------------
 % Meta informationen
 %-----------------------------------
-\input{skripte/meta}
+\input{src/skripte/meta}
 
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{luainputenc}
@@ -162,7 +162,7 @@
 ]{biblatex}%iso dateformat für YYYY-MM-DD
 
 %%%% weitere Anpassungen für BibLaTex
-\input{skripte/modsBiblatex2018}
+\input{src/skripte/modsBiblatex2018}
 
 \DefineBibliographyStrings{german}{ibidem = {ebd\adddot}}
 
@@ -209,12 +209,12 @@
 %sortlocale=de]{biblatex}
 
 %weitere Anpassungen für BibLaTex
-%\input{skripte/modsBiblatex}
+%\input{src/skripte/modsBiblatex}
 
 %%%% Ende Alter Leitfaden
 
 %Bib-Datei einbinden
-\addbibresource{literatur/literatur.bib}
+\addbibresource{src/literatur/literatur.bib}
 
 % Zeilenabstand im Literaturverzeichnis ist Einzeilig
 % siehe Leitfaden S. 14
@@ -230,12 +230,12 @@
 %-----------------------------------
 % Pfad fuer Abbildungen
 %-----------------------------------
-\graphicspath{{./}{./abbildungen/}}
+\graphicspath{{./}{./src/abbildungen/}}
 
 %-----------------------------------
 % Weitere Ebene einfügen
 %-----------------------------------
-\input{skripte/weitereEbene}
+\input{src/skripte/weitereEbene}
 
 %-----------------------------------
 % Paket für die Nutzung von Anhängen
@@ -283,7 +283,7 @@
 \usepackage{glossaries}
 \glstoctrue %Auskommentieren, damit das Glossar nicht im Inhaltsverzeichnis angezeigt wird.
 \makeglossaries
-\input{abkuerzungen/glossar}
+\input{src/abkuerzungen/glossar}
 
 %-----------------------------------
 % PDF Meta Daten setzen
@@ -399,17 +399,17 @@
 %-----------------------------------
 % Textcommands
 %-----------------------------------
-    \input{skripte/textcommands}
+    \input{src/skripte/textcommands}
 
 %-----------------------------------
 % Titlepage
 %-----------------------------------
-    \input{kapitel/titelseite}
+    \input{src/kapitel/titelseite}
 
 %-----------------------------------
 % Vorwort (optional; bei Verwendung beide Zeilen entkommentieren und unter Inhaltsverzeichnis setcounter entsprechend anpassen)
 %-----------------------------------
-%\input{kapitel/vorwort/vorwort}
+%\input{src/kapitel/vorwort/vorwort}
 %\newpage
 
 %-----------------------------------
@@ -440,13 +440,13 @@
 % Falls das Abkürzungsverzeichnis nicht im Inhaltsverzeichnis angezeigt werden soll
 % dann folgende Zeile auskommentieren.
     \addcontentsline{toc}{section}{\abbreHeadingName}
-    \input{abkuerzungen/acronyms}
+    \input{src/abkuerzungen/acronyms}
     \newpage
 
 %-----------------------------------
 % Sperrvermerk
 %-----------------------------------
-%\input{kapitel/anhang/sperrvermerk}
+%\input{src/kapitel/anhang/sperrvermerk}
 
 %-----------------------------------
 % Glossar
@@ -465,7 +465,7 @@
 % Kapitel / Inhalte
 %-----------------------------------
 % Die Kapitel werden über folgende Datei eingebunden
-    \input{skripte/kapitelUebersicht}
+    \input{src/skripte/kapitelUebersicht}
 
 %TC:ignore
 
@@ -484,7 +484,7 @@
 %\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} %
 %	\renewcommand{\thesection}{\AppendixName\ \arabic{section}}
 %	\renewcommand\thesubsection{\AppendixName\ \arabic{section}.\arabic{subsection}}
-%	\input{kapitel/anhang/anhang}
+%	\input{src/kapitel/anhang/anhang}
 %\end{appendices}
 %\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 
@@ -508,6 +508,6 @@
 %    \addcontentsline{toc}{section}{Stichwortverzeichnis}
 %    \printindex
 
-    \input{kapitel/anhang/erklaerung}
+    \input{src/kapitel/anhang/erklaerung}
 %TC:endignore
 \end{document}
