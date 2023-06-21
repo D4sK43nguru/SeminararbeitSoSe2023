@@ -2,35 +2,43 @@
     name={Glossar},
     description={In einem Glossar werden Fachbegriffe und Fremdwörter mit ihren Erklärungen gesammelt.}
 }
+
 \newglossaryentry{glossaries}{
     name={Glossaries},
     description={Glossaries ist ein Paket was einen im Rahmen von LaTeX bei der Erstellung eines Glossar unterstützt.}
 }
+
 \newglossaryentry{kryptografie}{
     name={Kryptografie},
     description={Verschlüsselung von Informationen zum Schutz vor unbefugtem Zugriff}
 }
+
 \newglossaryentry{kryptoanalyse}{
     name={Kryptoanalyse},
     description={Entschlüsselung von verschlüsselten Informationen und bewertung der Sicherheit von Verschlüsselungsverfahren}
 }
+
 \newglossaryentry{kryptologie}{
     name={Kryptologie},
     description={Oberbegriff für Kryptografie und Kryptoanalyse zur Sicherheit von Informationen und Entwicklung von Techniken zur Verschlüsselung und Entschlüsselung von Daten}
 }
+
 \newglossaryentry{steganografie}{
 	name={Steganografie},
 	description={Verbergen von Informationen in einer scheinbar harmlosen Nachricht}
 }
+
 \newglossaryentry{algorithmus}{
 	name={Algorithmus}, 
 	description={Exakte Handlungsvorschrift zur Lösung eines Problems}, 
 	plural={Algorithmen}
 }
+
 \newglossaryentry{monoalphabetisch}{
 	name={monoalphabetisch}, 
 	description={Verschl\"usselungsart, bei der der Schlüssel für jedes Zeichen gleich bleibt}
 }
+
 \newglossaryentry{publicKey}{
 	name = {Public Key},
 	description = {Ein öffentlich zugänglicher \glsdisp{kryptografie}{kryptografischer} Schlüssel, der für Verschlüsselung und Verifizierung verwendet wird}
@@ -40,53 +48,64 @@
 	name = {Private Key},
 	description = {Ein geheimer \glsdisp{kryptografie}{kryptografischer} Schlüssel, der zur Entschlüsselung und Signierung von Daten dient und streng vertraulich bleiben muss}
 }
+
 \newglossaryentry{publicKeyEncoding}{
 	name = {Public-Key Verschlüsselungsverfahren}, 
 	description = {Eine Form der asymmetrischen Verschlüsselung\index{Kryptografie!Asymmetrische Verschlüsselung}, bei der ein \glsdisp{publicKey}{öffentlicher Schlüssel} zum Verschlüsseln von Daten verwendet wird, während der dazugehörige \glsdisp{privateKey}{geheime Schlüssel} benötigt wird, um die verschlüsselten Daten zu entschlüsseln}
 }
+
 \newglossaryentry{bobAlice}{
 	name = {Bob und Alice}, 
 	description = {In der Kryptografie sind Bob und Alice fiktive Personen, die häufig verwendet werden, um die Kommunikation zwischen zwei Parteien zu veranschaulichen. Bob ist der Empfänger einer Nachricht oder einer verschlüsselten Botschaft, während Alice der Absender ist. Die Verwendung von Bob und Alice erleichtert das Verständnis und die Darstellung kryptografischer Konzepte und Protokolle}
 }
+
 \newglossaryentry{euklidAlgorithm}{
 	name = {euklidischer Algorithmus}, 
 	description = {Ein mathematischer Algorithmus zur Bestimmung des \acp{GGT} von zwei Zahlen durch wiederholte Anwendung des Restsatzes}, 
 	plural = {euklidischen Algorithmus}
 }
+
 \newglossaryentry{extendedEuklidAlgorithm}{
 	name = {erweiterter euklidischer Algorithmus}, 
 	description={Eine erweiterte Version des \glspl{euklidAlgorithm}, die neben dem \acs{GGT} auch die Koeffizienten berechnet, um den GGT als Linearkombination der beiden Zahlen darzustellen}, 
 	plural = {erweiterten euklidischen Algorithmus}
 }
+
 \newglossaryentry{klartextraum}{
 	name = {Klartextraum}, 
 	description = {Menge aller verschlüsselbaren \glspl{klartext}}, 
 	plural = {Klartextr\"aume}
 }
+
 \newglossaryentry{klartextalphabet}{
 	name = {Klartextalphabet}, 
 	description = {Menge aller Zeichen, die sich zu einem \gls{klartext} zusammensetzen können}
 }
+
 \newglossaryentry{klartext}{
 	name = {Klartext}, 
 	description = {Unverschlüsselter Wortlaut eines Textes, einer Nachricht oder eines Datenblockes}, 
 	plural = {Klartexte}
 }
+
 \newglossaryentry{geheimtext}{
     name = {Geheimtext},
     description = {Verschlüsseter Wortlaut eines Textes, einer Nachricht oder eines Datenblockes},
     plural = {Geheimtexte}
 }
+
 \newglossaryentry{geheimtextraum}{
 	name = {Geheimtextraum}, 
 	description = {Abbildung eines \gls{klartextraum}es, auf dem ein Verschlüsselungsverfahren eingesetzt wurde und als solches die menge aller \glspl{geheimtext}}, 
 	plural = {Geheimr\"aume}
 }
+
 \newglossaryentry{compressfunc}{
 	name = {Kompressionsfunktion}, 
 	description = {In der Kryptografie eine Funktion, die Daten auf eine kompakte Form reduziert, wodurch Speicherplatz eingespart oder die Datenübertragungseffizienz verbessert wird}, 
 	plural = {Kompressionsfunktionen}
 }
+
 \newglossaryentry{MD5}{
 	name={Message-Digest Algorithm 5 \string(\acs{MD5}\string)},
     plural = {\acs{MD5}},
@@ -98,16 +117,19 @@
 	description= {Mathematische Funktion in der Kryptografie, die Daten beliebiger Länge auf einen festen \gls{hashwert} abbildet und dabei eine eindeutige Identifizierung der Daten ermöglicht. Sie zeichnen sich durch \gls{kollRes} und \gls{unumkehrbarkeit} aus}, 
 	plural = {Hashfunktionen}
 }
+
 \newglossaryentry{hashwert}{
 	name = {Hashwert}, 
 	plural = {Hashwerte}, 
 	description = {Eine feste Länge von Bits, die durch Anwendung einer kryptografischen \gls{hashfunc} auf Daten erzeugt wird, um eine eindeutige Darstellung der Daten zu erhalten}
 }
+
 \newglossaryentry{kollRes}{
 	name = {Kollisionsresistenz}, 
 	plural = {Kollisionsresistenzen}, 
 	description ={Die Eigenschaft einer kryptografischen \gls{hashfunc}, durch die es schwierig ist, zwei unterschiedliche Eingabewerte zu finden, die denselben \gls{hashwert} erzeugen}
 }
+
 \newglossaryentry{unumkehrbarkeit}{
 	name={Unumkehrbarkeit}, 
 	plural = {Unumkehrbarkeiten}, 
