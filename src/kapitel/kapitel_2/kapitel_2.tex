@@ -57,14 +57,14 @@ Das \ac{TLS}\nonbreakdash Protokoll besteht selbst aus weiteren Unterprotokollen
 
 \phantomsection
 \label{par:tls_handshake_protocol}
-Eines der \ac{TLS}\nonbreakdash Unterprotokolle ist das \ac{TLS}\nonbreakdash Handshake\nonbreakdash Protokoll, dessen Verlauf in \autoref{fig:ssl-tls-handshake}\autocite[Aus][\pagef 2]{SslTlsFingerprint:2015} dargestellt wird.
+Eines der \ac{TLS}\nonbreakdash Unterprotokolle ist das \ac{TLS}\nonbreakdash Handshake\nonbreakdash Protokoll, dessen Verlauf in \autoref{fig:ssl-tls-handshake}\autocite[Nach][\pagef 2]{SslTlsFingerprint:2015} dargestellt wird.
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=1\linewidth]{src/abbildungen/ssl-tls-handshake}
     \caption[Darstellung eines SSL/TLS-Handshakes]{Darstellung eines \ac{TLS}\nonbreakdash Handshakes\footnotemark}
     \label{fig:ssl-tls-handshake}
-\end{figure}\ \footnotetext{\cite[Aus][\pagef 3]{SslTlsFingerprint:2015}}
+\end{figure}\ \footnotetext{\cite[Nach][\pagef 3]{SslTlsFingerprint:2015}}
 
 Nachdem der \gls{client} bei Verbindungsaufbau dem \gls{server} eine Nachricht schickt, antwortet \gls{server} mit einer Nachricht und seinem Zertifikat.
 Dies wird vom \gls{client} verifiziert, woraufhin er seine Schlüssel und die Daten seines Ciphers, also unter anderem den genutzten \glsdisp{algorithmus}{Verschlüsselungsalgorithmus} übermittelt.
