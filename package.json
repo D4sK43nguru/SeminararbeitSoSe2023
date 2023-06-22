@@ -9,7 +9,10 @@
   "main": "thesis_main.tex",
   "devDependencies": {},
   "scripts": {
-    "test": "sh compile.sh"
+    "test": "sh compile.sh",
+    "compile": "arara thesis_main",
+    "version": "npm run compile && git add thesis_main.pdf",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
