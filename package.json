@@ -5,7 +5,7 @@
   },
   "name": "seminararbeit-sose-2023",
   "description": "[![Build](https://github.com/andygrunwald/FOM-LaTeX-Template/actions/workflows/Check.yml/badge.svg)](https://github.com/andygrunwald/FOM-LaTeX-Template/actions/workflows/Check.yml)",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "main": "thesis_main.tex",
   "devDependencies": {},
   "scripts": {
