@@ -5,7 +5,7 @@ Dennoch wird versucht, die Probleme, wie \zb die in \autoref{subsec:performance-
 
 \subsection[Performance- und Skalierbarkeitsprobleme]{Performance- und Skalierbarkeitsprobleme}\label{subsec:performance-und-skalierbarkeitsprobleme}
 Der in \autoref{subsubsec:HTTPS-Protocol} vorgestellte Vorteil der verschlüsselten Übertragung bringt auch einen Nachteil mit sich.
-Die Verschlüsselung der Daten verringert die Übertragungsrate und verlängert die Latenz der Übertragung\autocite[\pagef 5]{goldberg-comparison-nodate}, dies wird in \autoref{tab:HTTPS}\autocite[Übersetzt nach:][\pagef 5]{goldberg-comparison-nodate} dargestellt.
+Die Verschlüsselung der Daten verringert die Übertragungsrate und verlängert die Latenz der Übertragung\autocite[\pagef 5]{goldberg-comparison-nodate}, dies wird in \autoref{tab:HTTPS} dargestellt.
 
 Diese Daten wurden vor 25 Jahren erfasst und seitdem ist \ac{HTTPS} verbessert, wodurch der nötige Leistungsaufwand um eine verschlüsselte Verbindung aufzubauen, verringert wurde.\autocite[\vglf][]{CloudfareWarumHTTPS:online}
 
@@ -14,7 +14,7 @@ Neuere Versionen des \ac{TLS}\nonbreakdash \gls{algorithmus} bringen noch deutli
 \begin{table}[htpb]
     \caption[Parameter linearer Anpassungen an HTTP- und HTTPS-Übertragungen]{Parameter linearer Anpassungen an HTTP- und HTTPS-Übertragungen\footnotemark}
     \label{tab:HTTPS}
-    \resizebox{0.9\textwidth}{!}{%
+    \resizebox{0.8\textwidth}{!}{%
         \begin{tabular}{l|ll|ll}
             & \multicolumn{2}{l|}{Transferrate (bytes/ms)} & \multicolumn{2}{l}{Latenz (ms)} \\ \cline{2-5}
             Server        & Netscape & Mircosoft & Netscape & Microsoft \\ \hline
@@ -27,13 +27,13 @@ Neuere Versionen des \ac{TLS}\nonbreakdash \gls{algorithmus} bringen noch deutli
             \end{tabular} & 736      & 686       & 25.0     & 5.1       \\ \hline
         \end{tabular}%
     }
-\end{table}~\footnotetext{\cite[\pagef 5]{goldberg-comparison-nodate}}
+\end{table}\footnotetext{\cite[Übersetzt nach:][\pagef 5]{goldberg-comparison-nodate}}
 Diese Daten wurden vor 25 Jahren erfasst.
 Seitdem wurde \ac{HTTPS} verbessert, wodurch sich der nötige Leistungsaufwand, um eine verschlüsselte Verbindung aufzubauen, verringerte.\autocite[\vglf][]{CloudfareWarumHTTPS:online}
 
 Gleichermaßen ist, trotz des Verdoppelns von CPU Geschwindigkeiten alle 18 Monate, die Performance von \ac{SSL} Maschinen noch immer ein Problem.\autocite[\vglf][\pagef 2]{cryptoeprint:2006/212}
 
-Gemäß \autoref{fig:reverse_ssl_handshake}\autocite[\pagef 3]{cryptoeprint:2006/212} kann die \gls{authentifizierung} der \gls{client}\nonbreakdash Identität durch Entschlüsselung und Verifizierung des Zertifikats und der Signatur erfolgen.
+Gemäß \autoref{fig:reverse_ssl_handshake} kann die \gls{authentifizierung} der \gls{client}\nonbreakdash Identität durch Entschlüsselung und Verifizierung des Zertifikats und der Signatur erfolgen.
 Eine Möglichkeit, dies zu erreichen, besteht darin, die Kommunikationsrichtung der \glspl{handshake} umzukehren.
 Dies bedeutet, dass die Daten nun serverside anstatt clientside verifiziert und entschlüsselt werden.\autocite[\vglf][\pagef 2]{cryptoeprint:2006/212}
 \begin{figure}[htpb]
@@ -72,7 +72,7 @@ Das durchführen von \ac{MITM} Angriffen wird jedoch durch bestimmte Zertifikati
 
 \subsection[Benutzerfreundlichkeit und Usability-Aspekte]{Benutzerfreundlichkeit und Usability-Aspekte}\label{subsec:benutzerfreundlichkeit_und_usability-aspekte}
 Eine Studie aus 2017 unter 28 IT\nonbreakdash Fachleute stellte sich der Frage, wie benutzerfreundlich das Implementieren und Veröffentlichen einer sicheren \ac{HTTPS}-Verbindung zu einem Apache Web Server ist, um eine Sicherheitsprüfung zu bestehen.\autocite[\vglf][\pagef 1341]{usabilityHTTPS:2017}
-Die Demographie der Studie wird in \autoref{tab:https-study}\autocite[\vglf][\pagef 1342]{usabilityHTTPS:2017} detaillierter dargestellt.
+Die Demographie der Studie wird in \autoref{tab:https-study} detaillierter dargestellt.
 
 \begin{table}[H]
     \caption[Demographie der Studie zur Entwicklung einer sicheren HTTPS-Verbindung]{Demographie der Studie zur Entwicklung einer sicheren \ac{HTTPS}-Verbindung\footnotemark}

@@ -57,7 +57,7 @@ Das \ac{TLS}\nonbreakdash Protokoll besteht selbst aus weiteren Unterprotokollen
 
 \phantomsection
 \label{par:tls_handshake_protocol}
-Eines der \ac{TLS}\nonbreakdash Unterprotokolle ist das \ac{TLS}\nonbreakdash Handshake\nonbreakdash Protokoll, dessen Verlauf in \autoref{fig:ssl-tls-handshake}\autocite[Nach][\pagef 2]{SslTlsFingerprint:2015} dargestellt wird.
+Eines der \ac{TLS}\nonbreakdash Unterprotokolle ist das \ac{TLS}\nonbreakdash Handshake\nonbreakdash Protokoll, dessen Verlauf in \autoref{fig:ssl-tls-handshake} dargestellt wird.
 
 \begin{figure}[htpb]
     \centering
@@ -157,7 +157,7 @@ Um Zugriff anzufragen, \bzw ihn zu überprüfen\autocite[\vglf][\pagef 75]{OAuth
     \item einen \glsdisp{authentifizierung}{Authentifizierungscode}, den der \glsdisp{autorisierung}{Autorisierungs}\glsdisp{server}{server} während der Anfrage überprüfen kann
 \end{itemize}
 
-\autoref{fig:oauth_protocol_flow}\autocite[\vglf][\pagef 7, Abbildung 1]{rfc6749} stellt die Kommunikation zwischen dem \gls{client} und der Service\nonbreakdash\ac{API} dar.
+\autoref{fig:oauth_protocol_flow} stellt die Kommunikation zwischen dem \gls{client} und der Service\nonbreakdash\ac{API} dar.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{src/abbildungen/OAuth_abstract_flow}
@@ -171,7 +171,7 @@ Mit dem\ \nameref{subsubsec:access-token} stellt der \gls{client} zuletzt eine A
 OAuth wird primär für \acp{SSO} genutzt, um \zb einer Anwendung Zugriff auf bestimmte Daten einer anderen Anwendung zu gewähren, ohne die Anmeldedaten direkt zu übergeben, wie etwa Bilder aus einem Cloudservice an einen Druckservice zu übergeben.\autocite[\vglf][\pagef 74]{OAuthWebProtocol:2012}
 
 \subsubsection[2-Faktor-Authentifizierung]{\acf{2FA}}\label{subsubsec:2fa}
-Wie \autoref{tab:statistik_passwort}\autocite{statista-authentifizierung} zeigt, sind Passwörter heutzutage mit Abstand die am weitesten verbreitete Methode, sich bei einem Service zu \glsdisp{authentifizierung}{authentifizieren}.
+Wie \autoref{tab:statistik_passwort} zeigt, sind Passwörter heutzutage mit Abstand die am weitesten verbreitete Methode, sich bei einem Service zu \glsdisp{authentifizierung}{authentifizieren}.
 
 \begin{table}[htpb]
     \caption[Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräten]{Statistik zu Authentifizierungsverfahren zum Schutz von Daten und Geräten\footnotemark\newline
@@ -197,13 +197,13 @@ Wie \autoref{tab:statistik_passwort}\autocite{statista-authentifizierung} zeigt,
 
 
 Jedoch bietet ein einzelnes Passwort als \glsdisp{authentifizierung}{Authentifizierungsverfahren} keinen vollständigen Schutz\autocite[\vglf][\pagef 2]{10.1145/3440712},  da Angreifer \zb durch andere unsichere Software auf dem System einfach an die Nutzerdaten gelangen können.
-Besonders, wenn man für mehrere verschiedene Systeme das gleiche Passwort nutzt, einen \ac{SSO}\nonbreakdash Service für mehrere Dienste nutzt oder, wie in \autoref{tab:statistik_passwort_frequenz}\autocite{statista-passwort-reset} dargestellt, die Passwörter nur selten wechselt, sind diese Angriffen deutlich stärker ausgesetzt.
+Besonders, wenn man für mehrere verschiedene Systeme das gleiche Passwort nutzt, einen \ac{SSO}\nonbreakdash Service für mehrere Dienste nutzt oder, wie in \autoref{tab:statistik_passwort_frequenz} dargestellt, die Passwörter nur selten wechselt, sind diese Angriffen deutlich stärker ausgesetzt.
 
 \begin{table}[htpb]
     \caption[Statistik zur Frequenz, in der Nutzer ihre Passwörter wechseln]{Statistik zur Frequenz, in der Nutzer ihre Passwörter wechseln\footnotemark\newline
     \small{Details: Weltweit; 2022; >2000 Befragte}}
     \label{tab:statistik_passwort_frequenz}
-    \resizebox{0.7\textwidth}{!}{%
+    \resizebox{0.6\textwidth}{!}{%
         \begin{tabular}{lr}
             \hline
             \textbf{Charakteristik}  & \multicolumn{1}{l}{\textbf{Anteil}} \\ \hline
