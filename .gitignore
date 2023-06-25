@@ -192,3 +192,5 @@ thesis_main.txt
 src/literatur/*.pdf
 
 literatur/Information security and Privacy.pdf
+
+*.zip
