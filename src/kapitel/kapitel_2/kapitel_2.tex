@@ -40,11 +40,11 @@ Das Zusammenarbeiten der Schutzziele, insbesondere der drei primären Schutzziel
 
 Eine digitale Signatur\index{digitale Signatur} ist ein \gls{publicKeyEncoding}, bei dem einer Nachricht ein einzigartiger Schlüssel angehangen wird.
 Dieser wird daraus generiert, dass der \gls{hashwert} einer Nachricht mit dem \gls{privateKey} des Absenders verschlüsselt wird\autocite[\pagef~297]{6391693}.
-Der \gls{klartext}, die Signatur und der \gls{publicKey} des Senders werden verpackt und mit dem \gls{publicKey} des Empfängers zusammen verschlüsselt.
+Der \gls{klartext}, die Signatur und der \glspl{publicKey} des Senders werden verpackt und mit dem \glspl{publicKey} des Empfängers zusammen verschlüsselt.
 Diese signierte und verschlüsselte Nachricht wird anschließend übermittelt\autocite[\pagef~297]{6391693}.
 
 Um die Nachricht zu entschlüsseln wird, wie bei anderen \gls{publicKeyEncoding}, der \gls{privateKey} des Empfängers entsprechend des genutzten Verfahrens auf die Nachricht angewandt.
-Anschließend wird der \gls{klartext} der Nachricht \glsdisp{hashfunc}{gehashed} und die Signatur mit dem \gls{publicKey} des Senders entschlüsselt.
+Anschließend wird der \gls{klartext} der Nachricht \glsdisp{hashfunc}{gehashed} und die Signatur mit dem \glspl{publicKey} des Senders entschlüsselt.
 Diese beiden Werte werden auf Gleichartigkeit verglichen, in welchem Fall die Nachricht verifiziert ist\autocite[\pagef~297]{6391693}.
 
 \paragraph[SSL/TLS-Verschlüsselung]{\ac{SSL}/\ac{TLS}\nonbreakdash Verschlüsselung}
